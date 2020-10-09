@@ -6,7 +6,7 @@ $linkColor: #0a59b0;
 $mobileW: 768px;
 $smallMobileW: 480px;
 $bigScreenW: 1600px;
-$leftWidth: 220px;
+$leftWidth: 300px;
 
 *,
 *:before,
@@ -90,7 +90,7 @@ main {
       position: fixed;
       max-width: 280px;
     }
-    min-width: $leftWidth;
+    min-width: 250px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -103,11 +103,13 @@ main {
     }
     .tagline {
       text-align: center;
-      font-size: 22px;
+      font-size: 16px;
       margin-top: 0px;
-      color: #aaa;
+      color: #172bae;
+      opacity: 0.8;
       white-space: pre-wrap;
       line-height: normal;
+      letter-spacing: 2px;
     }
     img {
       max-width: 100px;
@@ -130,6 +132,7 @@ main {
 #title {
   a {
     text-decoration: none;
+    letter-spacing: 7px;
   }
 }
 .social {
@@ -229,7 +232,7 @@ main {
 .posts,
 .post-container {
   list-style-type: none;
-  margin: 45px 30px;
+  margin: 45px 60px;
   @media screen and (max-width: $smallMobileW) {
     margin-left: 20px;
     margin-right: 20px;
@@ -240,13 +243,13 @@ main {
   }
 }
 .post-container {
-  padding-left: 30px;
+  // padding-left: 30px;
 }
 .post {
   font-family: "Merriweather", sans-serif;
   font-weight: 300;
   color: #222;
-  line-height: 1.9em;
+  line-height: 2.3em;
   p {
     margin-top: 10px;
   }

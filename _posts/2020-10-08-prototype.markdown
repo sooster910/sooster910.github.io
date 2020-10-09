@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "첫 블로그 😁"
-date:   2019-03-23 21:03:36 +0530
-categories: Javascript NodeJS
+title:  "Prototype에 대한 이해"
+date:   2019-10-8 21:03:36 +0530
+categories: JavaScript Prototype
 ---
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+
+프로토타입을 알고나면, 자바스크립트의 대한 시야가 넓어진 느낌을 받을 수 있다. 그 이유는, 처음 코딩 시작했을 때 그냥 무심코 지나가던 것들에 대한 존재의 이유를 알았으니 말이다. 
+---
+
 
 ```javascript
 const Razorpay = require('razorpay');

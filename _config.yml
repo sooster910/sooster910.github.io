@@ -13,7 +13,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Hyunsu Joo
-  tagline: Front End Developer, 풀스택으로 공부하는것을 좋아합니다. 💪 
+  tagline: Front End Developer, 백엔드 공부하는 것도 좋아합니다 ✍
   
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
