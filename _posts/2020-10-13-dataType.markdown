@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "const(상수) 는 언제나 재대입할 수 없다?"
+date: 2020-10-13
+tags: #JavaScript #DataType
+categories: JavaScript
+---
+
+```javascript
+ex1)
+const a = 1;
+const b = 1;
+console.log(a==b)  // true
+console.log(a===b)  // true
+
+ex2)
+const c=[1,2];
+const d=[1,2];  
+console.log(c==d) 
+console.log(c===d) //false
+
+```
+ex1) a===b 의 부분은 이해가 갈 것이다. 하지만 ex2 에서 c 와 d가  [1,2] 라는 같은 값을 가지고 있음 에도 불구하고, 
+false 를 리턴한다. 여기서 짚고 봐야 할 부분은, a,b 에 담긴 c,d에 담긴 데이터의 형태이다. 
+a,b 에는 숫자(Number)가 있고 c,d 에는 (Array)가 있다.숫자는 자바스크립트의 primitive 타입 중 하나의 타입으로 속해 있고, c,d 는
+object  
+primitive 타입은 변수에 값을 직접 보관한다. 하지만, reference 타입의 경우에는, 변수에 참조값을 보관한다. 
+참조값이란 ? 참조값은 컴파일러가 const c = [1,2] 라는 줄을 실행하자 마자, 메모리에는 c 가 주소를 참조하고 있다. 이 주소안에는 [1,2] 를 담은 컨테이너 인 것 이다. 쓰이게 되고 이 메모리 안
+
+
+여기서 우리가 봐야 할 부분은, 상수의 제약이다
+상수란 뜻은 값이 변하지 않는 불변량을 말하는데, 
+여기서 오해가 생길 수 있는데, 변하지 않는다고 해서 반드시 변경할수 없다(읽기전용) 라는 의미는 아니다. 
+그 변수에 다시 대입할 수 없다는 의미로 해석하는게 좋을 것 같다.
+
+

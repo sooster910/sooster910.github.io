@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Prototype에 대한 이해 [1]"
+date:   2020-10-13 21:03:36 +0530
+categories: JavaScript Prototype
+---
+
+프로토타입을 알고나면, 자바스크립트의 대한 시야가 넓어진 느낌을 받을 수 있다. 그 이유는, 처음 자바스크립트로 웹페이지를 만들기 시작했을 때 콘솔로 마구마구 찍어내며 보았던, 그냥 무심코 지나가던 것들에 대한 존재의 이유를 알았으니 말이다. 😎
+
+---
+### 자바스크립트는 프로토타입 기반의 언어 (ES05)
+여러 article들을 보면 공통적인 말들이, 자바스크립트는 프로토타입 기반의 언어라는 글을 보게 된다. 프로토타입기반의 언어라는 말을 이해하기 위해선, 객체지향 프로그래밍의 특성을 조금 이해할 필요가 있다. 객체지향 언어는 클래스 기반의 언어와 프로토타입기반의 언어로 나눌 수 있다. 
+
+클래스 기반의 언어는 클래스를 이용해 객체의 자료구조와 기능을 정의하고 생성자를 통해 인스턴스를 생성한다. Java, C++, C#, Python, PHP, Ruby, Object-C 언어들이 클래스 기반의 언어들이다. 
+
+```javascript
+class Person(){   //class라는 키워드로 클래스를 정의
+    ....
+} 
+```
+
+프로토타입 기반의 언어는 앞서 말했듯이, class문이 포함되지 않고, 대신에 함수가 클래스 및 생성자 역할을 한다. 자바스크립트가 이 프로토타입 기반의 언어에 해당되고, 자바스크립트에서는 class가 없었다.(ES06의 class가 제공되기 전까진)
+
+```javascript
+function Person(name){
+	this.name = name;
+}
+```
+---
+### ES6(ES2015)에선 class를 제공하는데 그럼 자바스크립트는 클래스 기반의 언어인가? 
+
+ES06 에서 새롭게 class가 제공되어졌다. 객체 지향적인 설계를 기존 prototype기반 객체지향 프로그래밍 보다는 Class기반 언어에 익숙한 방법으로 쉽게 쓸 수 있게 되었다. 그렇다고 이 Class가 class기반 객체 지향은 아니다. ES06에서 클래스도 결국 함수이고, 기존 prototype 기반 패턴의 Syntactic sugar이다. 
+
+---
+### 자바스크립트가 프로토타입 기반의 언어인 것은 알겠다. 그럼 프로토타입이란 무엇인가?
+
+자바스크립트의 모든 객체는 자신의 부모역할을 하는 객체와 연결되어 있는데, 이 부모객체가 프로토타입이라 한다.
+부모객체가 존재하는지 일단 증명하자면, 
+
+```javascript
+const person1= {name:'sue', age:'30' }
+```
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
