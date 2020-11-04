@@ -4493,7 +4493,7 @@ readers do not read off random characters that represent icons */
   from {
     width: 0; } }
 body {
-  font: 500 16px/1.5 "Noto Sans", sans-serif;
+  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -4526,6 +4526,15 @@ blockquote, pre,
 ul, ol, dl, figure,
 .highlight {
   margin-bottom: 10px; }
+
+h1, h2 {
+  border-bottom: 1px solid #dadada; }
+
+h1 {
+  padding-bottom: 20px; }
+
+h2 {
+  padding-bottom: 12px; }
 
 p {
   margin: 0.5em 0; }
@@ -4578,7 +4587,7 @@ video {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 1em;
   margin-bottom: 0.4em;
   text-align: left; }
@@ -4762,10 +4771,7 @@ pre {
 .post {
   margin-bottom: 2em; }
   .post .post-date {
-    margin-top: 1em;
-    font-size: 12px;
-    margin-top: 1em;
-    margin-left: 0.5em; }
+    font-size: 12px; }
     .theme--dark .post .post-date {
       color: #343b44; }
     .theme--light .post .post-date {
@@ -4852,13 +4858,12 @@ pre {
   margin-bottom: 2em;
   text-align: left; }
   .tag-cloud > a {
-    display: inline-block;
-    margin: 0.3em 0.3em 0.3em 0; }
+    display: inline-block; }
 
 .tag, .tag-cloud > a {
   background: #f9f9f9;
   color: #f7a046;
-  padding: 0.3em 0.6em;
+  margin-right: 3px;
   border-radius: 0.3em; }
   .theme--dark .tag, .theme--dark .tag-cloud > a {
     background-color: #1E2227; }
@@ -4873,8 +4878,7 @@ pre {
       background-color: white; }
 
 .tag {
-  display: inline-block;
-  margin: 0.3em 0.3em 0.3em 0; }
+  display: inline-block; }
 
 .post-tags {
   margin-top: 0.3em;
