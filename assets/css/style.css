@@ -4632,10 +4632,12 @@ pre, code {
   .theme--dark pre,
   .theme--dark code {
     background-color: #1E2227;
-    color: #DAE4ED; }
+    color: #DAE4ED;
+    font-family: Menlo,Nanum Gothic Coding,Monaco,Source Code Pro,monospace,Microsoft YaHei !important; }
   .theme--light pre, .theme--light code {
     background-color: #1E2227;
-    color: #DAE4ED; }
+    color: #DAE4ED;
+    font-family: Menlo,Nanum Gothic Coding,Monaco,Source Code Pro,monospace,Microsoft YaHei !important; }
 
 code {
   padding: 1px 5px; }
