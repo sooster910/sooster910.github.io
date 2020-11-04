@@ -1,5 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-10-28T17:51:29+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript Node.js MongoDB. Interested in building a web app real-time and bidirectional communication.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">첫 블로그 😁</title><link href="https://sooster910.github.io/2020/10/08/first-post.html" rel="alternate" type="text/html" title="첫 블로그 😁" /><published>2020-10-08T00:00:00+00:00</published><updated>2020-10-08T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/08/first-post</id><content type="html" xml:base="https://sooster910.github.io/2020/10/08/first-post.html">&lt;p&gt;책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-11-04T08:51:52+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript Node.js MongoDB. Interested in building a web app real-time and bidirectional communication.
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[JS DataStructure] Stack</title><link href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" rel="alternate" type="text/html" title="[JS DataStructure] Stack" /><published>2020-10-18T00:00:00+00:00</published><updated>2020-10-18T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/18/algorithm-stack</id><content type="html" xml:base="https://sooster910.github.io/2020/10/18/algorithm-stack.html">&lt;h2 id=&quot;stack&quot;&gt;Stack&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/stack.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스택은 데이터를 넣을 수 있는 선형(linear) 자료형이다. 
+위에 그림에서 스택에 1,2가 모두 있는 상태에서, 1에 접근 하기 위해선,맨 마지막에 추가한 2를 제거한 후에 접근할 수 있다. 그래서 LIFO(last in first out).&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;스택의 장점 : 속도가 빠르다 O(1) .
+스택의 한계 : 배열과 달리 마지막에 추가된 항목외에는 직접 접근할 수가 없다. (ex: 1이란 값을 바로 접근 하지못하고, 2를 제거한후에 1에 접근가능)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;스택이-쓰이는-경우&quot;&gt;스택이 쓰이는 경우,&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Managing function invocations&lt;/li&gt;
+  &lt;li&gt;Undo/Redo&lt;/li&gt;
+  &lt;li&gt;Routing (the history object ) is treated like a stack.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;구현&quot;&gt;구현&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;getBuffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//shallow copy&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;isEmpty&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;peek&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;peek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//3&lt;/span&gt;
+        
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [1,2]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="JS" /><category term="DataStructure" /><category term="Stack" /><summary type="html">Stack</summary></entry><entry><title type="html">Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기</title><link href="https://sooster910.github.io/2020/10/15/travisCI.html" rel="alternate" type="text/html" title="Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기" /><published>2020-10-15T00:00:00+00:00</published><updated>2020-10-15T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/15/travisCI</id><content type="html" xml:base="https://sooster910.github.io/2020/10/15/travisCI.html">&lt;p&gt;jekyll 블로그를 만드는데 dash theme 을 이용했다.
+번들링 작업을 마치고. sooster910.github.io 에 들어가 확인을 하니, 로컬 환경에서 잘 나오던 태그 부분과 이미지가 나오지 않았다.&lt;/p&gt;
+
+&lt;p&gt;dash theme github으로 가 read.md 확인을 해보니,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Using this theme directly on Github Pages
+Please keep in mind that Github Pages does only support a limited list of Jekyll plugins. You will be able to use this theme on Github Pages but some functionality might not be available, for example displaying tags. In order to use this theme to a full extend, you have to generate the _site externally, for example on TravisCI.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;githubPage를 이용하기위해선, &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;제한된 Jekyll plugins&lt;/a&gt; 만 가능하고, 그 외의 theme 이나 plugin 을 이용하기 위해선 TravisCI 를 사용하라고 나온다.&lt;/p&gt;
+
+&lt;h2 id=&quot;travis-ci-는-jekeyll에서-무슨-일을-&quot;&gt;Travis CI 는 Jekeyll에서 무슨 일을 ?&lt;/h2&gt;
+
+&lt;p&gt;TravisCI 가 Jekyll 에서 하는 일은, 우리가 블로그 코드베이스로부터의 변경사항을 웹페이지에 반영시키기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve &lt;/code&gt; 을 cmd line 에 타이핑을 하고 나면, 웹서버가 생성되고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; 라는 폴더가 프로젝트 폴더내에 생성된다. Jekyll은 내가 작성하거나 설정한 각종 값들이 _site에 결과물로 내보내어 진다. 이 결과물을 TravisCI를 통해 자동으로 githubPage가 설정되어 있는 repository로 import 시킨다.
+ 이 과정이 위에서 말한 ` you have to generate the _site externally.` 부분이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/travis.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이해도를 높이기 위해 내가 시도한 travis 빌드/배포 flow를 한번 그려봤다.
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/myblog&lt;/code&gt; 가 나의 블로그 root폴더 이다.&lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/myblog&lt;/code&gt; 내에 코드베이스를 수정 후 반영하기 위해, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve &lt;/code&gt; 를 매번 할필요 없이, remote repo로 git push를 하게 되면 TravisCI 가 빌드를 시작하고, 그 과정에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myblog/myconfig.yml&lt;/code&gt;의 내용을 통해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myblog/output&lt;/code&gt;디렉토리 내에 위에서 말한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt;에 담긴 내용들이 import 된다. 그리고, output에 담긴 내용들이 다시 githubPage를 적용시킨 저장소에 다시 commit 하고 push 하여 배포한다. 이 결과로 githubPage 에 새로운 수정사항이 반영된다.&lt;/p&gt;
+
+&lt;p&gt;TravisCI를 이용하는 이유는, Travis CI 는 깃허브 오픈소스에 한해서 무료로 빌드와 배포 서비스를 제공한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;###시작하기에 앞서 준비 되어야 할 것들, 
+2개의 repository 필요&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;현재 본인의 블로그 repository 
+ (ex : sooster910/myblog)&lt;/li&gt;
+    &lt;li&gt;githubPage가 세팅 되어있는 repository&lt;br /&gt;
+(ex : sooster910/sooster910.io)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/travis_repo2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/travis_repo1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;순서&quot;&gt;순서&lt;/h3&gt;
+&lt;p&gt;#####1._config.yml 수정
+#####2. output submodule 생성
+#####3. .travis.yml 파일 생성
+#####4. Token 생성, .travis.yml에 토큰 붙여넣기 
+#####5. Travis 로 가서 확인!&lt;/p&gt;
+
+&lt;h2&gt;&lt;img src=&quot;/assets/travis_directory.png&quot; alt=&quot;image&quot; /&gt;&lt;/h2&gt;
+&lt;h4 id=&quot;1_configyml-수정&quot;&gt;1._config.yml 수정&lt;/h4&gt;
+&lt;p&gt;기존에 있던 _config.yml 파일에 추가해준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 최종적으로 보여지는 블로그 웹페이지 url&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# url: https://sooster910.github.io &lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;url: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;io&lt;/span&gt; 
+
+&lt;span class=&quot;c1&quot;&gt;#본인의 블로그 respository url &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# source_url: https://github.com/sooster910/blogV2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;source_url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&amp;lt;블로그 저장소 이름&amp;gt; 
+
+#위에 있는 url항목과 일치. production이 최종적으로 보여지는 블로그 웹페이지이다.
+#production_url: https:/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;soos&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ter910&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;production_url: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;io&lt;/span&gt; 
+
+&lt;span class=&quot;c1&quot;&gt;#중요! travisCI가 빌드한 것을 담을 폴더.&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;destination: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+   
+&lt;span class=&quot;c1&quot;&gt;#Travis-CI setting&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 본인의 깃헙 페이지에서 프로필 사진 밑에 나오는 이름이 username (username 은 user.name 과는 다른 것임.)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#username:sooster910&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;username: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# travisCI가 작업할 repository 이름 이므로, 블로그 repository 이름.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#repo: blogV2 &lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;repo: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;2-submodule-생성&quot;&gt;2. submodule 생성&lt;/h4&gt;
+&lt;p&gt;앞서 언급했던, output이란 폴더에 travis CI가 빌드한 것을 담아준다.&lt;/p&gt;
+
+&lt;p&gt;root블로그 디렉토리 
+ex)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git submodule add &amp;lt;github page를 셋업 해놓은 respository url&amp;gt; output
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;즉, 
+ex)&lt;/p&gt;
+
+&lt;p&gt;####3. .travis.yml 파일 생성&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;ss&quot;&gt;sudo: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;language: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;cache: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;rvm:
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+
+&lt;span class=&quot;ss&quot;&gt;install:
+  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Install Jekyll and dependencies&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#user.email, user.name 확인하는 방법 &lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#git config --list &lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;before_script:
+  &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;user.email&amp;gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;user.name&amp;gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;ss&quot;&gt;script: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:deploy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quiet&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#--trace&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Generate your secure token with the travis gem:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# get Github token from your Travis CI profile page&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# gem install travis&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# GH_TOKEN from https://github.com/settings/tokens&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# travis encrypt 'GIT_NAME=&quot;YOUR_USERNAME&quot; GIT_EMAIL=&quot;YOUR_EMAIL&quot; GH_TOKEN=YOUR_TOKEN'&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;env:
+  global:
+    secure: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GIT_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;branches:
+  only:
+    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;master&lt;/span&gt;
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;수정할 부분.
+` “&lt;user.email&gt;&quot; `, `&quot;&lt;user.name&gt;&quot;` 을 확인하는 방법은,&lt;/user.name&gt;&lt;/user.email&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git.config --list&lt;/code&gt; cmd에 치면, user.email 과 user.name 을 알려준다. 
+그다음 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;GIT_TOKEN&amp;gt;&lt;/code&gt; 을 수정해줘야한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;####4. Token 생성, .travis.yml에 토큰 붙여넣기&lt;/p&gt;
+
+&lt;p&gt;GIT_TOKEN 이 필요한 이유는, Travis CI에서&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="CI/CO" /><category term="Jekyll" /><category term="빌드" /><category term="배포" /><summary type="html">jekyll 블로그를 만드는데 dash theme 을 이용했다. 번들링 작업을 마치고. sooster910.github.io 에 들어가 확인을 하니, 로컬 환경에서 잘 나오던 태그 부분과 이미지가 나오지 않았다.</summary></entry><entry><title type="html">첫 블로그 😁</title><link href="https://sooster910.github.io/2020/10/08/first-post.html" rel="alternate" type="text/html" title="첫 블로그 😁" /><published>2020-10-08T00:00:00+00:00</published><updated>2020-10-08T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/08/first-post</id><content type="html" xml:base="https://sooster910.github.io/2020/10/08/first-post.html">&lt;p&gt;책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.&lt;/p&gt;
 
 &lt;p&gt;그래서 한국에 와서 처음으로 간 곳은 교보문고 서점, 자서전이나 자기계발 책들을 그렇게 썩 좋아하는 편은 아니나,
 오랜만에 서점을 와서 그런지 직관적인 제목이 눈에 띄였다. “성공하는 프로그래밍 공부법”, 훗 이런 제목이 있었네 하며 펼쳐들었는데
@@ -21,94 +218,9 @@
 &lt;p&gt;이 구절은 애자일 선언문을 기반으로 만들어진 것이라고 한다. 
 “~아니라”의 구문은 부끄럽게도 내 생각의 범위와도 같은것 같다.
 하지만 이 글을 본 순간 왠지 모르게 공감이 되는건 뭔가 내가 지향하고픈 가치관이 아닐까..
-아직 일년차 디벨로퍼로써 정교하고 솜씨 있게 만들어진 작품이라는게 정말 
-깊게 어떤걸 의미하는 건 진 잘 모르겠지만 아마도 내가 이런 글에 공감을 
-하고 있다는건, 뭔진 잘 모르지만 그 부분을 앞으로 개발자로서 알아가게 되는 
-길이 아닐까 하고 생각한다.&lt;/p&gt;
+아직 일년차 디벨로퍼로써 정교하고 솜씨 있게 만들어진 작품이라는게 정말 깊게 어떤걸 의미하는 건 진 잘 모르겠지만 아마도 내가 이런 글에 공감을 하고 있다는건, 뭔진 잘 모르지만 그 부분을 앞으로 개발자로서 알아가게 되는 길이 아닐까 하고 생각한다.&lt;/p&gt;
 
-&lt;p&gt;글을 잘 쓰진 못하지만 앞으로의 블로그를 통해 조금씩 실력을 키워, 조금이나마 개발에 관심을 둔 커뮤니티와 공유를 하고, 그리고 비전공자, 전공자를 위한 프로폐셔널 커뮤니티를 조성하는 데 나의 작은 생각 속의 한글들이 웹상에서 도움이 되었으면 좋겠다라는 생각을 한다. [한글날 기념 ✌]&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="welcome" /><category term="끄적끄적" /><summary type="html">책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="https://sooster910.github.io/2019/04/16/welcome-to-jekyll2.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-04-16T00:00:00+00:00</published><updated>2019-04-16T00:00:00+00:00</updated><id>https://sooster910.github.io/2019/04/16/welcome-to-jekyll2</id><content type="html" xml:base="https://sooster910.github.io/2019/04/16/welcome-to-jekyll2.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.hihi&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“This is a quote which should be followed”
-Also I think this sentence is quite long.
-more quote text to come&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Chris Wayne&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;However, these are bulletpoints:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/li&gt;
-  &lt;li&gt;another point&lt;/li&gt;
-  &lt;li&gt;that’s it&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;However, these entries should not be styled:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;an entry&lt;/li&gt;
-  &lt;li&gt;another entry&lt;/li&gt;
-  &lt;li&gt;that’s another entry&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;video preload=&quot;auto&quot; poster=&quot;https://pbs.twimg.com/tweet_video_thumb/D5aj3tfW0AIiSxo.jpg&quot; src=&quot;https://video.twimg.com/tweet_video/D5aj3tfW0AIiSxo.mp4&quot; type=&quot;video/mp4&quot; autoplay=&quot;&quot; controls=&quot;&quot;&gt;&lt;/video&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;an-interesting-fact-on-the-economy-of-modern-america&quot;&gt;An interesting fact on the economy of modern America&lt;/h1&gt;
-
-&lt;p&gt;Pictures look like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://picsum.photos/200&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/jekyll?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#jekyll&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/dash?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#dash&lt;/a&gt; now officially supports both, dark and light theming. Enjoy!&lt;a href=&quot;https://t.co/4evp9pX2Ws&quot;&gt;https://t.co/4evp9pX2Ws&lt;/a&gt; &lt;a href=&quot;https://t.co/vOQCZjGKic&quot;&gt;pic.twitter.com/vOQCZjGKic&lt;/a&gt;&lt;/p&gt;&amp;mdash; 〽️ɪɢᴜᴇʟ (@bitbrain_) &lt;a href=&quot;https://twitter.com/bitbrain_/status/1166440978124877827?ref_src=twsrc%5Etfw&quot;&gt;August 27, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name>Hyunsu Joo</name></author><category term="welcome" /><category term="introduction" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.hihi</summary></entry><entry><title type="html">Introducing waiting functionality</title><link href="https://sooster910.github.io/2019/04/13/introduction-to-waiting.html" rel="alternate" type="text/html" title="Introducing waiting functionality" /><published>2019-04-13T00:00:00+00:00</published><updated>2019-04-13T00:00:00+00:00</updated><id>https://sooster910.github.io/2019/04/13/introduction-to-waiting</id><content type="html" xml:base="https://sooster910.github.io/2019/04/13/introduction-to-waiting.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="introduction" /><category term="tutorial" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">An extensive analysis on game design</title><link href="https://sooster910.github.io/2019/03/16/analysis-of-design.html" rel="alternate" type="text/html" title="An extensive analysis on game design" /><published>2019-03-16T00:00:00+00:00</published><updated>2019-03-16T00:00:00+00:00</updated><id>https://sooster910.github.io/2019/03/16/analysis-of-design</id><content type="html" xml:base="https://sooster910.github.io/2019/03/16/analysis-of-design.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="analysis" /><category term="design" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Review: Game of Thrones Saga</title><link href="https://sooster910.github.io/2019/01/10/review-game-of-thrones.html" rel="alternate" type="text/html" title="Review: Game of Thrones Saga" /><published>2019-01-10T00:00:00+00:00</published><updated>2019-01-10T00:00:00+00:00</updated><id>https://sooster910.github.io/2019/01/10/review-game-of-thrones</id><content type="html" xml:base="https://sooster910.github.io/2019/01/10/review-game-of-thrones.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="got" /><category term="review" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;바로잡고 싶은 습관이 있다. 프로젝트나 회사일을 할 때, 그 때 순간에만 해결하고 항상 나중에 공부해야지 해놓고 북마크만 해놓는.. 아주 좋지 않은 습관 😱 
+그래서 새로 알게 된 지식들, 부딪히며 문제로 안고있었던 점 들, 결국 해결해내는 일들 등을 기록으로 남기면서 5년 후에, 10년후의 개발자로서 기초가 탄탄하고 유연하게 문제 해결을 잘 해 낼 수있는 그런 개발자가 되고싶다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="welcome" /><category term="끄적끄적" /><summary type="html">책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.</summary></entry></feed>

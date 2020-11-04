@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>[JS DataStructure] Stack | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="[JS DataStructure] Stack" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Stack이 뭔가요?" />
+<meta property="og:description" content="Stack이 뭔가요?" />
+<link rel="canonical" href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/10/18/algorithm-stack.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[JS DataStructure] Stack" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Hyunsu Joo"},"headline":"[JS DataStructure] Stack","dateModified":"2020-10-18T00:00:00+00:00","description":"Stack이 뭔가요?","datePublished":"2020-10-18T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/10/18/algorithm-stack.html"},"@type":"BlogPosting","url":"https://sooster910.github.io/2020/10/18/algorithm-stack.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-cyan-hover" href="https://twitter.com/bitbrain_"><i class="fab fa-twitter-square"></i></a><a class="color-red-hover" href="https://bitbrain.itch.io"><i class="fab fa-linkedin"></i></a><a class="color-purple-hover" href="https://github.com/sooster910"><i class="fab fa-github-square"></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title">[JS DataStructure] Stack</h1>
+  
+  <div class="post-tags">
+      
+      <a class="tag" href="/tag/JS/">JS</a>
+      
+      <a class="tag" href="/tag/DataStructure/">DataStructure</a>
+      
+      <a class="tag" href="/tag/Stack/">Stack</a>
+      
+  </div>
+  
+  <div class="post-date">Published on 18 Oct 2020</div>
+  
+  <noscript>
+    <div class="post-description">Stack이 뭔가요?</div>
+  </noscript>
+  <div id="animated-post-description" class="post-description" style="display: none;"></div>
+  
+  <h2 id="stack">Stack</h2>
+
+<p><img src="/assets/stack.png" alt="image" /></p>
+
+<p>스택은 데이터를 넣을 수 있는 선형(linear) 자료형이다. 
+위에 그림에서 스택에 1,2가 모두 있는 상태에서, 1에 접근 하기 위해선,맨 마지막에 추가한 2를 제거한 후에 접근할 수 있다. 그래서 LIFO(last in first out).</p>
+<blockquote>
+  <p>스택의 장점 : 속도가 빠르다 O(1) .
+스택의 한계 : 배열과 달리 마지막에 추가된 항목외에는 직접 접근할 수가 없다. (ex: 1이란 값을 바로 접근 하지못하고, 2를 제거한후에 1에 접근가능)</p>
+</blockquote>
+
+<hr />
+<h3 id="스택이-쓰이는-경우">스택이 쓰이는 경우,</h3>
+<ul>
+  <li>Managing function invocations</li>
+  <li>Undo/Redo</li>
+  <li>Routing (the history object ) is treated like a stack.</li>
+</ul>
+
+<hr />
+<h3 id="구현">구현</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">class</span> <span class="nx">Stack</span><span class="p">{</span>
+    
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">array</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">array</span> <span class="o">=</span> <span class="nx">array</span><span class="o">||</span><span class="p">[];</span>
+    <span class="p">}</span>
+
+    <span class="nx">getBuffer</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span> <span class="c1">//shallow copy</span>
+    <span class="p">}</span>
+
+    <span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">push</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">pop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="nx">peek</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">,</span><span class="nx">array</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">const</span> <span class="nx">myStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">();</span>
+        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="nx">myStack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>   <span class="c1">//3</span>
+        
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myStack</span><span class="p">)</span> <span class="c1">// [1,2]</span>
+
+</code></pre></div></div>
+
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/10/18/algorithm-stack.html';
+     this.page.identifier = '/2020/10/18/algorithm-stack';
+     this.page.title = '[JS DataStructure] Stack';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//bitbrain-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2020/10/15/travisCI.html">
+            Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/10/08/first-post.html">
+            첫 블로그 😁
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <h2>all tags</h2>
+  <div class="tag-cloud"><a href="/tag/ci%2Fco/" class="set-5">CI/CO</a> <a href="/tag/datastructure/" class="set-5">DataStructure</a> <a href="/tag/js/" class="set-5">JS</a> <a href="/tag/jekyll/" class="set-5">Jekyll</a> <a href="/tag/stack/" class="set-5">Stack</a> <a href="/tag/welcome/" class="set-5">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-5">끄적끄적</a> <a href="/tag/%EB%B0%B0%ED%8F%AC/" class="set-5">배포</a> <a href="/tag/%EB%B9%8C%EB%93%9C/" class="set-5">빌드</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = 'Stack이 뭔가요?';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked />
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = localStorage.getItem('theme');
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
