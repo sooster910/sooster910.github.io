@@ -90,7 +90,7 @@ for loop에서 i=0 일 때, j loop을 한번 씩 더 돌게 하여, array안에 
 </code></pre></div></div>
 
 <h3 id="2-a-better-time-complexity-solution-with-hash-map--on">2. A better time complexity solution with Hash Map- O(n)</h3>
-<p>loop을 일단 한번 만 돌릴 수 있는 방법을 생각했다. 
+<p>일단 nested loop을 사용하지 않는 방법을 생각했다. <br />
 첫번 째 인덱스의 값인 (arr[0]), 2 부터 시작하여 매칭하는 값과 더하여 9가 나오는 과정을 생각하니, lookup을 하게 되므로 Map객체를 이용하는게 효율적이라 한다.</p>
 
 <p><img src="/assets/twosum2.jpg" alt="image" />
@@ -101,9 +101,11 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-<span class="kd">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+
 
 <span class="kd">const</span> <span class="nx">getTwoSum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+
     <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
         <span class="kd">let</span> <span class="nx">currentValue</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 
@@ -163,6 +165,14 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
     
       <li>
         <h3>
+          <a href="/2020/10/12/IntegrationTesting.html">
+            Integration Testing with jest & puppeteer[1]
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2020/10/08/first-post.html">
             첫 블로그 😁
           </a>
@@ -177,7 +187,7 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
 
   
   <h2>All tags</h2>
-  <div class="tag-cloud"><a href="/tag/datastructure%2Falgorithm/" class="set-5">DataStructure/Algorithm</a> <a href="/tag/js/" class="set-5">JS</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-1">끄적끄적</a></div>
+  <div class="tag-cloud"><a href="/tag/datastructure%2Falgorithm/" class="set-5">DataStructure/Algorithm</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-5">JS</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-1">끄적끄적</a></div>
   
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-11-10T19:32:26+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript Node.js MongoDB. Interested in building a web app real-time and bidirectional communication.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-11-11T18:44:04+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript Node.js MongoDB. Interested in building a web app real-time and bidirectional communication.
 </subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[JS DataStructure] Stack</title><link href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" rel="alternate" type="text/html" title="[JS DataStructure] Stack" /><published>2020-10-18T00:00:00+00:00</published><updated>2020-10-18T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/18/algorithm-stack</id><content type="html" xml:base="https://sooster910.github.io/2020/10/18/algorithm-stack.html">&lt;h2 id=&quot;stack&quot;&gt;Stack&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/stack.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
@@ -58,7 +58,144 @@
         
         &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [1,2]&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="JS" /><category term="DataStructure/Algorithm" /><category term="Stack" /><summary type="html">Stack</summary></entry><entry><title type="html">Two Sum - LeetCode</title><link href="https://sooster910.github.io/2020/10/10/algo-twosum.html" rel="alternate" type="text/html" title="Two Sum - LeetCode" /><published>2020-10-10T00:00:00+00:00</published><updated>2020-10-10T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/10/algo-twosum</id><content type="html" xml:base="https://sooster910.github.io/2020/10/10/algo-twosum.html">&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="JS" /><category term="DataStructure/Algorithm" /><category term="Stack" /><summary type="html">Stack</summary></entry><entry><title type="html">Integration Testing with jest &amp;amp; puppeteer[1]</title><link href="https://sooster910.github.io/2020/10/12/IntegrationTesting.html" rel="alternate" type="text/html" title="Integration Testing with jest &amp;amp; puppeteer[1]" /><published>2020-10-12T00:00:00+00:00</published><updated>2020-10-12T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/12/IntegrationTesting</id><content type="html" xml:base="https://sooster910.github.io/2020/10/12/IntegrationTesting.html">&lt;ul&gt;
+  &lt;li&gt;puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;#npm-run-test-실행환경-구축&quot;&gt;1. npm run test 실행환경 구축 &lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#headless-chromium-테스트-코드로-오픈하기&quot;&gt;2. headless chromium 테스트 코드로 오픈하기&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#dry&quot;&gt;3. BeforeEach( ) ,afterEach( ) 이용하여 리팩토링&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#test-suite-작성&quot;&gt;4. Jest test suite 작성&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;npm-run-test-실행환경-구축&quot;&gt;npm run test 실행환경 구축&lt;/h2&gt;
+&lt;p&gt;Test를 할 환경을 구축하기 위해 필요한 것은, 테스트 할 파일이 필요하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/__test__&lt;/code&gt; directory 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/__test__/header.test.js&lt;/code&gt; 파일을 생성한다&lt;/p&gt;
+
+&lt;p&gt;package.json 에 이 snippet을 추가한다.&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+        
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;package.json 파일에 있는 scripts 는 npm으로 실행시키는 명령어를 개발자에 맞게 설정할 수 있는 부분이다. 즉 콘솔에서 명령어를 입력하면, script에서 이 명령어를 읽어들여 실행 시키게 된다. 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run test&lt;/code&gt; 를 입력하면 프로젝트 내부의 test.js 또는 spec.js 확장자를 가지는 파일을 실행한다.&lt;/p&gt;
+
+&lt;p&gt;puppeteer 설치&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn add puppeteer&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;headless-chromium-테스트-코드로-오픈하기&quot;&gt;headless chromium 테스트 코드로 오픈하기&lt;/h2&gt;
+
+&lt;p&gt;virtural chromium을 실행하기위해선, pupeteer 이 필요하다. puppeteer는 다양한 function을 제공하는데 , 그중에 우리가 필요한 브라우저를 오픈하기 위한 함수도 포함되어있다.기본적으로 퍼페티어에선 launch() 가 browser객체를 리턴하고 있고, 또한  browser 객체를 이용해 우리는 또 다른 브라우저안에 브라우저 탭이라는 객체를 생성한다. 이 브라우저 탭 객체는 말그대로 크롬 브라우저의 각각의 탭을 의미하는데, 이 탭 객체를 이용하여, 다른 페이지로 이동 할 수도 있고, 요소들을 클릭하게 하는 테스트를 할 수 있다. 거의 모든 테스트들이 이 탭 객체과 상호작용하게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/__test__/header.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;We can launch a browser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;launch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;headless&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;newPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;headless&lt;/code&gt; option을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;로 지정해준다. 즉, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;headless&lt;/code&gt;가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;이면 user interface가 없는 브라우저를 오픈하고, false 일 경우 user interface가 있는 브라우저를 오픈한다. 
+일단은, 브라우저가 오픈 여부에 대한 테스트를 위해, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;headless: false&lt;/code&gt; 로 지정한다.&lt;/p&gt;
+
+&lt;p&gt;puputeer는 asynchronous 기반이다. 그 이유는, 예를 들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser&lt;/code&gt; 의 경우 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;puppeteer.launch()&lt;/code&gt; 가 수행되는 시간이 언제인지 예측 할수가 없기 때문이다. 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser.newPage()&lt;/code&gt; 도 새로운 tab을 열기 까지 수행되는 시간을 알 수 없으므로 비동기방식으로 실행된다.&lt;/p&gt;
+
+&lt;p&gt;Test 실행&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/puppeteer1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run test&lt;/code&gt; 후에, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;header.test.js&lt;/code&gt; 파일에서 1개의 테스트 코드를 실행하여 성공했다는 로그가 나오고, 
+작업표시줄에 chromium 브라우저가 생성되는 것을 볼 수 있다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{headless:false}&lt;/code&gt; 의 결과로, 실제 브라우저가 launch 되었고, 앞으로의 테스트에는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{headless:true}&lt;/code&gt;로 쓸 것이다. 그 이유는, headless는 user interface가 없기 때문에 더 빠르다.&lt;/p&gt;
+
+&lt;h2 id=&quot;dry&quot;&gt;DRY&lt;/h2&gt;
+
+&lt;p&gt;Brwoser를 열고 새로운 tab에 들어가, localhost:3000으로 이동하는 이 과정은 
+앞으로 내가 작성할 모든 테스트에서 이뤄지는 중복되는 일이다. 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beforeEach()&lt;/code&gt; 와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;afterEach()&lt;/code&gt;
+가 중복을 해결하는데 도움이 된다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beforeEach(()=&amp;gt;{})&lt;/code&gt; 는 테스트 파일의 각 테스트 코드가 돌기 전에 실행되는 Jest API로써, 반복되는 코드에 적합하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;afterEach(()=&amp;gt;{})&lt;/code&gt; 는 반대로 테스트 코드가 돌고 난 후에 실행되는 Jest  API이다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beforeEach()&lt;/code&gt; 에서 자동으로 브라우저를 오픈 했듯이, 테스트 코드를 돌고  난 후 브라우저를 자동으로 닫아주는 로직이 적합하다.&lt;/p&gt;
+
+&lt;p&gt;이 두 API를 이용하여 코드를 리팩토링 할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;launch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;headless&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;newPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;goto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;localhost:3000&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//use await becuase navigate to somewhere take some amount of time&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;afterEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;test-suite-작성&quot;&gt;test suite 작성&lt;/h2&gt;
+
+&lt;p&gt;테스트 내용 :&lt;/p&gt;
+
+&lt;p&gt;browser를 띄웠을 때, nav element에 있는 브랜드 이름이 ‘BLOGGY’가 맞는지 확인.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/test1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;puppeteer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;launch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;headless&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;newPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;goto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;localhost:3000&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//use await becuase navigate to somewhere take some amount of time&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;afterEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Can get brand logo&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a.brand-logo&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toMatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/bloggy/gi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;puppeteer의 브라우저 인스턴스가 localhost:3000으로 들어가서 html element를 이용해서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a.brand-logo&lt;/code&gt; 를 찾아, 이 element의  innerHTML을 text라는 변수에 담아둔다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expect()&lt;/code&gt;는 테스트할 대상을 넣는 api로, 여기서는 text라는 변수를 테스트 할 것이므로, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expect(text)&lt;/code&gt;로 쓴다.&lt;/p&gt;
+
+&lt;p&gt;테스트 할 대상을 알았으므로, 그 테스트의 예상이 어떻게 되어야 한다는 결과도출에 대한 method를 작성해야 한다.
+우리의 테스트는, text 변수에 담긴 value 가 BLOGGY 와 일치한지 테스트 하는 것이므로, 일치한지에 대한 method를 사용한다. Jest 에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expect()&lt;/code&gt;에 대한 다양한 method를 제공하는데, 이 예제의 경우에는 대문자, 소문자에 상관없이 테스트 하고 싶었기에 regex를 사용하게 된다. regex를 지원하는 method는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.toMatch(rejexp)&lt;/code&gt;가 있고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/match할 letter/&lt;/code&gt;뒤에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gi&lt;/code&gt; 가 붙으면, 대.소문자를 구분 하지 않는다는 정규표현식이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run test&lt;/code&gt; 로 테스트를 하게 되면, chromium browser가 자동으로 오픈하여, 브랜드 이름을 찾는 테스트를 실행하고 테스트 결과를 log로 나타내고, 테스트가 끝나면 browser가 닫히게 된다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;참고자료 :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pptr.dev/&quot;&gt;puppeteer docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jestjs.io/docs/en/expect&quot;&gt;Jest docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://joshua1988.github.io/vue-camp/testing/jest-testing.html#jest-%EC%86%8C%EA%B0%9C&quot; target=&quot;_blank&quot;&gt;https://joshua1988.github.io/vue-camp/testing/jest-testing.html#jest-%EC%86%8C%EA%B0%9C&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="IntegrationTesting" /><category term="Jest" /><category term="puppeteer" /><summary type="html">puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry><entry><title type="html">Two Sum - LeetCode</title><link href="https://sooster910.github.io/2020/10/10/algo-twosum.html" rel="alternate" type="text/html" title="Two Sum - LeetCode" /><published>2020-10-10T00:00:00+00:00</published><updated>2020-10-10T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/10/algo-twosum</id><content type="html" xml:base="https://sooster910.github.io/2020/10/10/algo-twosum.html">&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.&lt;/p&gt;
@@ -98,7 +235,7 @@ for loop에서 i=0 일 때, j loop을 한번 씩 더 돌게 하여, array안에 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;2-a-better-time-complexity-solution-with-hash-map--on&quot;&gt;2. A better time complexity solution with Hash Map- O(n)&lt;/h3&gt;
-&lt;p&gt;loop을 일단 한번 만 돌릴 수 있는 방법을 생각했다. 
+&lt;p&gt;일단 nested loop을 사용하지 않는 방법을 생각했다. &lt;br /&gt;
 첫번 째 인덱스의 값인 (arr[0]), 2 부터 시작하여 매칭하는 값과 더하여 9가 나오는 과정을 생각하니, lookup을 하게 되므로 Map객체를 이용하는게 효율적이라 한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/twosum2.jpg&quot; alt=&quot;image&quot; /&gt;
@@ -109,9 +246,11 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
 
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getTwoSum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
         &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;currentValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 
