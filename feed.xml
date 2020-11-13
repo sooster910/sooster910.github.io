@@ -1,5 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-11-11T18:44:04+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript Node.js MongoDB. Interested in building a web app real-time and bidirectional communication.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[JS DataStructure] Stack</title><link href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" rel="alternate" type="text/html" title="[JS DataStructure] Stack" /><published>2020-10-18T00:00:00+00:00</published><updated>2020-10-18T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/18/algorithm-stack</id><content type="html" xml:base="https://sooster910.github.io/2020/10/18/algorithm-stack.html">&lt;h2 id=&quot;stack&quot;&gt;Stack&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2020-11-13T13:11:44+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB. Interested in building a web app real-time and bidirectional communication.
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]</title><link href="https://sooster910.github.io/2020/11/03/recursive.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]" /><published>2020-11-03T00:00:00+00:00</published><updated>2020-11-03T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/11/03/recursive</id><content type="html" xml:base="https://sooster910.github.io/2020/11/03/recursive.html">&lt;ul&gt;
+  &lt;li&gt;알고리즘을 공부할 때 마다, 재귀함수가 중요하고 널리 쓰인다는건 알았지만, 제대로 이해가 되지 않았다. 그래서 이 기회에 제대로 이해하기 위해 또한 좀 더 재귀를 잘 이해하고자 하는 분들을 위해 작성하게 되었다.&lt;/li&gt;
+  &lt;li&gt;오타나 설명이 잘 못되었다거나 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;재귀함수란&quot;&gt;재귀함수란?&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+재귀함수의 아이디어는 어떤 함수가 있는데, 그 함수를 계속해서 호출하는 것이다 (자기자신을 재호출 하는 함수). 어떻게 호출하냐면 함수 내의 return값을 같은 함수로 정의 하여 다시 부르는 셈이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;recursion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;recursion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;아래에서 재귀함수가 어떻게 동작하는지에 대해 좀 더 자세히 언급할 것이다.&lt;/p&gt;
+
+&lt;!-- ## 재귀 왜 중요하죠? 어디에 쓰이죠?
+
+재귀함수는 어디에나 쓰인다. 많이 쓰이기 때문에 그만큼 중요하다고 생각한다. 심지어 우리가 재귀함수를 써놓고도 재귀함수인줄 모르고 쓰는 경우도 있다. 
+
+자바스크립트에서 Ajax 통신 할 때, JSON.parse / JSON.stringfy 를 쓰는데  
+
+JSON.parse 를 이루는 코드가 대부분 재귀를 이용한 함수가 많이 쓰여졌다.
+
+document.getElementById,
+DOM traversal algorithms
+에서도 쓰인다.  --&gt;
+
+&lt;h2 id=&quot;재귀함수는-콜스택에서-어떻게-동작하는가&quot;&gt;재귀함수는 콜스택에서 어떻게 동작하는가?&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+1부터 3까지의 합을 구하는 함수이다. 지금 이 재귀함수가 합을 구하는 일에서는 효율적인 알고리즘은 아니지만 쉽게 이해하기 위해 재귀함수를 써보았다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 3+2+1 =6&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 함수가 콜스택에서 어떻게 동작하는지 좀 더 쉽게 이해하기 위해 순서를 그려보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/recursion.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;콜스택은 함수의 호출을 기록하는 자료구조로써, 함수가 실행되면 이 호출 스택에 하나씩 쌓이고, 함수로부터 return 구문을 통해서 호출스택으로부터 함수가 마지막에 들어온 것 부터 반환된다.
+자바스크립트에선 배열에서 push( ), pop( ) 이 스택의 동작과 일치한다.&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;function sum (3)&lt;/code&gt; 이 호출되면, 콜스택에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;이 쌓이고, 아래로 코드를 실행시켜 나간다. 그 다음 라인인 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1&lt;/code&gt; num은 3이기 때문에, 그 다음라인으로 이동한다. 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return num + sum(num-1)&lt;/code&gt; return문이 나왔다. 이제 호출스택에서 빠져 나갈 찬스가 생겼다. 하지만 return 구문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3+sum(2)&lt;/code&gt;는 완전한 값이 아닌, 함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; 을 포함 하고 있으므로, 콜스택에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;은 반환되지 못하고, 그 상태에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; 함수를 호출한다. 결국 return문에 값이 나올 때 까지 호출스택에 그대로 남게 된다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;함수를 호출하는 순간, 콜스택엔 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;가 추가가 된다. 그 다음 라인인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1&lt;/code&gt; false 이므로, 그 다음라인으로 이동한다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return num+sum(num-1)&lt;/code&gt; return 구문이 나왔으므로, 호출스택에서 다시 빠져 나갈 찬스가 생겼다. 하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return 2+sum(1)&lt;/code&gt;은 완전한 값이 아니라 함수가 포함 되어있으므로, sum(1)을 호출 시킨다. 
+콜스택엔 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt;이라는 새로운 함수가 추가로 쌓이게 되고, 다음 라인을 실행한다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1;&lt;/code&gt; num=1 로써 true 이므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return 1&lt;/code&gt;이 실행되면서 드디어 return을 하게 되었다. 콜스택에선 이제 맨위에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt;을 반환한다. 
+남아있는 호출 스택 중 맨 위에 있는 스택은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; sum(2)의 return문 에는 num+sum(2)=1+2=3 이 리턴되고 콜스택에서도 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;가 빠진다. 마지막 남은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;은 return값으로 num+sum(3)=3+3=6이 리턴되면서 콜스택에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;도 빠진다. 마지막으로 빈 콜스택이 남게 된다.&lt;/p&gt;
+
+&lt;p&gt;이 과정이, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt; 재귀 함수가 호출되어 반환값을 내기 까지의 과정이다.
+여기서 재귀함수를 구현 할 때 중요하게 봐야 할 두가지가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1.기저 조건문 (base case)&lt;/li&gt;
+  &lt;li&gt;2.새로운 input&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1기저-조건문-base-case&quot;&gt;1.기저 조건문 (base case)&lt;/h3&gt;
+
+&lt;p&gt;sum(3) 함수 안에 if 구문이 빠진 상태로 호출 하게 된다면?&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(num-1)&lt;/code&gt;이 끝도 없이 무한정으로 실행된다. 참고로 크롬브라우저는 최대 16000 프레임의 스택을 가지고 있는데, 이 최대 범위를 넘게 되면, 다음과 같이 콜스택 사이즈를 초과하였다는 에러를 만나게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/recursion1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;우리가 어플리케이션을 실행할 때, 수많은 함수를 실행하는데, 위의 함수가 수많은 함수중에 하나라고 한다면, sum()는 계속 해서 호출하고 다음 동작(함수) 로 넘어갈 수가 없고 결국 어플리케이션은 freeze가 되는 현상을 겪게 된다.&lt;/p&gt;
+
+&lt;p&gt;이런 무한 루프 상황을 방지 할 수 있는 방법은, 무한 루프를 멈추게 할 수 있는 if 조건문을 넣는 것이다. 기저조건, base case 라고도 한다. 그래서 기저 조건문를 넣는 것은 매우매우 중요하다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-새로운-input&quot;&gt;2. 새로운 input&lt;/h3&gt;
+&lt;p&gt;나머지 한가지는, 재귀함수를 호출 할 땐, 다른 parameter(input, argument)를 넣어야 한다. 만약 같은 값으로 넣게되면 리턴하는 값도 같아져서 결국 maximum callstack exceeded  에러를 만나게 될 것이다.&lt;/p&gt;
+
+&lt;p&gt;다음 포스트에선 재귀알고리즘을 푸는 접근법과 다양한 예제를 설명할 것이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;참고자료&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;도서 - 배세민, 2019, 자바 스크립트로 하는 자료 구조와 알고리즘, 에이콘출판&lt;/li&gt;
+  &lt;li&gt;Udemy - Colt Steel, JavaScript Algorithms and Data Stucture Masterclass&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="JavaScript" /><category term="DataStructure/Algorithm" /><category term="resursion" /><summary type="html">알고리즘을 공부할 때 마다, 재귀함수가 중요하고 널리 쓰인다는건 알았지만, 제대로 이해가 되지 않았다. 그래서 이 기회에 제대로 이해하기 위해 또한 좀 더 재귀를 잘 이해하고자 하는 분들을 위해 작성하게 되었다. 오타나 설명이 잘 못되었다거나 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry><entry><title type="html">[DataStructure/Algorithm] JavaScript 스택(Stack)</title><link href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] JavaScript 스택(Stack)" /><published>2020-10-18T00:00:00+00:00</published><updated>2020-10-18T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/18/algorithm-stack</id><content type="html" xml:base="https://sooster910.github.io/2020/10/18/algorithm-stack.html">&lt;h2 id=&quot;stack&quot;&gt;Stack&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/stack.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
@@ -58,7 +159,7 @@
         
         &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myStack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [1,2]&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="JS" /><category term="DataStructure/Algorithm" /><category term="Stack" /><summary type="html">Stack</summary></entry><entry><title type="html">Integration Testing with jest &amp;amp; puppeteer[1]</title><link href="https://sooster910.github.io/2020/10/12/IntegrationTesting.html" rel="alternate" type="text/html" title="Integration Testing with jest &amp;amp; puppeteer[1]" /><published>2020-10-12T00:00:00+00:00</published><updated>2020-10-12T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/12/IntegrationTesting</id><content type="html" xml:base="https://sooster910.github.io/2020/10/12/IntegrationTesting.html">&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="JavaScript" /><category term="DataStructure/Algorithm" /><category term="Stack" /><summary type="html">Stack</summary></entry><entry><title type="html">Integration Testing with jest &amp;amp; puppeteer[1]</title><link href="https://sooster910.github.io/2020/10/12/IntegrationTesting.html" rel="alternate" type="text/html" title="Integration Testing with jest &amp;amp; puppeteer[1]" /><published>2020-10-12T00:00:00+00:00</published><updated>2020-10-12T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/12/IntegrationTesting</id><content type="html" xml:base="https://sooster910.github.io/2020/10/12/IntegrationTesting.html">&lt;ul&gt;
   &lt;li&gt;puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -195,7 +296,7 @@
   &lt;li&gt;&lt;a href=&quot;https://pptr.dev/&quot;&gt;puppeteer docs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jestjs.io/docs/en/expect&quot;&gt;Jest docs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://joshua1988.github.io/vue-camp/testing/jest-testing.html#jest-%EC%86%8C%EA%B0%9C&quot; target=&quot;_blank&quot;&gt;https://joshua1988.github.io/vue-camp/testing/jest-testing.html#jest-%EC%86%8C%EA%B0%9C&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="IntegrationTesting" /><category term="Jest" /><category term="puppeteer" /><summary type="html">puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry><entry><title type="html">Two Sum - LeetCode</title><link href="https://sooster910.github.io/2020/10/10/algo-twosum.html" rel="alternate" type="text/html" title="Two Sum - LeetCode" /><published>2020-10-10T00:00:00+00:00</published><updated>2020-10-10T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/10/algo-twosum</id><content type="html" xml:base="https://sooster910.github.io/2020/10/10/algo-twosum.html">&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="IntegrationTesting" /><category term="Jest" /><category term="puppeteer" /><summary type="html">puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry><entry><title type="html">[DataStructure/Algorithm] Two Sum - LeetCode</title><link href="https://sooster910.github.io/2020/10/10/algo-twosum.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] Two Sum - LeetCode" /><published>2020-10-10T00:00:00+00:00</published><updated>2020-10-10T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/10/algo-twosum</id><content type="html" xml:base="https://sooster910.github.io/2020/10/10/algo-twosum.html">&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.&lt;/p&gt;

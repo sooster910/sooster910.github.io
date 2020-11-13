@@ -4513,7 +4513,7 @@ body {
 body, html {
   margin: 0;
   padding: 0;
-  line-height: 2em; }
+  line-height: 1.7em; }
 
 *:focus {
   outline: none; }
@@ -4631,12 +4631,12 @@ pre, code {
   border-radius: 0.3em; }
   .theme--dark pre,
   .theme--dark code {
-    background-color: #1E2227;
-    color: #DAE4ED;
+    background-color: #f5f2f0;
+    color: #3f3f3f;
     font-family: Menlo,Nanum Gothic Coding,Monaco,Source Code Pro,monospace,Microsoft YaHei !important; }
   .theme--light pre, .theme--light code {
-    background-color: #1E2227;
-    color: #DAE4ED;
+    background-color: #f5f2f0;
+    color: #3f3f3f;
     font-family: Menlo,Nanum Gothic Coding,Monaco,Source Code Pro,monospace,Microsoft YaHei !important; }
 
 code {
