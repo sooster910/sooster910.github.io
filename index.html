@@ -172,7 +172,7 @@ Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB.
       </div>
     </main><footer class="site-footer">
   <div class="wrapper">
-    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
     <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
     <label for="theme-toggle" class="toggle">
     <span class="toggle__handler">
@@ -189,7 +189,7 @@ Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB.
     </label>
 </div>
 <script type="text/javascript">
-const theme = localStorage.getItem('theme');
+const theme = "light";
 
 if (theme === "light") {
     document.documentElement.setAttribute('data-theme', 'light');
@@ -228,6 +228,7 @@ if (theme === "dark") {
 
 function modeSwitcher() {
 	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
 	if (currentMode === "dark") {
 	    activateLightTheme();
 	} else {

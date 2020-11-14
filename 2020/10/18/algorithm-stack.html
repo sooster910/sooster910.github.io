@@ -134,7 +134,7 @@
  (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
      var d = document, s = d.createElement('script');
 
-     s.src = '//sooster910.github.io.disqus.com/embed.js';
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
 
      s.setAttribute('data-timestamp', +new Date());
      (d.head || d.body).appendChild(s);
@@ -209,7 +209,7 @@
       </div>
     </main><footer class="site-footer">
   <div class="wrapper">
-    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
     <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
     <label for="theme-toggle" class="toggle">
     <span class="toggle__handler">
@@ -226,7 +226,7 @@
     </label>
 </div>
 <script type="text/javascript">
-const theme = localStorage.getItem('theme');
+const theme = "light";
 
 if (theme === "light") {
     document.documentElement.setAttribute('data-theme', 'light');
@@ -265,6 +265,7 @@ if (theme === "dark") {
 
 function modeSwitcher() {
 	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
 	if (currentMode === "dark") {
 	    activateLightTheme();
 	} else {
