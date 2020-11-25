@@ -4527,7 +4527,7 @@ ul, ol, dl, figure,
   margin-bottom: 10px; }
 
 h1, h2 {
-  border-bottom: 1px solid #dadada; }
+  border-bottom: 1px solid #e2e8f0; }
 
 h1 {
   padding-bottom: 20px; }
@@ -4536,7 +4536,9 @@ h2 {
   padding-bottom: 12px; }
 
 p {
-  margin: 0.5em 0; }
+  line-height: 1.625;
+  margin-top: 1rem;
+  margin-bottom: 2rem; }
 
 figure {
   width: 100%;
