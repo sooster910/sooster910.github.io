@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>[DataStructure/Algorithm] JavaScript 스택(Stack) | Hyunsu</title>
+<title>Integration Testing with jest &amp; puppeteer[1] | Hyunsu</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="[DataStructure/Algorithm] JavaScript 스택(Stack)" />
+<meta property="og:title" content="Integration Testing with jest &amp; puppeteer[1]" />
 <meta name="author" content="Hyunsu Joo" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Stack이 뭔가요?" />
-<meta property="og:description" content="Stack이 뭔가요?" />
-<link rel="canonical" href="https://sooster910.github.io/2020/10/18/algorithm-stack.html" />
-<meta property="og:url" content="https://sooster910.github.io/2020/10/18/algorithm-stack.html" />
+<meta name="description" content="LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄" />
+<meta property="og:description" content="LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄" />
+<link rel="canonical" href="https://sooster910.github.io/2020/12/01/linkedList.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/12/01/linkedList.html" />
 <meta property="og:site_name" content="Hyunsu" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-10-18T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-12-01T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="[DataStructure/Algorithm] JavaScript 스택(Stack)" />
+<meta property="twitter:title" content="Integration Testing with jest &amp; puppeteer[1]" />
 <script type="application/ld+json">
-{"headline":"[DataStructure/Algorithm] JavaScript 스택(Stack)","dateModified":"2020-10-18T00:00:00+00:00","datePublished":"2020-10-18T00:00:00+00:00","author":{"@type":"Person","name":"Hyunsu Joo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/10/18/algorithm-stack.html"},"description":"Stack이 뭔가요?","@type":"BlogPosting","url":"https://sooster910.github.io/2020/10/18/algorithm-stack.html","@context":"https://schema.org"}</script>
+{"headline":"Integration Testing with jest &amp; puppeteer[1]","dateModified":"2020-12-01T00:00:00+00:00","datePublished":"2020-12-01T00:00:00+00:00","author":{"@type":"Person","name":"Hyunsu Joo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/12/01/linkedList.html"},"description":"LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄","@type":"BlogPosting","url":"https://sooster910.github.io/2020/12/01/linkedList.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
@@ -34,90 +34,49 @@
       <div class="wrapper">
         
 <div class="post">
-  <h1 class="post-title">[DataStructure/Algorithm] JavaScript 스택(Stack)</h1>
+  <h1 class="post-title">Integration Testing with jest & puppeteer[1]</h1>
   
   <div class="post-tags">
       <div class="post-date">
-      Published on 18 Oct 2020</div>
+      Published on 01 Dec 2020</div>
 
-      
-      <a class="tag" href="/tag/JavaScript/">JavaScript</a>
       
       <a class="tag" href="/tag/DataStructure/Algorithm/">DataStructure/Algorithm</a>
       
-      <a class="tag" href="/tag/Stack/">Stack</a>
+      <a class="tag" href="/tag/JS/">JS</a>
       
        
   </div>
  
   
   
-  <noscript>
-    <div class="post-description">Stack이 뭔가요?</div>
-  </noscript>
-  <div id="animated-post-description" class="post-description" style="display: none;"></div>
-  
-  <h2 id="stack">Stack</h2>
-
-<p><img src="/assets/stack.png" alt="image" /></p>
-
-<p>스택은 데이터를 넣을 수 있는 선형(linear) 자료형이다. 
-위에 그림에서 스택에 1,2가 모두 있는 상태에서, 1에 접근 하기 위해선,맨 마지막에 추가한 2를 제거한 후에 접근할 수 있다. 그래서 LIFO(last in first out).</p>
-<blockquote>
-  <p>스택의 장점 : 속도가 빠르다 O(1) .
-스택의 한계 : 배열과 달리 마지막에 추가된 항목외에는 직접 접근할 수가 없다. (ex: 1이란 값을 바로 접근 하지못하고, 2를 제거한후에 1에 접근가능)</p>
-</blockquote>
-
-<hr />
-<h3 id="스택이-쓰이는-경우">스택이 쓰이는 경우,</h3>
-<ul>
-  <li>Managing function invocations</li>
-  <li>Undo/Redo</li>
-  <li>Routing (the history object ) is treated like a stack.</li>
+  <ul>
+  <li>LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</li>
 </ul>
 
-<hr />
-<h3 id="구현">구현</h3>
+<h2 id="목차">목차</h2>
+<p><a href="#puppeteerjest">1.puppeteer + Jest</a><br />
+ <a href="#npm-run-test-실행환경-구축">2. npm run test 실행환경 구축 </a><br />
+ <a href="#headless-chromium-테스트-코드로-오픈하기">3. headless chromium 테스트 코드로 오픈하기</a><br />
+ <a href="#drydont-repeat-yourself">4. beforeEach( ), afterEach( ) 이용하여 리팩토링</a><br />
+ <a href="#test-case-작성">5. Jest test case 작성</a></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kd">class</span> <span class="nx">Stack</span><span class="p">{</span>
-    
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">array</span><span class="p">){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">array</span> <span class="o">=</span> <span class="nx">array</span><span class="o">||</span><span class="p">[];</span>
-    <span class="p">}</span>
+<h2 id="what-is-singly-linked-list">What is Singly Linked List?</h2>
+<p>직역으로 서로 연결된 리스트이다. 주로 배열과 함께 비교가 된다. 그 이유는 배열도 자료를 저장하는 구조가 되고, 연결 리스트도 또한 자료를 저장하기 위해서 만든 자료구조에 해당한다. 이 둘의 장단점을 이용해 더 효율적으로 코딩을 할 수 있을 것이다.<br />
+ 배열 : 연속적인! 같은 자료형!들의 집합!이다.<br />
+ 장점: 1. 연속적이기 때문에, 데이터의 위치를 알기가 쉽다.<br />
+ 단점 : 메모리를 한꺼번에 만들어야 한기 때문에, 메모리 공간 낭비가 크다.<br />
+ 이러한 단점을 보완한 것이 Singly Linked List 이다.
+ linked list 는 실행시간에 필요할 때 마다 동적으로 메모리를 생성 한다.(동적메모리로 만들어진다) 그럼 필요 할때 마다 만들어진 메모리들이 어떤 위치에 저장되는지 어떻게 알 수 있으며, 첫번째로 만들어진 메모리인지 두번째로 만들어진 메모리인지 어떻게 알 수 있을까?
+ 배열의 경우 시작점만 알면 그 나머지의 element 들을 쉽게 접근할 수 있다. 이런 데이터를 연결하기 위해 첫번째 데이터가 저장된 곳에, 추가적으로 두번째 데이터의 정보가 저장되어 있어야 한다.</p>
 
-    <span class="nx">getBuffer</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span> <span class="c1">//shallow copy</span>
-    <span class="p">}</span>
+<p>무엇을 연결? 노드들을 연결한다.<br />
+얼마나? 제한이 없다.<br />
+노드가 뭔가요?</p>
 
-    <span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">push</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">pop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
-    <span class="p">}</span>
-    
-    <span class="nx">peek</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">,</span><span class="nx">array</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="kd">const</span> <span class="nx">myStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">();</span>
-        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-        <span class="nx">myStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-        <span class="nx">myStack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>   <span class="c1">//3</span>
-        
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myStack</span><span class="p">)</span> <span class="c1">// [1,2]</span>
-
-</code></pre></div></div>
-
+<p>head, tail , length property를 가지고 있다.
+Linked List 는 노드로 이루어져있고, 이 각각의 노드들은 value그 노드의 값과 다음 노드를 가르키는 pointer 로 이루어져 있다.
+Linked List 는 index 가 없다. 이 말은 즉, 5번 째 element의 값을 달라고 요구할 수 없다. Linked Lists는 Array와는 또 다른 특징을 가진 다른것임을 유추 할 수 있다.</p>
 
 </div>
 
@@ -126,9 +85,9 @@
 <div id="disqus_thread"></div>
 <script>
  var disqus_config = function () {
-     this.page.url = 'https://sooster910.github.io/2020/10/18/algorithm-stack.html';
-     this.page.identifier = '/2020/10/18/algorithm-stack';
-     this.page.title = '[DataStructure/Algorithm] JavaScript 스택(Stack)';
+     this.page.url = 'https://sooster910.github.io/2020/12/01/linkedList.html';
+     this.page.identifier = '/2020/12/01/linkedList';
+     this.page.title = 'Integration Testing with jest & puppeteer[1]';
  };
 
  (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
@@ -153,14 +112,6 @@
     
       <li>
         <h3>
-          <a href="/2020/12/01/linkedList.html">
-            Integration Testing with jest & puppeteer[1]
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/2020/11/03/recursive.html">
             [DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]
           </a>
@@ -171,6 +122,14 @@
         <h3>
           <a href="/2020/11/01/socketio2.html">
              socket.io 그리고 cluster 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/10/18/algorithm-stack.html">
+            [DataStructure/Algorithm] JavaScript 스택(Stack)
           </a>
         </h3>
       </li>
@@ -191,7 +150,7 @@
 
 <script>
   let i = 0;
-  const text = 'Stack이 뭔가요?';
+  const text = '';
   const speed = parseInt('50');
   
   function typeWriter() {
