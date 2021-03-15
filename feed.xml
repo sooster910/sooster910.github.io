@@ -1,5 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-01-11T03:38:13+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB. Interested in building a web app real-time and bidirectional communication.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]</title><link href="https://sooster910.github.io/2020/11/03/recursive.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]" /><published>2020-11-03T00:00:00+00:00</published><updated>2020-11-03T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/11/03/recursive</id><content type="html" xml:base="https://sooster910.github.io/2020/11/03/recursive.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-03-15T05:02:29+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB. Interested in building a web app real-time and bidirectional communication.
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[DataStructure] Array (static,dynamic array)</title><link href="https://sooster910.github.io/2021/02/02/algorithm-array.html" rel="alternate" type="text/html" title="[DataStructure] Array (static,dynamic array)" /><published>2021-02-02T00:00:00+00:00</published><updated>2021-02-02T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/02/02/algorithm-array</id><content type="html" xml:base="https://sooster910.github.io/2021/02/02/algorithm-array.html">&lt;ul&gt;
+  &lt;li&gt;자료구조 Array를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;#Array&quot;&gt;1. Array&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Static-Array-vs-Dynamic-Array&quot;&gt;2. Static Array vs Dynamic Array &lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Access&quot;&gt;2.1. Access&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Appending&quot;&gt;2.2. Append&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Insertion&quot;&gt;2.3. Insertion&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Deletion&quot;&gt;2.4. Deletion&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#Time-Complexity&quot;&gt;2.5. Time Complexity&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-array&quot;&gt;1. Array&lt;/h2&gt;
+
+&lt;p&gt;배열은 선형자료구조의 대표적인 예로써 지정한 배열의 크기만큼 연속된 메모리 공간을 할당 받는다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;선형자료구조 - 데이터가 순차적으로 나열된다는 의미이다.&lt;/li&gt;
+  &lt;li&gt;배열의 크기만큼 연속된 메모리 공간을 할당 받는다.-
+ 일단 배열의 크기와 메모리공간의 상관관계를 알 필요가 있다. 예를 들어 C언어에서 int arr[4]= {1,2,3,4} 로 크기가 4인 integer형을 가진 배열을 선언했다고 하자. 32bit 시스템이라고 간주했을 때, integer는 하나의 숫자에 4byte의 메모리를 할당 받는다. 배열은 데이터형이 같으므로 4(element 개수) * 4(byte)= 16 byte의 메모리 주소를 할당 받는다. 연속된 메모리 공간을 할당 받으므로, 그림과 같이 16개의 연속된 공간을 차지 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;위의 글로 미루어 보아 배열의 특징을 정리해 보자면,&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- 연속된 메모리 공간에 순차적으로 저장 (a contiguous block of memory)
+- 배열은 선언시에 크기를 미리 정한다. 변경 할 수 없다.
+- 배열에 들어갈 요소들의 데이터형은 동일해야 한다.
+- 배열의 크기는 컴파일시에 결정되며 스택에 할당된다. (c언어, java)
+- 배열 인덱스는 값에 대한 유일무이한 식별자
+- 그러므로 인덱스 번호로 빠른접근이 가능, 즉 데이터의 위치에 대해 직접적인 접근이 가능하다. (Random Access)
+- 하지만 요소값을 찾는 경우, 한번에 접근이 불가능하고 인덱스 0 부터 순회를 해서 찾아야함. 시간이 걸린다.  
+- 때로 너무 많은 영역을 할당하여 낭비하는 현상이 생김.
+- 너무 작은 영역을 할당하여 모자라는 현상 생김
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-static-array-vs-dynamic-array&quot;&gt;2. Static Array vs Dynamic Array&lt;/h2&gt;
+
+&lt;p&gt;정적 배열과 동적 배열의 구분을 짓는 요소는 사이즈 변경이 가능한지에 대한 여부이다. 
+위에서의 일반적인 배열의 특징으론 사이즈를 지정해야 하고 리사이즈가 불가능 하다 했다. 이것이 정적배열의 특징이며, 이런 정적배열의 한계점을 보완한 것이 동적배열이다. 즉 리사이즈가 가능함과 동시에 사이즈를 미리 지정할 필요가 없다. 동적배열의 내부적 원리는, 사이즈가10 인 정적배열이 초기화 되었다 했을때, 11번째 element를 배열에 추가 할 때는 메모리에서 11번째를 수용할 수 있는 더 큰 사이즈의 새 배열을 만들고 기존 배열의 요소를 모두 복사하여 새 배열에 붙인다. 그리고 기존의 배열은 메모리에서 삭제한다. 이런식의 작업을 반복한다. 결국 기존의 정적 배열(사이즈를 미리 정함)에서 길이를 초과한 경우엔 할당할 메모리를 늘리고 기존배열 요소를 모두 복사해서 새배열에 결합하는 방식의 반복이다. 파이썬의 list, 자바의 ArrayList, 그리고 C언어 vector가 동적배열 예이다. 파이썬의 경우, 우리가 list를 사용하여 코딩할 땐 실질적으로 동적배열의 과정을 잘 느끼지 못하지만,  파이썬 또한 C 언어를 기반으로 만들어졌기 때문에, List가 내부적으론 동적배열의 원리가 이용되었다고 말할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;21-access&quot;&gt;2.1 Access&lt;/h3&gt;
+
+&lt;p&gt;동적배열 또한 정적배열과 같이 초기엔 배열의 크기를 지정하므로, 배열이 시작하는 지점의 메모리주소는 배열의 첫번째 요소의 메모리 주소와 일치하므로, 인덱스에 따른 메모리 주소를 찾는게 쉽다. 그래서 인덱싱이 빠르다.&lt;/p&gt;
+
+&lt;h3 id=&quot;22-appending&quot;&gt;2.2 Appending&lt;/h3&gt;
+
+&lt;p&gt;정적배열에서는 미리 할당된 크기 메모리안에서 요소를 추가 하는 것은 상수 비용이 든다 O(1). 동적배열의 경우 분할상관분석에 따른 분활상환시간은 O(1)이 된다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;분할상관분석&lt;br /&gt;
+위키피디아에 따르면 “어떠한 임의의 알고리즘에 대해서, 어떤 연산은 자원적 측면에서 상당한 비용을 소모할 수 있지만, 반면 다른 연산은 그렇게 고비용을 소모하지 않을 수 있다. 분할상환 분석은 알고리즘의 전반적인 연산 집합에 대해 비용이 높은 연산, 그리고 비용이 덜한 연산 모두를 함께 고려하는 기법이라 하겠다.”
+Java의 ArrayList, C++ std의  vector, python의 list 와 같은 동적배열이 대표적인 예이다.
+동적배열의 원리로 큰 용량의 메모리를 확보한다음 기존배열의 요소들을 다시 복사해서 옮기는 과정은 비용이 많이 소요되므로 O(n), 그 이후 다시 삽입하는 비용은 O(1)로 반복된다. 그리고 더블링(사이즈를 늘리는  연산)은 가끔 발생하므로, O(n)만으로 정의를 내리기가 어렵다. 그래서 분할상관분석 따른 전체적인 비용은 높지 않기 때문에 분할상환시간은 O(1)이 된다.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;23-insertion&quot;&gt;2.3 Insertion&lt;/h3&gt;
+&lt;p&gt;동적배열의 경우 배열이 꽉 차 있는 상태에서 삽입을 하게 배열 중간에 삽입이 필요하다면, 사이즈가 더 큰 새로운 배열을 만들어 기존의 요소들을 복사하고 새로운 요소를 원하는 인덱스에 삽입하는 방법을 접근한다. 기존요소들을 모두 복사하여 옮기는 시간복잡도는 O(n)라 볼 수 있다. 기존 메모리에 필요한 만큼 더 확장하지 않고 새로운 배열을 만드는 이유는 메모리에서 배열을 확장할 공간만큼의 공간이 있는지 알 수 없기 때문이다. 다른 변수의 메모리가 이미 차여있을 수도 있다.\  &lt;br /&gt;
+배열이 다 차 있지 않은 상태일 때는, 새로 삽입하려는 인덱스의 다음 인덱스 요소부터 하나씩 밀려, 삽입하려는 인덱스의 공간을 만들어준다. 제일 비용이 많이 발생하는 케이스는 인덱스가 0인 공간에 요소를 삽입할 때이다. 100개의 요소에서 100개의 요소 모두가 하나하나씩 다음인덱스로 옮겨 첫번째 인덱스를 빈 공간으로 만들어줘야 한다. 시간복잡도는 O(n)이 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;24-deletion&quot;&gt;2.4 Deletion&lt;/h3&gt;
+&lt;p&gt;직관적으로 본다면 정적배열에서는 삭제가 안된다. 동적배열에서는 맨 뒤의 요소를 삭제할 시에는 O(1) 의 복잡도가 걸린다.
+그 이유는 삭제시 어떤 요소도 움직이지 않아도 되기 때문이다. 최악의 경우는 맨앞의 요소를 삭제 할때이다. 인덱스가 0인 요소가 삭제시 나머지 뒤에 있는 모든 요소들이 인덱스를 한칸 씩 앞으로 당겨 인덱스 0인 공간을 채워줘야 한다. 모든 인덱스가 움직이는데 드는 시간복잡도는 O(n)라 볼 수 있다.\&lt;/p&gt;
+
+&lt;h3 id=&quot;25-complexity&quot;&gt;2.5 Complexity&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;static array&lt;/th&gt;
+      &lt;th&gt;dynamic array&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Access&lt;/td&gt;
+      &lt;td&gt;O(1)&lt;/td&gt;
+      &lt;td&gt;O(1)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Search&lt;/td&gt;
+      &lt;td&gt;O(n)&lt;/td&gt;
+      &lt;td&gt;O(n)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insertion&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;O(n)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Appending&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;분할상환분석에 따른 O(1)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Deletion&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;맨 뒤 - O(1), 맨 앞,중간 - O(n)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;참고자료&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/implementation-of-dynamic-array-in-python/&quot; target=&quot;_blank&quot;&gt;geeksforgeeks.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%B6%84%ED%95%A0%EC%83%81%ED%99%98%EB%B6%84%EC%84%9D&quot; target=&quot;_blank&quot;&gt;wikipedia.org/분할상환분석&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://youtu.be/PEnFFiQe1pM&quot; target=&quot;_blank&quot;&gt;https://youtu.be/dynamic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[도서 - 박성길, 2020, 파이썬 알고리즘 인터뷰, 에이콘출판 ]&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="IntegrationTesting" /><category term="Jest" /><category term="puppeteer" /><summary type="html">자료구조 Array를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry><entry><title type="html">[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]</title><link href="https://sooster910.github.io/2020/11/03/recursive.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]" /><published>2020-11-03T00:00:00+00:00</published><updated>2020-11-03T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/11/03/recursive</id><content type="html" xml:base="https://sooster910.github.io/2020/11/03/recursive.html">&lt;ul&gt;
   &lt;li&gt;오타나 설명이 잘 못되었다거나 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
 &lt;/ul&gt;
 
