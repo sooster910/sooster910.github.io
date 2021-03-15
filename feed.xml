@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-03-15T05:35:27+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB. Interested in building a web app real-time and bidirectional communication.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-03-15T05:46:40+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>Hi 👋  Front End Developer with an passion about JavaScript, Node.js, MongoDB. Interested in building a web app real-time and bidirectional communication.
 </subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[DataStructure] Array (static,dynamic array)</title><link href="https://sooster910.github.io/2021/02/02/algorithm-array.html" rel="alternate" type="text/html" title="[DataStructure] Array (static,dynamic array)" /><published>2021-02-02T00:00:00+00:00</published><updated>2021-02-02T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/02/02/algorithm-array</id><content type="html" xml:base="https://sooster910.github.io/2021/02/02/algorithm-array.html">&lt;ul&gt;
   &lt;li&gt;자료구조 Array를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
 &lt;/ul&gt;
@@ -43,7 +43,7 @@
 
 &lt;h3 id=&quot;22-appending&quot;&gt;2.2 Appending&lt;/h3&gt;
 &lt;p&gt;배열에서 공간이 남아 있는 경우, 정적배열,동적배열 모두 미리 할당된 크기 메모리안에서 요소를 추가 하는 것은 상수 비용이 든다 O(1).
-다른 케이스로 동적배열의 경우 배열에서 공간이 남아 있지 않은 경우는, &lt;strong&gt;분할상관분석&lt;/strong&gt;에 따른 분할상환시간은 O(1)이 된다.&lt;/p&gt;
+다른 케이스로 동적배열에서 공간이 남아 있지 않은 경우에 추가를 하게 되면 &lt;strong&gt;분할상관분석&lt;/strong&gt;에 따른 분할상환시간은 O(1)이 된다.&lt;/p&gt;
 
 &lt;blockquote&gt;
 
