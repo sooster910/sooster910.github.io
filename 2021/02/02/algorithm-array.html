@@ -59,13 +59,13 @@
 </ul>
 
 <h2 id="목차">목차</h2>
-<p><a href="#1.-Array">1. Array</a><br />
- <a href="#2.-Static-Array-vs-Dynamic-Array">2. Static Array vs Dynamic Array </a><br />
- <a href="#2.1-Access">2.1. Access</a><br />
- <a href="#2.2-Appending">2.2. Append</a><br />
- <a href="#2.3-Insertion">2.3. Insertion</a><br />
- <a href="#2.4-Deletion">2.4. Deletion</a><br />
- <a href="#2.5-Time-Complexity">2.5. Time Complexity</a></p>
+<p><a href="#1-array">1. Array</a><br />
+ <a href="#2-static-array-vs-dynamic-array">2. Static Array vs Dynamic Array </a><br />
+ <a href="#21-access">2.1. Access</a><br />
+ <a href="#22-appending">2.2. Append</a><br />
+ <a href="#23-insertion">2.3. Insertion</a><br />
+ <a href="#24-deletion">2.4. Deletion</a><br />
+ <a href="#25-time-complexity">2.5. Time Complexity</a></p>
 
 <h2 id="1-array">1. Array</h2>
 
@@ -117,7 +117,7 @@ Java의 ArrayList, C++ std의  vector, python의 list 와 같은 동적배열이
 <p>직관적으로 본다면 정적배열에서는 삭제가 안된다. 동적배열에서는 맨 뒤의 요소를 삭제할 시에는 O(1) 의 복잡도가 걸린다.
 그 이유는 삭제시 어떤 요소도 움직이지 않아도 되기 때문이다. 최악의 경우는 맨앞의 요소를 삭제 할때이다. 인덱스가 0인 요소가 삭제시 나머지 뒤에 있는 모든 요소들이 인덱스를 한칸 씩 앞으로 당겨 인덱스 0인 공간을 채워줘야 한다. 모든 인덱스가 움직이는데 드는 시간복잡도는 O(n)라 볼 수 있다.</p>
 
-<h3 id="25-complexity">2.5 Complexity</h3>
+<h3 id="25-time-complexity">2.5 Time Complexity</h3>
 
 <table>
   <thead>
