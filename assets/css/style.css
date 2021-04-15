@@ -4615,8 +4615,7 @@ a {
  */
 blockquote {
   font-size: 20.25px;
-  letter-spacing: -1px;
-  font-style: italic; }
+  letter-spacing: -1px; }
   .theme--dark blockquote {
     color: #1E2227; }
   .theme--light blockquote {
