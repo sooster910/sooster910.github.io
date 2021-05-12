@@ -58,39 +58,24 @@
 
 <h1 id="이진-트리-순회---dfs">이진 트리 순회 - DFS</h1>
 
-<p>이진트리를 이해하기전 먼저 트리에 대해서 큰 그림을 보자면,</p>
-
-<p>트리는 만약 각 노드가 m 개 이하의 자식을 갖고 있으면  m-ary트리 즉 다항트리 다진 트리라고 정의 된다.</p>
+<p>이진트리를 이해하기전 먼저 트리에 대해서 큰 그림을 보자면,<br />
+트리는 만약 각 노드가 m 개 이하의 자식을 갖고 있으면  m-ary트리 즉 다항트리 다진 트리라고 정의 된다.</p>
 <h2 id="트리의-종류-그리고-이진트리">트리의 종류 그리고 이진트리</h2>
-<p><a href="https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html">https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html</a></p>
 
-<ul>
-  <li>종류
-    <ul>
-      <li>이진트리(Binary Tree) -  <strong>자식노드가 최대 두개</strong>를 갖는 구조이다 즉, 노드의 차수가 2 이하일 때
-        <ul>
-          <li>이진트리의 유형 : Full Binary Tree, Complete Binary Tree, Perfect Binary Tree
-            <ol>
-              <li>Full Binary Tree(정 이진 트리 ) - 각 노드의 차수가 0 개이거나 2개인 경우에 해당</li>
-              <li>Complete Binary (완전 이진 트리) - Full Binary Tree 이거나 leaf 노드의 경우 왼쪽 노드부터 채워져 있는 구조</li>
-              <li>Perfect Binary Tree (포화이진 트리 )- 모든 리프노드가 동일한 깊이/렙</li>
-            </ol>
-          </li>
-          <li>이진트리 순회
-            <ol>
-              <li>중위순회</li>
-              <li>전위순회</li>
-              <li>후위순회</li>
-            </ol>
-          </li>
-        </ul>
-      </li>
-      <li>이진탐색트리</li>
-      <li>균형트리(AVL트리, RedBlack)</li>
-      <li>이진힙 (최대힙, 최소힙)</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="종류"><strong>종류</strong></h3>
+<p>1️⃣  이진트리(Binary Tree) -  <strong>자식노드를 최대 두개</strong>를 갖는 구조이다 즉, 노드의 차수가 2 이하일 때<br />
+    🔸 이진트리의 유형 : Full Binary Tree, Complete Binary Tree, Perfect Binary Tree.<br />
+          1). Full Binary Tree(정 이진 트리 ) - 각 노드의 차수가 0 개이거나 2개인 경우에 해당.  <br />
+          2). Complete Binary (완전 이진 트리) - Full Binary Tree 이거나 leaf 노드의 경우 왼쪽 노드부터 채워져 있는 구조.<br />
+          3). Perfect Binary Tree (포화이진 트리 )- 모든 리프노드가 동일한 깊이/레벨.<br />
+    🔸 이진트리 순회<br />
+          1). 중위순회<br />
+          2). 전위순회<br />
+          3). 후위순회</p>
+
+<p>2️⃣  이진탐색트리<br />
+3️⃣  균형트리(AVL트리, RedBlack)<br />
+4️⃣  이진힙 (최대힙, 최소힙)</p>
 
 <p>여기서 다룰 이야기는 이진트리 순회이며, 순회하는 방식엔 중위순회, 전위순회, 후위순회가 있다.</p>
 
@@ -99,7 +84,7 @@
 중위순회(부모가 중간에) 4-2-5-1-6-7-3<br />
 후위순회(부모가 제일 나중에) 4-5-2-6-7-3-1</p>
 
-<h3 id="구현">구현</h3>
+<h3 id="구현"><strong>구현</strong></h3>
 <h4 id="1-전위순회">1. 전위순회</h4>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">target</span><span class="p">){</span>
     <span class="nx">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
