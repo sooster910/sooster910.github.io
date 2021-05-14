@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-14T14:32:12+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-14T16:05:30+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
 </subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
   &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;목록
-함수&lt;br /&gt;
-1.자바스크립트에서의 함수
-2.타입스크립트에서의 함수 
-    2.1 어디에 타입을 추가하나?
-        2.1.1 매개변수 타입 종류
-            1) default parameter
-            2) rest parameter
-            3) optional parameter
-    2.2 익명 함수
-    2.3 콜백 함수&lt;/p&gt;
-&lt;h1 id=&quot;function---함수에-대한-타입지정&quot;&gt;Function - 함수에 대한 타입지정&lt;/h1&gt;
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;#1-자바스크립트에서의-함수&quot;&gt;1. 자바스크립트에서의 함수&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#2-타입스크립트에서의-함수&quot;&gt;2. 타입스크립트에서의 함수  &lt;/a&gt;&lt;br /&gt;
+    &lt;a href=&quot;#21-어디에-타입을-추가하나&quot;&gt;2.1. 어디에 타입을 추가하나?&lt;/a&gt;&lt;br /&gt;
+            &lt;a href=&quot;#211-매개변수-타입-종류&quot;&gt;2.1.1 매개변수 타입 종류&lt;/a&gt;&lt;br /&gt;
+                    &lt;a href=&quot;#1-default-parameter&quot;&gt; 1. default parameter &lt;/a&gt;&lt;br /&gt;
+                    &lt;a href=&quot;#2-optional-parameter&quot;&gt; 2. optional parameter &lt;/a&gt;&lt;br /&gt;
+                    &lt;a href=&quot;#3-rest-parameter&quot;&gt; 2. rest parameter &lt;/a&gt;&lt;br /&gt;
+            &lt;a href=&quot;#22-익명-함수&quot;&gt;2.2 익명 함수&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;함수에-대한-타입지정function&quot;&gt;함수에 대한 타입지정(Function)&lt;/h1&gt;
 
 &lt;p&gt;타입스크립트에서는 함수의 매개변수와 리턴값에 대해 타입을 지정한다. 자바스크립트와 타입스크립트를 비교하여 타입스크립트에서 타입지정이 왜 조금더 안전성이 있는지 이해할 수 있다.&lt;/p&gt;
 
@@ -27,7 +26,7 @@
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//10050 expected result: 150&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;자바스크립트 런타임에 문제가 없고 실제 사용자가 사용하는 서비스 가령 라면.. 이런 일은 없어야 할 것이다. 그래서 자바스크립트에선 타입 검증코드를 항상 추가한다.&lt;/p&gt;
+&lt;p&gt;위의 코드를 실행하면 런타임에 문제가 없다. 하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;num&lt;/code&gt; 이 문자로 인식하여 반환값이 두 수의 합이 아닌 문자간의 결합이 되었다. 실제 사용자가 사용하는 서비스 가령 계산을 하는 로직이라면 이런 일은 없어야 할 것이다. 그래서 자바스크립트에선 타입 검증코드를 항상 추가한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -42,7 +41,7 @@
   &lt;li&gt;강제적으로 타입캐스팅 -&amp;gt;불필요한 자원을 소비-&amp;gt;성능저하&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;2-타입스크립트-에서의-함수&quot;&gt;2. 타입스크립트 에서의 함수&lt;/h2&gt;
+&lt;h2 id=&quot;2-타입스크립트에서의-함수&quot;&gt;2. 타입스크립트에서의 함수&lt;/h2&gt;
 
 &lt;p&gt;위에서 언급한 자바스크립트의 타입을 쓰지 않는 점에 초래하는 문제점에 비해 타입스크립트는 함수에 타입을 지정함으로써 지정하지 않은 타입은 compile error 를 미리 알려주어 안전성을 강화하며 간결한 코드를 만들 수 있다.&lt;/p&gt;
 
@@ -51,7 +50,7 @@
 2️⃣ 반환 타입(Return Type Annotations)&lt;br /&gt;
 3️⃣ 매개변수+반환&lt;/p&gt;
 
-&lt;h4 id=&quot;1️⃣-매개변수-타입&quot;&gt;1️⃣ 매개변수 타입&lt;/h4&gt;
+&lt;h4 id=&quot;매개변수-타입&quot;&gt;&lt;strong&gt;매개변수 타입&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Parameter type annotation&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -61,7 +60,7 @@
 &lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ❌ compiled error! &lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;2️⃣-반환-타입&quot;&gt;2️⃣ 반환 타입&lt;/h4&gt;
+&lt;h4 id=&quot;반환-타입&quot;&gt;&lt;strong&gt;반환 타입&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Hi, all!!&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -69,21 +68,25 @@
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Hi, all!!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;3️⃣-매개변수반환&quot;&gt;3️⃣ 매개변수+반환&lt;/h4&gt;
+&lt;h4 id=&quot;매개변수반환&quot;&gt;&lt;strong&gt;매개변수+반환&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Hello, &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!!&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Hello, SUE!! ✅ compiled!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;-211-매개변수-타입-종류-&quot;&gt;** 2.1.1 매개변수 타입 종류 **&lt;/h4&gt;
-&lt;p&gt;함수 입장에서 아마도 이렇게 구분 할 수 있을 것 같다.
-인자가 전달되지 않을 때(생략가능), default값을 두는 경우, default parameter.   &lt;br /&gt;
-인자가 전달 되지 않는 경우(생략 가능),optional parameter. &lt;br /&gt;
-인자가 여러개이고 순서가 중요하지 않은 경우,rest parameter.&lt;/p&gt;
 
-&lt;p&gt;1) default parameter 
-자바스크립트의 ES06에서 사용하듯이 타입스크립트 에서도 매개변수에 default값을 지정 할 수 있다.&lt;/p&gt;
+&lt;h4 id=&quot;211-매개변수-타입-종류&quot;&gt;&lt;strong&gt;2.1.1 매개변수 타입 종류&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;함수 입장에서 아마도 이렇게 구분 할 수 있을 것 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인자가 전달되지 않을 때(생략가능) default값을 두는 경우, default parameter.&lt;/li&gt;
+  &lt;li&gt;인자가 전달 되지 않는 경우(생략 가능), optional parameter.&lt;/li&gt;
+  &lt;li&gt;인자가 여러개이고 순서가 중요하지 않은 경우, rest parameter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;1-default-parameter&quot;&gt;&lt;strong&gt;1. default parameter&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;자바스크립트의 ES06에서 사용하듯이 타입스크립트 에서도 매개변수에 default값을 지정 할 수 있다.&lt;/p&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -99,8 +102,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// ❌ Expected 1 arguments, but got 0.ts(2554)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;2) optional parameter
-default parameter와 비슷하게 인자를 생략할 수 있다. 다른 점은 default parameter는 결국 함수에서 기본 값을 가지고 있었기에 에러가 나지 않았지만, optional parameter는 기본값을 초기화하지 않아도 생략이 가능하다.&lt;/p&gt;
+&lt;h4 id=&quot;2-optional-parameter&quot;&gt;2. &lt;strong&gt;optional parameter&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;default parameter와 비슷하게 인자를 생략할 수 있다. 다른 점은 default parameter는 결국 함수에서 기본 값을 가지고 있었기에 에러가 나지 않았지만, optional parameter는 기본값을 초기화하지 않아도 생략이 가능하다.&lt;/p&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -122,8 +125,8 @@ default parameter와 비슷하게 인자를 생략할 수 있다. 다른 점은 
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;totalNum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// ✅ 100&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;3) rest parameter
-&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters&quot;&gt;ES06의 rest parameters/Destructuring rest parameters&lt;/a&gt;와 동일하게 쓰인다.여러개의 매개변수들을 배열화 하여 처리하며 타입지정시 주의할 점은 타입 뒤에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; 을 넣어 배열화 처리를 명시한다.&lt;/p&gt;
+&lt;h4 id=&quot;3-rest-parameter&quot;&gt;3. &lt;strong&gt;rest parameter&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters&quot;&gt;ES06의 rest parameters/Destructuring rest parameters&lt;/a&gt;와 동일하게 쓰인다.여러개의 매개변수들을 배열화 하여 처리하며 타입지정시 주의할 점은 타입 뒤에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; 을 넣어 배열화 처리를 명시한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -179,7 +182,7 @@ default parameter와 비슷하게 인자를 생략할 수 있다. 다른 점은 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;22-콜백-함수&quot;&gt;2.2 콜백 함수&lt;/h2&gt;
+&lt;p&gt;이 외에도 함수 파트에선 다룰 이야기들이 더 있다. 객체에서의 함수와 콜백함수는 interface와 tsconfig를 더 공부한 후에 정리한 내용을 포스팅 해야 할 것 같다.&lt;/p&gt;
 
 &lt;p&gt;참고자료&lt;/p&gt;
 
