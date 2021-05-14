@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-14T16:05:30+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-14T16:48:36+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
 </subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
   &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
@@ -162,8 +162,8 @@
 
 &lt;h3 id=&quot;익명함수의-타입을-함수의-타입으로-분리&quot;&gt;&lt;strong&gt;익명함수의 타입을 함수의 타입으로 분리&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;익명함수에 타입을 따로 분리하여 함수 타입을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; alias를 이용해 선언한다.
-이점 :&lt;/p&gt;
+&lt;p&gt;익명함수에 타입을 따로 분리하여 함수 타입을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; alias를 이용해 선언한다.&lt;br /&gt;
+장점 :&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;가독성이 좋아진다.&lt;/li&gt;
   &lt;li&gt;재사용성&lt;/li&gt;
