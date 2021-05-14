@@ -4980,6 +4980,16 @@ ul.related-posts {
       font-weight: 900;
       -webkit-font-smoothing: antialiased; }
 
+/*
+* Table
+*/
+table {
+  border-collapse: collapse; }
+
+table, td, th {
+  border: 1px solid #dadada;
+  padding: 5px 15px; }
+
 .toggleWrapper {
   display: inline-block;
   float: right;
