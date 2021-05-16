@@ -1,20 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-16T06:49:08+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-16T06:52:55+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">지난 나의 12월</title><link href="https://sooster910.github.io/2021/05/13/last-december.html" rel="alternate" type="text/html" title="지난 나의 12월" /><published>2021-05-13T00:00:00+00:00</published><updated>2021-05-13T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/13/last-december</id><content type="html" xml:base="https://sooster910.github.io/2021/05/13/last-december.html">&lt;ul&gt;
-  &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;저번주부터 정말 신기한게 급격하게 몸이 다 나아졌다. 정말이지 거짓말처럼…매일 6-7km 를 아빠와 함께 걸었다. 그리고 재활병원도 일주일에 두번씩 다녔다. 입원이란 단어는 그건 먹는건가요? 라고 생각할 만큼 나한테는 관련이 없다고 생각하며 살아왔었다. 과거엔 한때 체대시절엔.. 아프다고 하고 싶은데 아프다고 하기엔 너무 건강해서 선배들의 집합에 한번도 안빠지고 매번 나갔었던..뭐 그런기억도 있다.&lt;/p&gt;
-
-&lt;p&gt;절대 절대로 과거에 있던 나를 생각하며, 아니면 현재에 있는 내상태에서 나는 안그렇겠지 라는 라는 너무 안일한 생각을 하지 말자는 것과, 모든 유기체가 같이 연동되어 맞물리듯이  건강한 육체에 건강한 정신나온다는  말이 .. 틀린게 하나 없음을 물에 빠져버린 스펀지처럼 와닿는 말이다.  한 때는 육상선수, 합기도 선수, 체대생이 었음을  너무 안일하게 생각해 버린 걸까.&lt;/p&gt;
-
-&lt;p&gt;누워 있는 동안은 생각이 많아진다. 그러면서 블로그를 차츰 쓰기 시작했지만, 아프면 또 놔버린 문장에 완성되지 않은 문장들과 글들이 쌓여만 갔다. 이제 정리해서 하나씩 차츰 올릴 생각이다.&lt;/p&gt;
-
-&lt;p&gt;그러나 이 긴 시간들이 나에게 너무 소중하게 느껴졌던 이유는 나에 대해 재정비 할 수 있던 기회를 얻게 되는 것이었다. 나 라는 건강이 건강에 서의 재정비 뿐 만아니라 나 라는 사람은 기술력도 있다. 그 기술력이 남과의 비교해서 뛰어나다는 의미 보단, 재정비 전과 지금의 나로서 얼만큼 다른 시선으로 볼 수 있는가로 해석할 수 있을 것 같다.&lt;/p&gt;
-
-&lt;p&gt;You Don’t know JS 라는 책을 2년 전에 classmate의 추천으로 산적이 있었는데 그 땐 솔직히 잘 이해가 되지 않았다.내 눈은 글을 보고 있었지만 읽는다라고 볼 수 없었고, 내 몸으로 아!라고 느낄 수 없었다. 그러다 보니 암기식으로 읽게 되었는데 당연히 다 읽지 않았을 뿐더러, 당연히 기억할리가 없다.&lt;/p&gt;
-
-&lt;p&gt;You Don’t know JS에 타입과 문법, 스코프와 클로저라는 책 (단권) 엔 타입과 형변환에 대한 이야기를 꽤나 많이 한다. 형변환에 대한 중요성을 엄청 나게 크게 대하는 것이고, 그것이 서비스로 연결되었을 때 타입 체킹을 제대로 하지 않는게 얼마나 서비스에 영향을 미치는지 보게되는 것이다. 책을 처음 읽었을 때 자바스크립트를 처음 접하고 있던 나는 계속 해서 이야기하는 타입 검증, 명시적, 암시적 형변환에 그렇게 와닿지 못한채 개인 프로젝트를 하게되고 타입 체킹을 안하는 함수들이 다 반사 였고 그 이유는 그래도 잘 돌아갔기 때문이다. 그런데 생각해보면 그것이 잘 돌아갈 수 밖에 없는 이유는 런타임 에러를 일으키지 않을 만한 값만 넣고 테스트했기 때문이다. 더 무서운 점은 자바스크립트는 잘 돌아가는 적도 있으니 뭐가 잘되고 잘 못되었는지 모른채 넘어간다.  그리고 타입스크립트에 대한 필요성과 존재에 감사함(?)을 느끼는 시기가 온다. 아니 이야기가 결국 타입스크립트로 흘러간다고..?, 다시 결국 하고자 하는 이야기는 You Don’t know JS 책을 읽었을 때 흡수력도 훨씬 좋아졌을 뿐더러 보는 나의 시선이 달라졌다는 점이다. 다른 개발자들도 당연히 알겠지 라고 생각하고 무심코 썼던 암시적 타입변환에, 이제는 혹시라도 다른 개발자가 보았을 때 clear하게 이해가 되도록 명시적 타입변환을 써야 겠다 라는 점 등의 문법을 알고있는것이 중요한 것이 아닌 협업속에서 내가 코드를 짤 때 가치관에 대해 생각하는 점에서 너무 좋은 기회 였음을 느끼게 되었다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="끄적끄적" /><summary type="html">TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄</summary></entry><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
   &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1299,4 +1285,31 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;getTwoSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//[0,1]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="DataStructure/Algorithm" /><category term="JS" /><summary type="html">문제 Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order. ```</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="DataStructure/Algorithm" /><category term="JS" /><summary type="html">문제 Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order. ```</summary></entry><entry><title type="html">첫 블로그 😁</title><link href="https://sooster910.github.io/2020/10/08/first-post.html" rel="alternate" type="text/html" title="첫 블로그 😁" /><published>2020-10-08T00:00:00+00:00</published><updated>2020-10-08T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/08/first-post</id><content type="html" xml:base="https://sooster910.github.io/2020/10/08/first-post.html">&lt;p&gt;책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.&lt;/p&gt;
+
+&lt;p&gt;그래서 한국에 와서 처음으로 간 곳은 교보문고 서점, 자서전이나 자기계발 책들을 그렇게 썩 좋아하는 편은 아니나,
+오랜만에 서점을 와서 그런지 직관적인 제목이 눈에 띄였다. “성공하는 프로그래밍 공부법”, 훗 이런 제목이 있었네 하며 펼쳐들었는데
+그자리에 서서 몇 십장의 책장을 넘기고 있는 나를 보았다. 
+그 잠깐 읽는 와중에 정말 눈의 띄였던 구절은 소프트웨어 장인 정신에 대한 내용이었는데,&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;동작하는 소프트웨어뿐만 아니라, 
+	정교하고 솜씨 있게 만들어진 작품을,
+	
+변화에 대응하는 것뿐만 아니라,
+	계속해서 가치를 더하는 것을,
+	
+개별적으로 협력하는 것뿐만 아니라,
+	프로페셔널 커뮤니티를 조성하는 것을,
+	
+고객과 협업하는 것뿐만 아니라, 
+	생산적인 동반자 관계를,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;이 구절은 애자일 선언문을 기반으로 만들어진 것이라고 한다. 
+“~아니라”의 구문은 부끄럽게도 내 생각의 범위와도 같은것 같다.
+하지만 이 글을 본 순간 왠지 모르게 공감이 되는건 뭔가 내가 지향하고픈 가치관이 아닐까..
+아직 일년차 디벨로퍼로써 정교하고 솜씨 있게 만들어진 작품이라는게 정말 깊게 어떤걸 의미하는 건 진 잘 모르겠지만 아마도 내가 이런 글에 공감을 하고 있다는건, 뭔진 잘 모르지만 그 부분을 앞으로 개발자로서 알아가게 되는 길이 아닐까 하고 생각한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;바로잡고 싶은 습관이 있다. 프로젝트나 회사일을 할 때, 그 때 순간에만 해결하고 항상 나중에 공부해야지 해놓고 북마크만 해놓는.. 아주 좋지 않은 습관 😱 
+그래서 새로 알게 된 지식들, 부딪히며 문제로 안고있었던 점 들, 결국 해결해내는 일들 등을 기록으로 남기면서 5년 후에, 10년후의 개발자로서 기초가 탄탄하고 유연하게 문제 해결을 잘 해 낼 수있는 그런 개발자가 되고싶다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="welcome" /><category term="끄적끄적" /><summary type="html">책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.</summary></entry></feed>
