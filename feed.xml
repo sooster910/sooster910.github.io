@@ -1,6 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-16T06:52:55+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-19T04:17:05+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">Jekyll에 Syntax Highlighter 적용</title><link href="https://sooster910.github.io/2021/05/14/syntaxhighlighter.html" rel="alternate" type="text/html" title="Jekyll에 Syntax Highlighter 적용" /><published>2021-05-14T00:00:00+00:00</published><updated>2021-05-14T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/14/syntaxhighlighter</id><content type="html" xml:base="https://sooster910.github.io/2021/05/14/syntaxhighlighter.html">&lt;p&gt;며칠전 타입스크립트의 함수사용시 타입추가에 대한 글을 쓰는 중이었다. 가독성이 좋아진다. 가독성?? 코드 블럭을 보니 가독성이 좋지가 않다. 그 이후 블로그에 타이핑만 하고 있으면 그 코드 블럭이 눈에 밟히기 시작했다. 😑&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/readerable.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;syntax-highlighter-적용&quot;&gt;Syntax highlighter 적용&lt;/h1&gt;
+
+&lt;p&gt;Rouge라는 툴은 루비로 쓰여진 유명한  syntax highlighter 이다. Rouge가 theme을 제공해주기 때문에 syntax 하나하나에 수동으로 css에서 컬러를 지정하지 않아도 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1 . &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; 설정파일에 추가하기.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;markdown: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kramdown&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;kramdown:
+  input: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GFM&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;syntax_highlighter: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rouge&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2 . rouge 설치하기 (command line)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem install rouge&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3 . 설치가 성공적으로 되었다면, rouge 에서 제공하는 theme 알아보기.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rougify help style&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;어떤 스타일인지 preview 를 보고싶다면 &lt;a href=&quot;https://spsarolkar.github.io/rouge-theme-preview/&quot;&gt;preview 클릭&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4 . 원하는 theme을 선택했다면, theme에 응한 css파일 생성&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monokai.sublime&lt;/code&gt;이란 theme을 사용했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rougify style monokai.sublime &amp;gt; assets/css/syntax.css&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;syntax.css라는 파일이 css의 하위폴더에 생성된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/scssfile.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 새로 생성된 css 코드베이스를 기존에 있던 syntax-highlighting.css로 옮기기&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;새로 생성된 css의 코드를 전체 복사한 후, css의 원래 적용되어 있는 syntax-highlighting.css 파일 또는 scss안에 내용은 지우고 붙여넣기 한다.아마 theme 마다 파일이름은 다를 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/scssfile1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6 . 수정된 사항 적용 위해 build 하기&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;c1&quot;&gt;//적용된 theme &lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;참고자료&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://moon9342.github.io/jekyll-rouge&quot; target=&quot;_blank&quot;&gt;moon9342.github.io 님의 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[도서 - 정진욱, 타입스크립트 퀵스타트, 루비페이퍼 ]&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="Jekyll" /><category term="Rouge" /><summary type="html">며칠전 타입스크립트의 함수사용시 타입추가에 대한 글을 쓰는 중이었다. 가독성이 좋아진다. 가독성?? 코드 블럭을 보니 가독성이 좋지가 않다. 그 이후 블로그에 타이핑만 하고 있으면 그 코드 블럭이 눈에 밟히기 시작했다. 😑</summary></entry><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
   &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1285,31 +1347,4 @@ Map 객체에 x 의 값인 7 이 있는지 확인한다. 만약 7이 없다면 M
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;getTwoSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//[0,1]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="DataStructure/Algorithm" /><category term="JS" /><summary type="html">문제 Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order. ```</summary></entry><entry><title type="html">첫 블로그 😁</title><link href="https://sooster910.github.io/2020/10/08/first-post.html" rel="alternate" type="text/html" title="첫 블로그 😁" /><published>2020-10-08T00:00:00+00:00</published><updated>2020-10-08T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/10/08/first-post</id><content type="html" xml:base="https://sooster910.github.io/2020/10/08/first-post.html">&lt;p&gt;책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.&lt;/p&gt;
-
-&lt;p&gt;그래서 한국에 와서 처음으로 간 곳은 교보문고 서점, 자서전이나 자기계발 책들을 그렇게 썩 좋아하는 편은 아니나,
-오랜만에 서점을 와서 그런지 직관적인 제목이 눈에 띄였다. “성공하는 프로그래밍 공부법”, 훗 이런 제목이 있었네 하며 펼쳐들었는데
-그자리에 서서 몇 십장의 책장을 넘기고 있는 나를 보았다. 
-그 잠깐 읽는 와중에 정말 눈의 띄였던 구절은 소프트웨어 장인 정신에 대한 내용이었는데,&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;동작하는 소프트웨어뿐만 아니라, 
-	정교하고 솜씨 있게 만들어진 작품을,
-	
-변화에 대응하는 것뿐만 아니라,
-	계속해서 가치를 더하는 것을,
-	
-개별적으로 협력하는 것뿐만 아니라,
-	프로페셔널 커뮤니티를 조성하는 것을,
-	
-고객과 협업하는 것뿐만 아니라, 
-	생산적인 동반자 관계를,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;이 구절은 애자일 선언문을 기반으로 만들어진 것이라고 한다. 
-“~아니라”의 구문은 부끄럽게도 내 생각의 범위와도 같은것 같다.
-하지만 이 글을 본 순간 왠지 모르게 공감이 되는건 뭔가 내가 지향하고픈 가치관이 아닐까..
-아직 일년차 디벨로퍼로써 정교하고 솜씨 있게 만들어진 작품이라는게 정말 깊게 어떤걸 의미하는 건 진 잘 모르겠지만 아마도 내가 이런 글에 공감을 하고 있다는건, 뭔진 잘 모르지만 그 부분을 앞으로 개발자로서 알아가게 되는 길이 아닐까 하고 생각한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;바로잡고 싶은 습관이 있다. 프로젝트나 회사일을 할 때, 그 때 순간에만 해결하고 항상 나중에 공부해야지 해놓고 북마크만 해놓는.. 아주 좋지 않은 습관 😱 
-그래서 새로 알게 된 지식들, 부딪히며 문제로 안고있었던 점 들, 결국 해결해내는 일들 등을 기록으로 남기면서 5년 후에, 10년후의 개발자로서 기초가 탄탄하고 유연하게 문제 해결을 잘 해 낼 수있는 그런 개발자가 되고싶다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="welcome" /><category term="끄적끄적" /><summary type="html">책장을 넘기는 촉감을 좋아한탓에 책만큼은 사서 읽으려는 하는 편이다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="DataStructure/Algorithm" /><category term="JS" /><summary type="html">문제 Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order. ```</summary></entry></feed>
