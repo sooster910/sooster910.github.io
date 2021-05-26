@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>render -1 | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="render -1" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄" />
+<meta property="og:description" content="puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄" />
+<link rel="canonical" href="https://sooster910.github.io/2020/03/01/react-render-series.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/03/01/react-render-series.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="render -1" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/03/01/react-render-series.html"},"author":{"@type":"Person","name":"Hyunsu Joo"},"description":"puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄","@type":"BlogPosting","headline":"render -1","dateModified":"2020-03-01T00:00:00+00:00","url":"https://sooster910.github.io/2020/03/01/react-render-series.html","datePublished":"2020-03-01T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/syntax.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-indigo-hover" href="https://www.linkedin.com/in/hyunsu-joo/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></i></a><a class="color-indigo-hover" href="https://github.com/sooster910"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title"><React hook series> render -1 </h1>
+  
+  <div class="post-tags">
+      <div class="post-date">
+      Published on 01 Mar 2020</div>
+
+      
+      <a class="tag" href="/tag/React/">React</a>
+      
+      <a class="tag" href="/tag/hook/">hook</a>
+      
+      <a class="tag" href="/tag/TIL/">TIL</a>
+      
+       
+  </div>
+ 
+  
+  
+  <ul>
+  <li>puppeteer와 Jest를 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</li>
+</ul>
+
+<h2 id="목차">목차</h2>
+<p><a href="#puppeteerjest">1.puppeteer + Jest</a><br />
+ <a href="#npm-run-test-실행환경-구축">2. npm run test 실행환경 구축 </a><br />
+ <a href="#headless-chromium-테스트-코드로-오픈하기">3. headless chromium 테스트 코드로 오픈하기</a><br />
+ <a href="#drydont-repeat-yourself">4. beforeEach( ), afterEach( ) 이용하여 리팩토링</a><br />
+ <a href="#test-case-작성">5. Jest test case 작성</a></p>
+
+<h2 id="usestate">useState()</h2>
+<p>setter 함수에서 만약 값이 초기값과 같다면 rerender 하지 않는다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import React,{useState} from 'react'
+
+export const UseState = () =&gt; {
+    const [count,setCount] =useState(0)
+
+    console.log('useState Render')
+    return (
+        &lt;div&gt;
+            &lt;button onClick={()=&gt;setCount(c=&gt;c+1)}&gt;count = {count}&lt;/button&gt;
+            &lt;button onClick={()=&gt;setCount(0)}&gt;count to 0 &lt;/button&gt;
+            &lt;button onClick={()=&gt;setCount(5)}&gt;count to 5&lt;/button&gt;
+
+        &lt;/div&gt;
+    )
+}
+
+</code></pre></div></div>
+
+<ol>
+  <li></li>
+</ol>
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/03/01/react-render-series.html';
+     this.page.identifier = '/2020/03/01/react-render-series';
+     this.page.title = '<React hook series> render -1 ';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/05/20/oop-1.html">
+            The Four Pillars of OOP with JS 1 of 4 Encapsulation 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/14/syntaxhighlighter.html">
+            Jekyll에 Syntax Highlighter 적용
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/11/typescript-function.html">
+            [TypeScript] 2.Function
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <!-- <h2>All tags</h2> -->
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-4">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-1">JS</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/oop/" class="set-1">OOP</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/react/" class="set-1">React</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/hook/" class="set-1">hook</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/resursion/" class="set-1">resursion</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-1">끄적끄적</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = '';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = "light";
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
