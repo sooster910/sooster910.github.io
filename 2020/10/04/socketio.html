@@ -1,0 +1,63 @@
+
+<h2 id="server-side">Server side</h2>
+<p>socket.io 패키지 설치</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">io</span>
+
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const express = require('express');
+const app = express();
+const socketio = require('socketio');
+app.use(express.static(__dirname+'/public') );
+
+const expressServer = app.listen(4000);
+
+const io = socketio(expressServer)
+</code></pre></div></div>
+
+<p>documentation 에 나오는 예제이다.  여기서 말하는 변수 <code class="language-plaintext highlighter-rouge">server</code>는 무엇을 의미할까?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">socket.io</span><span class="dl">'</span><span class="p">)();</span>
+<span class="c1">// or</span>
+<span class="kd">const</span> <span class="nx">Server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">socket.io</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+<p>app.listen() 을 변수에 담아둔다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Express listening on port</span><span class="dl">'</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+<span class="p">});</span>
+
+</code></pre></div></div>
+
+<p>socket.io를 서버에서 쓰기위해  <code class="language-plaintext highlighter-rouge">SocketIo</code> 와 서버를 바인딩한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">SocketIo</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">io</span><span class="dl">'</span><span class="p">,</span><span class="nx">io</span><span class="p">);</span> 
+</code></pre></div></div>
+<p>지금까지의 과정은 서버측에서 socket.io와 서버의 연결이고, 클라이언트와 서버가 서로 통신 부분은</p>
+
+<p><code class="language-plaintext highlighter-rouge">io.on('connection', 콜백)</code> 에서 이뤄진다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">connection</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="c1">//client와의 소켓이 연결되면 실행되는 곳이다 .</span>
+    <span class="c1">//client와의 소켓이 연결이 안 된 상태로 실행하게 되면, 처리되지 않는다.</span>
+    <span class="c1">//console.log('hello')</span>
+    <span class="c1">//서버 실행했을 때, hello 처리 안됨.</span>
+
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="the-client-side">The Client side</h2>
+
+<p>client쪽에선, io 라는 함수를 쓸 수있다.
+javascript code</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">();</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">io('https://mylocal:5000')</code> 안에 필요한 서버를 넣을 수 도 있는데 이 경우에는 socket server가 <code class="language-plaintext highlighter-rouge">https://mylocal:5000</code> 와 연결이 된다. 
+만약 없다면, 현재 서버를 가리킨다.</p>

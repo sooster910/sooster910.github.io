@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Node.js 잘 이해하기 1 | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Node.js 잘 이해하기 1" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Colt steel 의 Node.js 수업을 들으면서 혼자서 해 본 글입니다." />
+<meta property="og:description" content="Colt steel 의 Node.js 수업을 들으면서 혼자서 해 본 글입니다." />
+<link rel="canonical" href="https://sooster910.github.io/2020/11/01/Nodejs1.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/11/01/Nodejs1.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Node.js 잘 이해하기 1" />
+<script type="application/ld+json">
+{"url":"https://sooster910.github.io/2020/11/01/Nodejs1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/11/01/Nodejs1.html"},"author":{"@type":"Person","name":"Hyunsu Joo"},"description":"Colt steel 의 Node.js 수업을 들으면서 혼자서 해 본 글입니다.","@type":"BlogPosting","headline":"Node.js 잘 이해하기 1","dateModified":"2020-11-01T00:00:00+00:00","datePublished":"2020-11-01T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/syntax.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-indigo-hover" href="https://www.linkedin.com/in/hyunsu-joo/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></i></a><a class="color-indigo-hover" href="https://github.com/sooster910"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title">Node.js 잘 이해하기 1</h1>
+  
+  <div class="post-tags">
+      <div class="post-date">
+      Published on 01 Nov 2020</div>
+
+      
+      <a class="tag" href="/tag/Node.js/">Node.js</a>
+      
+       
+  </div>
+ 
+  
+  
+  <noscript>
+    <div class="post-description">Colt steel 의 Node.js 수업을 들으면서 혼자서 해 본 글입니다.</div>
+  </noscript>
+  <div id="animated-post-description" class="post-description" style="display: none;"></div>
+  
+  <blockquote>
+
+</blockquote>
+
+<h1 id="threads-란-무엇인가">Threads 란 무엇인가?</h1>
+
+<p>우리가 프로그램을 실행 시킬 때, 컴퓨터는 프로세싱을 시작한다.프로세스는 프로그램의 인스턴스인데, 싱글스레드 기반으로 되어져있다. 이게 여러개가 될 경우, thread라고 한다. 이 thread는  마치 투두 리스트처럼, 차례로 cpu에 의해 실행된다. (One by One)</p>
+
+<p>스케쥴링- 어떤 스레드가 바로 실행될 건지를 결정한다.</p>
+
+<p>예를 들어,</p>
+
+<p>더 빨리 스레드를 처리하기 위해서 아니면 주어진 시간에 더 많은 스레드를 처리하기 위해선, cpu core 를 컴퓨터 머신에 추가한다. 하나의 코어가 여러개의 스레드를 처리하는걸, 멀티스레딩이라 부른다.</p>
+
+<p>이벤트 루프를 이해하는 것은 프로그램의 성능과 영향이 있다.
+노드 프로그램을 실행하면 node는 자동으로 스레드 1개를 형성시키고, 안에 있는 코드를 실행시킨다. 이 스레드안에는 이벤트 루프라는 것이 있다. 이벤트 루프는 아마도 이 하나의 스레드가 해야할 일 이 뭔지를 결정</p>
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/11/01/Nodejs1.html';
+     this.page.identifier = '/2020/11/01/Nodejs1';
+     this.page.title = 'Node.js 잘 이해하기 1';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/05/26/2020-10-05-cluster.html">
+            
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/20/oop-1.html">
+            The Four Pillars of OOP with JS 1 of 4 Encapsulation 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/14/syntaxhighlighter.html">
+            Jekyll에 Syntax Highlighter 적용
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <!-- <h2>All tags</h2> -->
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/ci%2Fco/" class="set-1">CI/CO</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-4">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-1">JS</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/node.js/" class="set-1">Node.js</a> <a href="/tag/oop/" class="set-1">OOP</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/react/" class="set-1">React</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/webpack/" class="set-1">Webpack</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/hook/" class="set-1">hook</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/resursion/" class="set-1">resursion</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-2">끄적끄적</a> <a href="/tag/%EB%B0%B0%ED%8F%AC/" class="set-1">배포</a> <a href="/tag/%EB%B9%8C%EB%93%9C/" class="set-1">빌드</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = 'Colt steel 의 Node.js 수업을 들으면서 혼자서 해 본 글입니다.';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = "light";
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>

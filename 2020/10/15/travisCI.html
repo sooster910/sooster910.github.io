@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기 | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="github page에서 support하지 않는 Jekyll plugin 배포하는 방법." />
+<meta property="og:description" content="github page에서 support하지 않는 Jekyll plugin 배포하는 방법." />
+<link rel="canonical" href="https://sooster910.github.io/2020/10/15/travisCI.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/10/15/travisCI.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기" />
+<script type="application/ld+json">
+{"url":"https://sooster910.github.io/2020/10/15/travisCI.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/10/15/travisCI.html"},"author":{"@type":"Person","name":"Hyunsu Joo"},"description":"github page에서 support하지 않는 Jekyll plugin 배포하는 방법.","@type":"BlogPosting","headline":"Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기","dateModified":"2020-10-15T00:00:00+00:00","datePublished":"2020-10-15T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/syntax.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-indigo-hover" href="https://www.linkedin.com/in/hyunsu-joo/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></i></a><a class="color-indigo-hover" href="https://github.com/sooster910"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title">Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기</h1>
+  
+  <div class="post-tags">
+      <div class="post-date">
+      Published on 15 Oct 2020</div>
+
+      
+      <a class="tag" href="/tag/CI/CO/">CI/CO</a>
+      
+      <a class="tag" href="/tag/Jekyll/">Jekyll</a>
+      
+      <a class="tag" href="/tag/빌드/">빌드</a>
+      
+      <a class="tag" href="/tag/배포/">배포</a>
+      
+       
+  </div>
+ 
+  
+  
+  <noscript>
+    <div class="post-description">github page에서 support하지 않는 Jekyll plugin 배포하는 방법.</div>
+  </noscript>
+  <div id="animated-post-description" class="post-description" style="display: none;"></div>
+  
+  <p>jekyll 블로그를 만드는데 dash theme 을 이용했다.
+번들링 작업을 마치고. sooster910.github.io 에 들어가 확인을 하니, 로컬 환경에서 잘 나오던 태그 부분과 이미지가 나오지 않았다.</p>
+
+<p>dash theme github으로 가 read.md 확인을 해보니,</p>
+<blockquote>
+  <p>Using this theme directly on Github Pages
+Please keep in mind that Github Pages does only support a limited list of Jekyll plugins. You will be able to use this theme on Github Pages but some functionality might not be available, for example displaying tags. In order to use this theme to a full extend, you have to generate the _site externally, for example on TravisCI.</p>
+</blockquote>
+
+<p>githubPage를 이용하기위해선, <a href="https://jekyllrb.com/docs/home">제한된 Jekyll plugins</a> 만 가능하고, 그 외의 theme 이나 plugin 을 이용하기 위해선 TravisCI 를 사용하라고 나온다.</p>
+
+<h2 id="travis-ci-는-jekeyll에서-무슨-일을-">Travis CI 는 Jekeyll에서 무슨 일을 ?</h2>
+
+<p>TravisCI 가 Jekyll 에서 하는 일은, 우리가 블로그 코드베이스로부터의 변경사항을 웹페이지에 반영시키기 위해 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve </code> 을 cmdline 에 타이핑을 하고 나면, 웹서버가 생성되고 <code class="language-plaintext highlighter-rouge">_site</code> 라는 폴더가 프로젝트 폴더내에 생성된다. Jekyll은 내가 작성하거나 설정한 각종 값들이 _site에 결과물로 내보내어 진다. 이 결과물을 TravisCI를 통해 자동으로 githubPage가 설정되어 있는 repository로 import 시킨다.
+ 이 과정이 위에서 말한 ` you have to generate the _site externally.` 부분이다.</p>
+
+<p><img src="/assets/travis.jpg" alt="image" /></p>
+
+<p>이해도를 높이기 위해 내가 시도한 travis 빌드/배포 flow를 한번 그려봤다.
+ <code class="language-plaintext highlighter-rouge">/myblog</code> 가 나의 블로그 root폴더 이다.<br />
+  <code class="language-plaintext highlighter-rouge">/myblog</code> 내에 코드베이스를 수정 후 반영하기 위해, <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve </code> 를 매번 할필요 없이, remote repo로 git push를 하게 되면 TravisCI 가 빌드를 시작하고, 그 과정에서 <code class="language-plaintext highlighter-rouge">myblog/myconfig.yml</code>의 내용을 통해 <code class="language-plaintext highlighter-rouge">myblog/output</code>디렉토리 내에 위에서 말한 <code class="language-plaintext highlighter-rouge">_site</code>에 담긴 내용들이 import 된다. 그리고, output에 담긴 내용들이 다시 githubPage를 적용시킨 저장소에 다시 commit 하고 push 하여 배포한다. 이 결과로 githubPage 에 새로운 수정사항이 반영된다.</p>
+
+<p>TravisCI를 이용하는 이유는, Travis CI 는 깃허브 오픈소스에 한해서 무료로 빌드와 배포 서비스를 제공한다.</p>
+
+<h2 id="시작하기에-앞서-준비-되어야-할-것들">시작하기에 앞서 준비 되어야 할 것들,</h2>
+<p>2개의 repository 필요</p>
+
+<ul>
+  <li>
+    <p>현재 본인의 블로그 repository 
+(ex : sooster910/myblog)</p>
+  </li>
+  <li>
+    <p>githubPage가 세팅 되어있는 repository (ex : sooster910/sooster910.io)</p>
+  </li>
+</ul>
+
+<p><img src="/assets/travis_repo2.png" alt="image" /> <img src="/assets/travis_repo1.png" alt="image" /></p>
+
+<h2 id="순서">순서</h2>
+<p>1._config.yml 수정</p>
+<ol>
+  <li>output submodule 생성</li>
+  <li>.travis.yml 파일 생성</li>
+  <li>Token 생성, .travis.yml에 토큰 붙여넣기</li>
+  <li>Travis 로 가서 확인!</li>
+</ol>
+
+<p><img src="/assets/travis_directory.png" alt="image" /></p>
+
+<h2 id="1_configyml-수정">1._config.yml 수정</h2>
+<p>기존에 있던 _config.yml 파일에 추가해준다.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Build settings</span>
+
+<span class="c1"># 최종적으로 보여지는 블로그 웹페이지 url</span>
+<span class="c1"># url: https://sooster910.github.io </span>
+<span class="ss">url: </span><span class="n">https</span><span class="ss">:/</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">io</span> 
+
+<span class="c1">#본인의 블로그 respository url </span>
+<span class="c1"># source_url: https://github.com/sooster910/blogV2</span>
+<span class="n">source_url</span> <span class="p">:</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="p">.</span><span class="nf">com</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="sr">/&lt;블로그 저장소 이름&gt; 
+
+#위에 있는 url항목과 일치. production이 최종적으로 보여지는 블로그 웹페이지이다.
+#production_url: https:/</span><span class="err">/</span><span class="sr">soos</span><span class="n">ter910</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">io</span><span class="o">/</span>
+<span class="ss">production_url: </span><span class="n">https</span><span class="ss">:/</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">io</span> 
+
+<span class="c1">#중요! travisCI가 빌드한 것을 담을 폴더.</span>
+<span class="ss">destination: </span><span class="p">.</span><span class="nf">/</span><span class="n">output</span><span class="o">/</span>
+   
+<span class="c1">#Travis-CI setting</span>
+
+<span class="c1"># 본인의 깃헙 페이지에서 프로필 사진 밑에 나오는 이름이 username (username 은 user.name 과는 다른 것임.)</span>
+<span class="c1">#username:sooster910</span>
+<span class="ss">username: </span><span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
+
+<span class="c1"># travisCI가 작업할 repository 이름 이므로, 블로그 repository 이름.</span>
+<span class="c1">#repo: blogV2 </span>
+<span class="ss">repo: </span><span class="o">&lt;</span><span class="n">repository</span> <span class="nb">name</span><span class="o">&gt;</span>  
+</code></pre></div></div>
+
+<h2 id="2-submodule-생성">2. submodule 생성</h2>
+<p>앞서 언급했던, output이란 폴더에 travis CI가 빌드한 것을 담아준다.</p>
+
+<p>root블로그 디렉토리 
+ex)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git submodule add &lt;github page를 셋업 해놓은 respository url&gt; output
+</code></pre></div></div>
+
+<p>즉, 
+ex)</p>
+
+<h2 id="3-travisyml-파일-생성">3. .travis.yml 파일 생성</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="ss">sudo: </span><span class="kp">false</span>
+<span class="ss">language: </span><span class="n">ruby</span>
+<span class="ss">cache: </span><span class="n">bundler</span>
+<span class="ss">rvm:
+</span><span class="o">-</span> <span class="mf">2.6</span><span class="o">.</span><span class="mi">6</span>
+
+<span class="ss">install:
+  </span><span class="c1"># Install Jekyll and dependencies</span>
+  <span class="o">-</span> <span class="n">bundle</span> <span class="n">install</span>
+    <span class="c1">#user.email, user.name 확인하는 방법 </span>
+    <span class="c1">#git config --list </span>
+<span class="ss">before_script:
+  </span><span class="o">-</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">email</span> <span class="s2">"&lt;user.email&gt;"</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="s2">"&lt;user.name&gt;"</span>
+
+<span class="ss">script: </span><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rake</span> <span class="n">site</span><span class="ss">:deploy</span> <span class="o">--</span><span class="n">quiet</span> <span class="c1">#--trace</span>
+
+<span class="c1"># Generate your secure token with the travis gem:</span>
+<span class="c1"># get Github token from your Travis CI profile page</span>
+<span class="c1"># gem install travis</span>
+<span class="c1"># GH_TOKEN from https://github.com/settings/tokens</span>
+<span class="c1"># travis encrypt 'GIT_NAME="YOUR_USERNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'</span>
+<span class="ss">env:
+  global:
+    secure: </span><span class="o">&lt;</span><span class="no">GIT_TOKEN</span><span class="o">&gt;</span>
+<span class="ss">branches:
+  only:
+    </span><span class="o">-</span> <span class="n">master</span>
+
+
+
+</code></pre></div></div>
+<p>수정할 부분.
+` “<user.email>" `, `"<user.name>"` 을 확인하는 방법은,</user.name></user.email></p>
+
+<p><code class="language-plaintext highlighter-rouge">git.config --list</code> cmd에 치면, user.email 과 user.name 을 알려준다. 
+그다음 <code class="language-plaintext highlighter-rouge">&lt;GIT_TOKEN&gt;</code> 을 수정해줘야한다.</p>
+
+<hr />
+
+<p>####4. Token 생성, .travis.yml에 토큰 붙여넣기</p>
+
+<p>GIT_TOKEN 이 필요한 이유는, Travis CI에서</p>
+
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/10/15/travisCI.html';
+     this.page.identifier = '/2020/10/15/travisCI';
+     this.page.title = 'Travis CI 이용해 Github Pages 에 Jekyll 블로그 배포,자동화하기';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/05/26/2020-10-05-cluster.html">
+            
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/20/oop-1.html">
+            The Four Pillars of OOP with JS 1 of 4 Encapsulation 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/14/syntaxhighlighter.html">
+            Jekyll에 Syntax Highlighter 적용
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <!-- <h2>All tags</h2> -->
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/ci%2Fco/" class="set-1">CI/CO</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-4">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-1">JS</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/node.js/" class="set-1">Node.js</a> <a href="/tag/oop/" class="set-1">OOP</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/react/" class="set-1">React</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/webpack/" class="set-1">Webpack</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/hook/" class="set-1">hook</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/resursion/" class="set-1">resursion</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-2">끄적끄적</a> <a href="/tag/%EB%B0%B0%ED%8F%AC/" class="set-1">배포</a> <a href="/tag/%EB%B9%8C%EB%93%9C/" class="set-1">빌드</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = 'github page에서 support하지 않는 Jekyll plugin 배포하는 방법.';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = "light";
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>

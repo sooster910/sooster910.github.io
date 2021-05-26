@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>[Build Your Own Webpack 후기] 웹팩4 설정 | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="[Build Your Own Webpack 후기] 웹팩4 설정" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="튜토리얼을 보며 따라하다보면, 나중에 다시 이런 configuration을 혼자 할 땐, 예전에 한번 다뤄봤음에도 불구하고, 마치 처음인듯이.. 나오는 오류에 구글링 하고 해결하느라 시간을 더 할애하게 된다. 몇 번을 그랬었다. 그래서 차라리 오류들을 먼저 언급함으로써 툴 들을 쓰는 필요성에 대해 쓰면 어떨까 하는 생각이 들었다." />
+<meta property="og:description" content="튜토리얼을 보며 따라하다보면, 나중에 다시 이런 configuration을 혼자 할 땐, 예전에 한번 다뤄봤음에도 불구하고, 마치 처음인듯이.. 나오는 오류에 구글링 하고 해결하느라 시간을 더 할애하게 된다. 몇 번을 그랬었다. 그래서 차라리 오류들을 먼저 언급함으로써 툴 들을 쓰는 필요성에 대해 쓰면 어떨까 하는 생각이 들었다." />
+<link rel="canonical" href="https://sooster910.github.io/2020/10/23/webpack.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/10/23/webpack.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Build Your Own Webpack 후기] 웹팩4 설정" />
+<script type="application/ld+json">
+{"url":"https://sooster910.github.io/2020/10/23/webpack.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/10/23/webpack.html"},"author":{"@type":"Person","name":"Hyunsu Joo"},"description":"튜토리얼을 보며 따라하다보면, 나중에 다시 이런 configuration을 혼자 할 땐, 예전에 한번 다뤄봤음에도 불구하고, 마치 처음인듯이.. 나오는 오류에 구글링 하고 해결하느라 시간을 더 할애하게 된다. 몇 번을 그랬었다. 그래서 차라리 오류들을 먼저 언급함으로써 툴 들을 쓰는 필요성에 대해 쓰면 어떨까 하는 생각이 들었다.","@type":"BlogPosting","headline":"[Build Your Own Webpack 후기] 웹팩4 설정","dateModified":"2020-10-23T00:00:00+00:00","datePublished":"2020-10-23T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/syntax.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-indigo-hover" href="https://www.linkedin.com/in/hyunsu-joo/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></i></a><a class="color-indigo-hover" href="https://github.com/sooster910"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title">[Build Your Own Webpack 후기] 웹팩4 설정</h1>
+  
+  <div class="post-tags">
+      <div class="post-date">
+      Published on 23 Oct 2020</div>
+
+      
+      <a class="tag" href="/tag/Webpack/">Webpack</a>
+      
+       
+  </div>
+ 
+  
+  
+  <blockquote>
+  <p>튜토리얼을 보며 따라하다보면, 나중에 다시 이런 configuration을 혼자 할 땐, 예전에 한번 다뤄봤음에도 불구하고, 마치 처음인듯이.. 나오는 오류에 구글링 하고 해결하느라 시간을 더 할애하게 된다. 몇 번을 그랬었다. 
+그래서 차라리 오류들을 먼저 언급함으로써 툴 들을 쓰는 필요성에 대해 쓰면 어떨까 하는 생각이 들었다.</p>
+</blockquote>
+
+<h2 id="webpack-이란">Webpack 이란?</h2>
+
+<p>웹팩은 모듈 번들러라고 하는데, 먄약 우리가 React Project를 진행한다 가정했을 때, React 디렉토리에 있는 파일들을 ([ex]index.jsx, App.jsx, and component files), index.html, and CSS files (modules with dependencies) 한곳에 묶어 static assets 이란 곳에 둔다 (정적 파일?)
+이 static assets은 JSX, ES6, ES7, ES8, and etc.와 같은 코드로 이루어져있는데, 중요한 점은 이런 문법, template 들은 브라우저가 읽을 수가 없다는것이다.</p>
+
+<h1 id="what-is-a-bundler">What is a bundler?</h1>
+<p>번들러는 우리가 모듈 을 작성할 수 있게 
+Bundlers let us write modules that work in the browser</p>
+
+<h1 id="ecmascript-modules">ECMASCRIPT MODULES</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//this module depends on loadash</span>
+<span class="k">import</span> <span class="nx">_</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lodash</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">//this is what this module exposes</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">someValue</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="commonjs">COMMONJS</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">_</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">lodash</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">someValue</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>만약 파일이 .js로 끝나면 babel-loader를 사용한다라는 뜻이다. 
+<code class="language-plaintext highlighter-rouge">npm run watch</code> 를 하고나면, 또 다른 에러를 볼 수 있다.
+<code class="language-plaintext highlighter-rouge">render(&lt;h1&gt;&lt;/h1&gt;)</code> 부분에 unexpected Error가 났다고 명시 되어 있다. 이 에러가 난 이유는 <code class="language-plaintext highlighter-rouge">render(&lt;h1&gt;&lt;/h1&gt;)</code> 이 부분은 jsx syntax 이며,  오직 바벨만 해석할 수 있다.</p>
+
+<p>바벨을 그럼 정의 해줘야 한다. 어디에 어떻게?</p>
+
+<p><code class="language-plaintext highlighter-rouge">babel.config.js</code> 파일을 만들어서 여기 에는 babel과 관련된 사항만 넣는다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="o">=</span><span class="p">{</span>
+    <span class="na">presets</span><span class="p">:[</span>
+        <span class="dl">"</span><span class="s2">@babel/preset-env</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">@babel/preset-react</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다시 <code class="language-plaintext highlighter-rouge">npm run watch</code>를 입력하면, 
+build가 완성되었고, <code class="language-plaintext highlighter-rouge">localhost:8080</code>로 가면 이런페이지가 나온다</p>
+
+<blockquote>
+  <p>babel은 브라우저가 지원하지 않는 자바스크립트 문법들을 브라우저가 이해할 수 있도록 코드를 변환해주는 역할을 한다.특정 브라우저에서 지원하지 않는 자바스크립트 함수 혹은 es6(ES2015), ES7 등의 차세대 자바스크립트 문법 등을 브라우저가 이해할 수 있는 문법으로 바꾸어준다. –transpile.</p>
+</blockquote>
+
+<p>can’t get 이란 페이지가 나오는 이유는 웹팩이 dist directory에  html을 찾으려는 것이다. 해결하는 방법은, content-base 를 이용하면 되는데, 이것은 본질적으로 index.html 이 있는 위치를 말한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">devServer</span><span class="p">:{</span>
+                <span class="p">.</span>
+                <span class="p">.</span>
+        <span class="nx">contentBase</span><span class="p">:</span><span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">./src</span><span class="dl">"</span><span class="p">),</span>
+                <span class="p">.</span>
+                <span class="p">.</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>can’t get 400 메세지는 없어졌다. 그런데 우리가 원래 하려면 hello webpack 이 랜더링 되지 않는다.현재 webpac.config에서 entry가 있어서 웹팩이 어느 파일을 불러 서 동작해야 하는진 알고있지만, 처리후 어디로 결과를 보내줘야 하는지에 대한 경로가 없다. 웹팩에선 output 이라는게 있는데 거기에 경로를 써주면 된다.</p>
+
+<h2 id="htmlwebpackplugin">htmlWebPackPlugin</h2>
+
+<p>번들링 작업을 할 때, HTML파일을 생성해주는 플러그인이다. 
+수동적으로  <code class="language-plaintext highlighter-rouge">./dist</code> 디렉토리안에 <code class="language-plaintext highlighter-rouge">index.html</code>을 만들 수도 있지만 그렇게 하려면 <code class="language-plaintext highlighter-rouge">./dist</code> 를 수동적으로 만들고 해야하는 번거러움이 있다. 그래서 npm run build 라 커멘드를 작성하면, 자동으로 <code class="language-plaintext highlighter-rouge">./dist/index.html</code> 파일이 생성될 수 있게 해준다.</p>
+
+<h2 id="eslint">ESLint</h2>
+<p>Dcoumentation에 따르면, 코드의 일관성을 높이고 버그를 방지하는 것을 위해, 자바스크립트 코드로부터 발견되는 어떠한 패턴을 감지하고 식별해주는 도구이다. 또한 서로 다른 개발자들의 코드 스타일에서 조금 더 보기 좋고 공통된 스타일을 위해, 커스터마이징한 룰도 적용할 수 있다.</p>
+
+<p>설치 방법 
+1.eslint 와 eslint-loader(webpack 설정 위해) 설치</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">eslint</span> <span class="nx">eslint</span><span class="o">-</span><span class="nx">loader</span> <span class="o">-</span><span class="nx">D</span>
+</code></pre></div></div>
+
+<ol>
+  <li>새로운 자바스크립트 문법의 컴파일을 위해 바벨 eslint도 추가한다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">eslint</span> <span class="o">-</span><span class="nx">D</span>
+</code></pre></div></div>
+
+<ol>
+  <li>webpack.config 에 eslint-loader를 설정한다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="nx">module</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">js</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+        <span class="na">exclude</span><span class="p">:</span> <span class="sr">/node_modules/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">babel-loader</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">eslint-loader</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+</code></pre></div></div>
+
+<ol>
+  <li>esLint config 파일 설정</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">npx</span> <span class="nx">eslint</span> <span class="o">--</span><span class="nx">init</span>
+</code></pre></div></div>
+
+<p>이걸 하지 않고 진행하다보면, 결국</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="mi">15</span> <span class="o">|</span> 
+<span class="o">&gt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+     <span class="o">|</span>        <span class="o">^</span>
+  <span class="mi">17</span> <span class="o">|</span> 
+  <span class="mi">18</span> <span class="o">|</span> <span class="nx">styled</span> <span class="o">-</span> <span class="nx">components</span><span class="p">;</span>
+  <span class="mi">19</span> <span class="o">|</span>  <span class="p">(</span><span class="mi">16</span><span class="p">:</span><span class="mi">8</span><span class="p">)</span>  <span class="k">import</span><span class="sr">/no-named-as-default-membe</span><span class="err">r
+</span>  <span class="mi">6</span><span class="p">:</span><span class="mi">3</span>   <span class="nx">error</span>  <span class="nx">JSX</span> <span class="nx">not</span> <span class="nx">allowed</span> <span class="k">in</span> <span class="nx">files</span> <span class="kd">with</span> <span class="nx">extension</span> <span class="dl">'</span><span class="s1">.js</span><span class="dl">'</span>                                                                                                                                                                                            <span class="nx">react</span><span class="o">/</span><span class="nx">jsx</span><span class="o">-</span><span class="nx">filename</span><span class="o">-</span><span class="nx">extension</span>
+  <span class="mi">8</span><span class="p">:</span><span class="mi">13</span>  <span class="nx">error</span>  <span class="dl">'</span><span class="s1">document</span><span class="dl">'</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">defined</span>        
+</code></pre></div></div>
+
+<ol>
+  <li></li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">error</span>  <span class="nx">JSX</span> <span class="nx">not</span> <span class="nx">allowed</span> <span class="k">in</span> <span class="nx">files</span> <span class="kd">with</span> <span class="nx">extension</span> <span class="dl">'</span><span class="s1">.
+</span></code></pre></div></div>
+<p>해결방법은  js 파일을 .jsx로 바꾸거나 <code class="language-plaintext highlighter-rouge">.eslintrc.json</code> 에 이 snippet을 추가 한다.
+나는 그냥 js 파일로 통일하고자 해서 json파일에 설정하였다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] //config to allow .js for JSX
+    }
+</code></pre></div></div>
+
+<ol>
+  <li>eslint와 같이 prettier 적용하기</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">npm</span> <span class="nx">i</span> <span class="nx">prettier</span> <span class="nx">eslint</span><span class="o">-</span><span class="nx">config</span><span class="o">-</span><span class="nx">prettier</span>  <span class="nx">eslint</span><span class="o">-</span><span class="nx">plugin</span><span class="o">-</span><span class="nx">prettier</span> <span class="o">-</span><span class="nx">D</span> 
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">eslint-plugin-prettier</code>는 
+Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.</p>
+
+<p>룰적용과 관련이 있는데 만약  없으면 <code class="language-plaintext highlighter-rouge">error  Definition for rule 'prettier/prettier' was not found </code> 에러를 유발한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">plugin:prettier/recommended</code> vs <code class="language-plaintext highlighter-rouge">eslint:recommended</code> 의 차이를.. 잘 모르겠다.<br />
+eslint-plugin-prettier npm 에선 plugin:prettier/recommended를 recommand configuration이라 예제를 보여줬는데 좀 더 찾아봐야 할것같다.</p>
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/10/23/webpack.html';
+     this.page.identifier = '/2020/10/23/webpack';
+     this.page.title = '[Build Your Own Webpack 후기] 웹팩4 설정';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/05/26/2020-10-05-cluster.html">
+            
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/20/oop-1.html">
+            The Four Pillars of OOP with JS 1 of 4 Encapsulation 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/14/syntaxhighlighter.html">
+            Jekyll에 Syntax Highlighter 적용
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <!-- <h2>All tags</h2> -->
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/ci%2Fco/" class="set-1">CI/CO</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-4">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-1">JS</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/node.js/" class="set-1">Node.js</a> <a href="/tag/oop/" class="set-1">OOP</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/react/" class="set-1">React</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/webpack/" class="set-1">Webpack</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/hook/" class="set-1">hook</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/resursion/" class="set-1">resursion</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-2">끄적끄적</a> <a href="/tag/%EB%B0%B0%ED%8F%AC/" class="set-1">배포</a> <a href="/tag/%EB%B9%8C%EB%93%9C/" class="set-1">빌드</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = '';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = "light";
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>

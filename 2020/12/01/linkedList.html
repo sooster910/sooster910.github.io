@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Integration Testing with jest &amp; puppeteer[1] | Hyunsu</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Integration Testing with jest &amp; puppeteer[1]" />
+<meta name="author" content="Hyunsu Joo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄" />
+<meta property="og:description" content="LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄" />
+<link rel="canonical" href="https://sooster910.github.io/2020/12/01/linkedList.html" />
+<meta property="og:url" content="https://sooster910.github.io/2020/12/01/linkedList.html" />
+<meta property="og:site_name" content="Hyunsu" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Integration Testing with jest &amp; puppeteer[1]" />
+<script type="application/ld+json">
+{"url":"https://sooster910.github.io/2020/12/01/linkedList.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sooster910.github.io/2020/12/01/linkedList.html"},"author":{"@type":"Person","name":"Hyunsu Joo"},"description":"LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄","@type":"BlogPosting","headline":"Integration Testing with jest &amp; puppeteer[1]","dateModified":"2020-12-01T00:00:00+00:00","datePublished":"2020-12-01T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/syntax.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"><link type="application/atom+xml" rel="alternate" href="https://sooster910.github.io/feed.xml" title="Hyunsu" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Hyunsu<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-indigo-hover" href="https://www.linkedin.com/in/hyunsu-joo/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></i></a><a class="color-indigo-hover" href="https://github.com/sooster910"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="post">
+  <h1 class="post-title">Integration Testing with jest & puppeteer[1]</h1>
+  
+  <div class="post-tags">
+      <div class="post-date">
+      Published on 01 Dec 2020</div>
+
+      
+      <a class="tag" href="/tag/DataStructure/Algorithm/">DataStructure/Algorithm</a>
+      
+      <a class="tag" href="/tag/JS/">JS</a>
+      
+       
+  </div>
+ 
+  
+  
+  <ul>
+  <li>LinkedList 를 공부하며 남긴 글입니다. 오타가 있거나 설명이 잘못 되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</li>
+</ul>
+
+<h2 id="목차">목차</h2>
+<p><a href="#puppeteerjest">1.puppeteer + Jest</a><br />
+ <a href="#npm-run-test-실행환경-구축">2. npm run test 실행환경 구축 </a><br />
+ <a href="#headless-chromium-테스트-코드로-오픈하기">3. headless chromium 테스트 코드로 오픈하기</a><br />
+ <a href="#drydont-repeat-yourself">4. beforeEach( ), afterEach( ) 이용하여 리팩토링</a><br />
+ <a href="#test-case-작성">5. Jest test case 작성</a></p>
+
+<h2 id="what-is-singly-linked-list">What is Singly Linked List?</h2>
+<p>직역으로 서로 연결된 리스트이다. 주로 배열과 함께 비교가 된다. 그 이유는 배열도 자료를 저장하는 구조가 되고, 연결 리스트도 또한 자료를 저장하기 위해서 만든 자료구조에 해당한다. 이 둘의 장단점을 이용해 더 효율적으로 코딩을 할 수 있을 것이다.<br />
+ 배열 : 연속적인! 같은 자료형!들의 집합!이다.<br />
+ 장점: 1. 연속적이기 때문에, 데이터의 위치를 알기가 쉽다.<br />
+ 단점 : 메모리를 한꺼번에 만들어야 한기 때문에, 메모리 공간 낭비가 크다.<br />
+ 이러한 단점을 보완한 것이 Singly Linked List 이다.
+ linked list 는 실행시간에 필요할 때 마다 동적으로 메모리를 생성 한다.(동적메모리로 만들어진다) 그럼 필요 할때 마다 만들어진 메모리들이 어떤 위치에 저장되는지 어떻게 알 수 있으며, 첫번째로 만들어진 메모리인지 두번째로 만들어진 메모리인지 어떻게 알 수 있을까?
+ 배열의 경우 시작점만 알면 그 나머지의 element 들을 쉽게 접근할 수 있다. 이런 데이터를 연결하기 위해 첫번째 데이터가 저장된 곳에, 추가적으로 두번째 데이터의 정보가 저장되어 있어야 한다.</p>
+
+<p>무엇을 연결? 노드들을 연결한다.<br />
+얼마나? 제한이 없다.<br />
+노드가 뭔가요?</p>
+
+<p>head, tail , length property를 가지고 있다.
+Linked List 는 노드로 이루어져있고, 이 각각의 노드들은 value그 노드의 값과 다음 노드를 가르키는 pointer 로 이루어져 있다.
+Linked List 는 index 가 없다. 이 말은 즉, 5번 째 element의 값을 달라고 요구할 수 없다. Linked Lists는 Array와는 또 다른 특징을 가진 다른것임을 유추 할 수 있다. 
+🚀  linked list 의 특징</p>
+
+<ul>
+  <li>linked list는 배열과 같은 선형 자료 구조로서 데이터를 순서대로 저장하는 자료구조이다.</li>
+  <li>노드에 대한 레퍼런스를 저장해서 순서를 유지 .</li>
+  <li>하지만 메모리에는 연속적 이거나 순서대로 저장 되지는 않는다. 즉, 아무데나 저장될 수 있다.</li>
+  <li>포인터기반의 연결방식이다. (배열은 메모리공간기반의 연속방식)</li>
+  <li>삽입시 저장하려는 위치의 전 노드의 레퍼런스를 파라미터로 받아</li>
+  <li>sinlgy와 dubly 리스트의 일반적인 경우 삽입 삭제 연산들은 파라미터로 노드를 받는다. 이 노드를 탐색하여서 삭제를 하는데 탐색하는데 걸리는 시간은 n-1 일것이고 , 삭제는 O(1), 결국 O(n-1+1)= O(n) 이걸린다.</li>
+  <li>단, 맨앞과 맨뒤의 경우는 O(1) 의 복잡도를 가진다. 그 이유는, head 노드와 tail 노드가 있기 때문에, 순회하지 않고 연결리스트로 한번에 접근가능하기 때문이다.
+    <ul>
+      <li>링크드리스트의 사용이 효율적인 경우는 더블리 링크드 리스트에 주문접수가 들어오는 순서대로 저장하고 가장 앞에 (먼저 )있는 문의부터처리하고 지워야 할때</li>
+    </ul>
+  </li>
+  <li>동적배열과 비교 :
+    <ul>
+      <li>같은점 : 선형탐색방법 O(n)으로만 가능</li>
+      <li>다른점 : 맨 앞에 데이터를 삽입할 경우, singly linked list 가 동적배열 보다 더 효율적이다. 그 이유는 , 배열은 맨앞에 삽입시 나머지 뒤에 있는 요소들이 한 인덱스씩 뒤로 밀려야한다. O(n)으 ㅣ시간</li>
+    </ul>
+  </li>
+</ul>
+
+<p>👌  doubly 와 singly 의 추가적 공간</p>
+
+<ul>
+  <li>추가적 공간 : data 이외의 저장공간, singly: next node 를 저장하는 공간 n-1 , doubly : noxt node, prev node 를 저장하는 공간  2n - 2</li>
+  <li>추가적 공간은 메모리에 실질적으로  doubly linked list 가 두배정도 메모리를 쓴다. 공간을 효율적으로 사용하고 싶을 땐 sinlgy linked list 사용!</li>
+  <li>보통 몇번째라는 개념이기보다는 당장의 이전의 값이나 다음의 값만 중요한 경우를 고려할 때 링크드 리스트를 사용해요. 아마 지하철도 그 예시가 될 거 같아요.</li>
+</ul>
+
+</div>
+
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://sooster910.github.io/2020/12/01/linkedList.html';
+     this.page.identifier = '/2020/12/01/linkedList';
+     this.page.title = 'Integration Testing with jest & puppeteer[1]';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//https-sooster910-github-io.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/05/26/2020-10-05-cluster.html">
+            
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/20/oop-1.html">
+            The Four Pillars of OOP with JS 1 of 4 Encapsulation 
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/14/syntaxhighlighter.html">
+            Jekyll에 Syntax Highlighter 적용
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <!-- <h2>All tags</h2> -->
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/ci%2Fco/" class="set-1">CI/CO</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-4">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/js/" class="set-1">JS</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/node.js/" class="set-1">Node.js</a> <a href="/tag/oop/" class="set-1">OOP</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/react/" class="set-1">React</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/webpack/" class="set-1">Webpack</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/hook/" class="set-1">hook</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/resursion/" class="set-1">resursion</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-2">끄적끄적</a> <a href="/tag/%EB%B0%B0%ED%8F%AC/" class="set-1">배포</a> <a href="/tag/%EB%B9%8C%EB%93%9C/" class="set-1">빌드</a></div>
+  
+
+
+
+
+<script>
+  let i = 0;
+  const text = '';
+  const speed = parseInt('50');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('animated-post-description').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  document.getElementById('animated-post-description').style.display = 'initial';
+  typeWriter();
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper" style="display:none">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()"/>
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = "light";
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+    console.log('currentMode',curentMode)
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
