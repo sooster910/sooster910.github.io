@@ -1,17 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-26T06:45:09+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-26T06:48:05+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html"></title><link href="https://sooster910.github.io/2021/05/26/2020-10-05-cluster.html" rel="alternate" type="text/html" title="" /><published>2021-05-26T06:45:09+00:00</published><updated>2021-05-26T06:45:09+00:00</updated><id>https://sooster910.github.io/2021/05/26/2020-10-05-cluster</id><content type="html" xml:base="https://sooster910.github.io/2021/05/26/2020-10-05-cluster.html">&lt;p&gt;Cluster 란?&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;A single instance of Node.js runs in a single thread.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;컴퓨터에 내장되어있는 Core의 갯수가 몇개이든 상관없이 코어당 2개의 스레드를 가지고있다. 내 맥북의 경우 quad core 이므로, 8개의 스레드를 가지고 있다. Nodejs 는 여기서 8개의 스레드중 1개의 스레드만 가지고 일을 한다. 
-what ? :fearful:&lt;/p&gt;
-
-&lt;p&gt;그럼 앱의 속도도 느려질 뿐만아니라, 일을 병렬적으로 처리를 못하고 한곳에서만 처리하니 과부하가 일어나니 좋은 방법은 아니지 않을까?&lt;/p&gt;
-
-&lt;p&gt;하지만 우리는 node.js로 얻
-multicore processr vs multi thread&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author></entry><entry><title type="html">The Four Pillars of OOP with JS 1 of 4 Encapsulation</title><link href="https://sooster910.github.io/2021/05/20/oop-1.html" rel="alternate" type="text/html" title="The Four Pillars of OOP with JS 1 of 4 Encapsulation" /><published>2021-05-20T00:00:00+00:00</published><updated>2021-05-20T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/20/oop-1</id><content type="html" xml:base="https://sooster910.github.io/2021/05/20/oop-1.html">&lt;ul&gt;
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">The Four Pillars of OOP with JS 1 of 4 Encapsulation</title><link href="https://sooster910.github.io/2021/05/20/oop-1.html" rel="alternate" type="text/html" title="The Four Pillars of OOP with JS 1 of 4 Encapsulation" /><published>2021-05-20T00:00:00+00:00</published><updated>2021-05-20T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/20/oop-1</id><content type="html" xml:base="https://sooster910.github.io/2021/05/20/oop-1.html">&lt;ul&gt;
   &lt;li&gt;이 포스트는 자바스크립트의 객체지향을 공부하면서 적은 노트 입니다.아직 부족한 점이 많습니다. 😭 발전하는 개발자가 될 수 있도록 설명이 잘못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -208,9 +197,7 @@ multicore processr vs multi thread&lt;/p&gt;</content><author><name>Hyunsu Joo</
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://moon9342.github.io/jekyll-rouge&quot; target=&quot;_blank&quot;&gt;moon9342.github.io 님의 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="Jekyll" /><category term="Rouge" /><summary type="html">며칠전 타입스크립트의 함수사용시 타입추가에 대한 글을 쓰는 중이었다. 가독성이 좋아진다. 가독성?? 코드 블럭을 보니 가독성이 좋지가 않다. 그 이후 블로그에 타이핑만 하고 있으면 그 코드 블럭이 눈에 밟히기 시작했다. 😑</summary></entry><entry><title type="html">[Book] You Don’t know JS</title><link href="https://sooster910.github.io/2021/05/13/last-december.html" rel="alternate" type="text/html" title="[Book] You Don’t know JS" /><published>2021-05-13T00:00:00+00:00</published><updated>2021-05-13T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/13/last-december</id><content type="html" xml:base="https://sooster910.github.io/2021/05/13/last-december.html">&lt;p&gt;You Don’t know JS 라는 책을 2년 전에 classmate의 추천으로 산적이 있었다. 그때의 내 눈은 글을 보고 있었지만 읽는다라고 볼 수 없었고, 내 몸으로 아!라고 느낄 수 없었다. 그러다 보니 암기식으로 읽게 되었는데 당연히 다 읽지 않았을뿐더러, 당연히 기억할 리가 없다.&lt;/p&gt;
-
-&lt;p&gt;최근에 다시 책을 집어 틈틈이 보기 시작했다. You Don’t know JS에 타입과 문법, 스코프와 클로저라는 책(단권)엔 타입과 형 변환에 대한 이야기를 꽤나 많이 한다. 형 변환에 대한 중요성을 다루고 있으며, 그것이 서비스로 연결되었을 때 타입 체킹을 제대로 하지 않는 게 얼마나 서비스에 영향을 미치는지 보게 되는 것이다. 책을 처음 읽었을 때, 자바스크립트를 처음 접하고 있던 나는 계속해서 이야기하는 타입 검증, 명시적, 암시적 형 변환에 그렇게 와닿지 못한 채 개인 프로젝트를 하게 되고 타입 체킹을 하지 않는 함수들이 다 반사였고 그 이유는 그래도 잘 돌아갔기 때문이다. 그런데 생각해보면 그것이 잘 돌아갈 수밖에 없는 이유는 런타임 에러를 일으키지 않을 만한 값만 넣고 테스트했기 때문이다. 더 무서운 점은 자바스크립트는 잘 돌아가는 적도 있으니 뭐가 잘되고 잘못되었는지 모른 채 넘어간다. 그리고 타입스크립트에 대한 필요성과 존재에 감사함(?)을 느끼는 시기가 온다. 아니 이야기가 결국 타입스크립트로 흘러간다고..?, 다시 결국 하고자 하는 이야기는 You Don’t know JS 책을 읽었을 때 흡수력도 훨씬 좋아졌을뿐더러 보는 나의 시선이 달라졌다는 점이다. 다른 개발자들도 당연히 알겠느냐고알겠지 라고 생각하고 무심코 썼던 암시적 타입변환에, 이제는 혹시라도 다른 개발자가 보았을 때 clear 하게 이해가 되도록 명시적 타입변환을 써야겠다라는 점 등의 문법을 알고 있는 것이 중요한 것이 아닌 협업 속에서 내가 코드를 짤 때 가치관에 대해 생각하는 점에서 좋은 기회였음을 느끼게 된다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="끄적끄적" /><summary type="html">You Don’t know JS 라는 책을 2년 전에 classmate의 추천으로 산적이 있었다. 그때의 내 눈은 글을 보고 있었지만 읽는다라고 볼 수 없었고, 내 몸으로 아!라고 느낄 수 없었다. 그러다 보니 암기식으로 읽게 되었는데 당연히 다 읽지 않았을뿐더러, 당연히 기억할 리가 없다.</summary></entry><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
+&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="Jekyll" /><category term="Rouge" /><summary type="html">며칠전 타입스크립트의 함수사용시 타입추가에 대한 글을 쓰는 중이었다. 가독성이 좋아진다. 가독성?? 코드 블럭을 보니 가독성이 좋지가 않다. 그 이후 블로그에 타이핑만 하고 있으면 그 코드 블럭이 눈에 밟히기 시작했다. 😑</summary></entry><entry><title type="html">[TypeScript] 2.Function</title><link href="https://sooster910.github.io/2021/05/11/typescript-function.html" rel="alternate" type="text/html" title="[TypeScript] 2.Function" /><published>2021-05-11T00:00:00+00:00</published><updated>2021-05-11T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/11/typescript-function</id><content type="html" xml:base="https://sooster910.github.io/2021/05/11/typescript-function.html">&lt;ul&gt;
   &lt;li&gt;TypeScript 노트 들은 제가 정진욱님의 타입스크립트 퀵스타트, 현재 최신 버전(4.0)의 타입스크립트 공식문서 그리고 다른 자료들을 바탕 으로 혼자 공부한 것들을 정리한 것입니다. 😄&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1171,4 +1158,307 @@ python에선 if 조건문에, 데이터 자료형자체가 오는것이 데이�
 하지만 javascript에선 
 데이터 자료형의 존재 여부 만을 확인한다. 이걸 확인 할 수 있는게 undefined 이 되는지 확인 하는것이고, 변수가 undefined 가 아니면 true 라고 보는 것 이 아닐까 생각한다. 
 파이썬에는 und
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="Python" /><summary type="html">Python을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyunsu Joo</name></author><category term="Python" /><summary type="html">Python을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</summary></entry><entry><title type="html">React Code splitting 적용기</title><link href="https://sooster910.github.io/2021/01/01/react-codeSplitting.html" rel="alternate" type="text/html" title="React Code splitting 적용기" /><published>2021-01-01T00:00:00+00:00</published><updated>2021-01-01T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/01/01/react-codeSplitting</id><content type="html" xml:base="https://sooster910.github.io/2021/01/01/react-codeSplitting.html">&lt;ul&gt;
+  &lt;li&gt;이 포스트는 회사의 리액트 프로젝트의 로딩 최적화 적용기를 유튜브의 codevolution의 mini project로 재구성 한 것입니다. 저의 경험으로 아직 부족한 점이 많습니다.😭 발전하는 개발자가 될 수 있도록 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;#puppeteerjest&quot;&gt;1.puppeteer + Jest&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#npm-run-test-실행환경-구축&quot;&gt;2. npm run test 실행환경 구축 &lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#headless-chromium-테스트-코드로-오픈하기&quot;&gt;3. headless chromium 테스트 코드로 오픈하기&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#drydont-repeat-yourself&quot;&gt;4. beforeEach( ), afterEach( ) 이용하여 리팩토링&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#test-case-작성&quot;&gt;5. Jest test case 작성&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;code-splitting&quot;&gt;Code Splitting&lt;/h2&gt;
+
+&lt;p&gt;서비스를 구성하는 리액트의 모든 컴포넌트들은 bundle.js라는 하나의 파일에 번들링된다. bundle.js 라는 파일은 브라우저 다운받게 되는데 이것은 사용자가 http 서버 요청을 하지 않고 원활하게 서비스를 사용할 수있게 한다. 하지만 앱의 규모가 커질수록 번들링 사이즈도 커지게 된다. 이렇게 되면 사용자측에선 초기 페이지 로딩속도가 느려지는 현상이 나타난다.&lt;/p&gt;
+
+&lt;p&gt;해결책으론 모든것을 담고 있는 단일 파일을 더 작게 분할 하고 사용자가 페이지를 오픈했을 땐 필요한 최소한의 자바스크립트 코드만을 다운로드 할 수 있어야 한다.&lt;/p&gt;
+
+&lt;p&gt;고맙게도 웹팩은 분할 코드를 지원하는데 그 바탕에는 es06의 모듈 시스템이 있다.&lt;/p&gt;
+
+&lt;p&gt;코드 분할을 하게 되면 최소한의 자바스크립트만 다운로드하면 된다 이것이 코드 분할의 힘이라고 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;코드 분할은 초기 로딩 속도를 단축시킬수 있는 성능최적화의 방법중 하나이다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Code Splitting&lt;/li&gt;
+  &lt;li&gt;Lazy load routes with React.lazy()&lt;/li&gt;
+  &lt;li&gt;React.Suspense to render a fallback UI&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;초기-로딩-문제점-분석-및-번들링-파일-분석&quot;&gt;초기 로딩 문제점 분석 및 번들링 파일 분석&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; 를 하게 되면 번들링 된 파일 사이즈들을 스냅샷으로 보여준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021-01-01-react-codeSplitting/build.png&quot; alt=&quot;image&quot; /&gt;
+5개의 파일이 있는데 맨 밑의 파일부터 하나하나 살펴보자면&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; 584 B (+10 B) build/static/css/main.e7fd4024.chunk.css&lt;/code&gt;&lt;br /&gt;
+어플리케이션에 필요한 모든 css 코드를 담고 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.06 KB (+503 B) build/static/js/main.ef7708cd.chunk.js&lt;/code&gt;&lt;br /&gt;
+어플리케이션 필요한 js파일을 나타낸다. ex) app.js, home.js, profile.js etc&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.18 KB (-32 B) build/static/js/runtime-main.af52a370.js&lt;/code&gt;&lt;br /&gt;
+웹팩의 런타임 로직으로써 어플리케이션 로드와 실행부분을 나타낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.57 KB (-1012.26 KB)  build/static/js/3.bd3d9297.chunk.js&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.04 MB (+1013.09 KB) build/static/js/2.7992bff4.chunk.js&lt;/code&gt;&lt;br /&gt;
+이 두 파일은 어플리케이션에 사용된 모든 라이브러리를 의미한다. 기본적으로는 node-modules가 포함 되어 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;devtool-분석&quot;&gt;devtool 분석&lt;/h3&gt;
+
+&lt;p&gt;이 어플리케이션은 5개의 파일로 나누어져 프로덕션 빌드가 최적화 되었습니다. 하지만 브라우저에서 페이지를 로드하면 분할된 다섯개의 chunk파일이 모두 로딩됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021-01-01-react-codeSplitting/before.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;특히 1.1MB 를 차지하는 plotjs 차트 라이브러리를 담고있는 이 js파일은 dashboard page에 있는 차트를 위해 설치 된 것이나, 차트를 렌더링하고 있지 않은 home page에서도 받고 있으며 이것은 렌더링 시간을 지연시키는 결과를 낳습니다.&lt;/p&gt;
+
+&lt;p&gt;프로덕션 모드에 있는 어플리케이션 성능을 좀 더 정확하게 측정하기 위해선 크롬의 incognito를 이용하는게 좋으며 크롬 익스텐션 기능들이 꺼지기 때문에 좀 더 명확한 상태로 측정할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;dev tool의 Performance탭에서  network를 Fast3G 상태로 전환합니다. Fast3G는 모바일 네트워크를 테스트하기 좋은 베이스라인입니다. 그 다음 Network탭에서 disable cache를 체크합니다. 기본적으로 크롬 브라우저는 웹페이지를 빨리 로딩하기 위하여 캐시를 합니다. 하지만 이렇게 테스트 하는 환경에서는 캐시로 돌아가는 모든 리소스를 가져와야 하기 때문에 수동으로 캐시를 unable시킵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021-01-01-react-codeSplitting/performance_before.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;빨간색 박스 중 가장 아래쪽에는 frame을 시간별로 나누어서 보여줍니다. 첫 스크린샷이 있는데 이것은 페이지가 다시 reload되기 전이며, 그런 다음 흰색 배경의 화면을 꽤 오랜시간 동안 보여주고 다시 페이지가 렌더링 되는 것을 볼 수 있습니다. 여기서 분석할 수 있는 점은 노란색 바 가 있는 부분을 request하는 동안 흰색 배경의 화면이 지속되고 그 시간이 바로 로딩이 지연되는 것 임을 알 수 있습니다. 노란색 바는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.7992bff4.chunk.js&lt;/code&gt;파일로 위에서 언급한 라이브러리가 포함되어 있습니다. 그럼 이 라이브러리를 home 페이지에 로드를 하지 않으면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;해결-접근법--reactlazy-suspense-적용&quot;&gt;해결 접근법 : React.lazy, Suspense 적용&lt;/h2&gt;
+
+&lt;p&gt;가장 첫번째 페이지인 홈페이지 컴포넌트만 불러 오고 나머지 페이지는 유저가 해당 페이지로 이동할 때 비동기적으로 경로에 대한 코드를 fetch 합니다.
+고맙게도 리액트는 lazy loading을 지원하여 Suspense로 각각의 컴포넌트를 핸들링하기 쉽게 해줍니다.&lt;/p&gt;
+
+&lt;p&gt;React.lazy()사용 전 알아두어야 할 사항
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;현재 React v17.0.2&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;React.lazy 는 default exports만 지원한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;만약 named exports 를 사용하면, tree shaking이 동작하며 사용하지 않는 컴포넌트는 가져오지 않습니다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;React.lazy와 Suspense는 서버사이드렌더링에선 지원되지 않고, Loadable Component를 추천한다고 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;reactlazy&quot;&gt;React.lazy&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;React.lazy()&lt;/code&gt; 함수는 다른 함수를 인자로 받을 수 있으며, 프로미스를 반환함으로써 그 함수가 동적 import를 수행하는 함수가된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://reactjs.org/docs/code-splitting.html&quot;&gt;React 공식문서&lt;/a&gt;에서 제공한 기본 사용법 입니다..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-React.lazy(()=&amp;gt;import('./OtherComponent'))```&quot;&gt;
+Before:
+```javascript
+import OtherComponent from './OtherComponent';
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OtherComponent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./OtherComponent&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;이 방식을 그대로  profile 페이지에 적용해 보면,&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//app.js&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./logo.svg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./App.css&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BrowserRouter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;react-router-dom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./components/Home&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//기존 route&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// import Profile from './components/Profile';&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// import Dashboard from './components/Dashboard'; &lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//lazy loading&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LazyProfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./components/Profile&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LazyDashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./components/Dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/profile&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/profile&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LazyProfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LazyDashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Router&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;개선된-사항-확인&quot;&gt;개선된 사항 확인&lt;/h3&gt;
+
+&lt;p&gt;다시 빌드를 합니다. 네트워크 탭에서 로드된 js파일을 확인해보면, 초기 페이지 로딩을 지연 시켰던 1.1MB 크기의 큰 파일이 로드되지 않았음을 알 수 있습니다. 
+&lt;img src=&quot;/assets/2021-01-01-react-codeSplitting/after.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Performance에서 또한 라이브러리를 담고 있는 파일이 줄어든 것은 육안으로 확인할 수 있으며, 이 파일의 request 시간 또한   6.68s -&amp;gt; 863.78ms 으로 단축된 것을 알 수 있습니다. 물론 렌더링 시간, request 시간은 항상 일정한건 아닙니다. 하지만 최소한의 자바스크립트 파일만을 로드 할 수 있다는 사실을 확인했으므로, 렌더링 시간이 단축되는 것을 알 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021-01-01-react-codeSplitting/performance_after.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;suspense&quot;&gt;Suspense&lt;/h3&gt;
+&lt;p&gt;리액트 lazy loading 을 적용할 때, 그 컴포넌트가 실제 지연 로드 될 때 그 때의 상태처리를 고려해야 합니다. 리액트에서 제공하는 Suspense를 사용하는데 지연로딩되는 컴포넌트를 wrap해주면된다.   componenet 지정을 하지 않으면 이런 에러가 발생하는데,
+[image]
+fallback UI가 지정되지 않았다는 의미로&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/profile&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Link&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*suspense 🔥*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Suspense&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fallback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Loading...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/profile&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LazyProfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/dashboard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LazyDashboard&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Route&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/React.Suspense&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Router&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- 
+[React 공식문서](https://reactjs.org/docs/code-splitting.html)에서 코드스플릿으로 가장 좋은 방법은 동적 import 문법을 사용하는 것이라 명시되어있다. 기본 문법으론 
+
+```javascript
+import(&quot;./math&quot;).then(math =&gt; {
+  console.log(math.add(16, 26));
+});
+```
+이 코드는  --&gt;
+&lt;p&gt;resolves with module once the module complely loaded.&lt;/p&gt;
+
+&lt;p&gt;2가지 방법&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;라우팅 레벨&lt;/li&gt;
+  &lt;li&gt;컴포넌트 레벨&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Hyunsu Joo</name></author><category term="React" /><summary type="html">이 포스트는 회사의 리액트 프로젝트의 로딩 최적화 적용기를 유튜브의 codevolution의 mini project로 재구성 한 것입니다. 저의 경험으로 아직 부족한 점이 많습니다.😭 발전하는 개발자가 될 수 있도록 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</summary></entry><entry><title type="html">[ JS vs Python] Reverse string</title><link href="https://sooster910.github.io/2020/12/04/pythonAndJs1.html" rel="alternate" type="text/html" title="[ JS vs Python] Reverse string" /><published>2020-12-04T00:00:00+00:00</published><updated>2020-12-04T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/12/04/pythonAndJs1</id><content type="html" xml:base="https://sooster910.github.io/2020/12/04/pythonAndJs1.html">&lt;ul&gt;
+  &lt;li&gt;Algorithm을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 칭찬도 좋습니다. 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;#puppeteerjest&quot;&gt;1.puppeteer + Jest&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#npm-run-test-실행환경-구축&quot;&gt;2. npm run test 실행환경 구축 &lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#headless-chromium-테스트-코드로-오픈하기&quot;&gt;3. headless chromium 테스트 코드로 오픈하기&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#drydont-repeat-yourself&quot;&gt;4. beforeEach( ), afterEach( ) 이용하여 리팩토링&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;#test-case-작성&quot;&gt;5. Jest test case 작성&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;python--javascript&quot;&gt;Python &amp;amp; JavaScript&lt;/h2&gt;
+
+&lt;p&gt;파이썬을 처음 접하게 된 계기는 몇 달 전, jp Morgran에서 virtual internship을 했었는데, traders들을 위해  data visulaization dashborad 를 빌드하는 하는 프로젝트 였는데, 자바스크립트를 해서 그런지 if 문이나 for문 그리고 데이터 자료형들을 다루는데 나름 비슷한 부분들이 있어 접근하기가 쉬웠다. 특히나 차이점들에 대해 오~ 신기하다! 자바스크립트에선 이런게 될까? 하며 혼자 한껏 흥미에 취했었다. 하지만 프로젝트가 끝난 후 회사일과 나름 내가 하던 사이드프로젝트를 하고 있던 지라, 파이썬은.. 음음.. 그렇게 되었다. 그치만 알고리즘을 공부할 때 다른 언어와 나의 주언어와 함께 풀었더니 시간은 좀 더 오래걸렸지만 뭔가 습득력이 더 좋은것 같다. 꼭 한가지만 파지 않아도 .. 가끔은 새로운 것과 비교해보면서 익히는 것이 뇌에 프레쉬한 자극을 주잖네! 😁&lt;/p&gt;
+
+&lt;h2 id=&quot;reverse-string&quot;&gt;Reverse string&lt;/h2&gt;
+&lt;p&gt;조건 : 주어진&lt;/p&gt;
+
+&lt;h3 id=&quot;1-파이썬-js-모두-reverse라는-내장함수가-적임자로-주어진다&quot;&gt;1. 파이썬, JS 모두 reverse()라는 내장함수가 적임자로 주어진다.&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    
+    &lt;span class=&quot;c1&quot;&gt;//JavaScript&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c1&quot;&gt;#python
+&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'h'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'e'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'l'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'l'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 쉽게 알아서 해준다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-내장함수를-이용하지-않고-접근해보자&quot;&gt;2. 내장함수를 이용하지 않고 접근해보자.&lt;/h3&gt;
+&lt;p&gt;일단 어떻게 주어진 list or array 를 접근하여 각각의 문자들을 바꿀것인가? &lt;br /&gt;
+loop을 한다 생각했을 때, h와 o를 접근 하는 방법은 
+array/list의 접근 방법 : str[0],str[str.length-1]&lt;br /&gt;
+그럼 매번 iterate 할 때마다 index의 값을 바꿔주면 되겠다. 시작점을 두개의 index를 두고 이동 하는 방법이 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;21-투-포인터를-이용하여-접근하기&quot;&gt;2.1 투 포인터를 이용하여 접근하기.&lt;/h4&gt;
+
+&lt;p&gt;말 그대로 두개의 포인터를 조작하여 logic 을 처리하는 접근법.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/twopointer.png&quot; alt=&quot;image&quot; /&gt;
+ 이미지 출처:&lt;a href=&quot;https://leetcode.com/problems/reverse-string/solution/&quot; target=&quot;_blank&quot;&gt;LeetCode&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;step1: 주어진 List or Array의 맨 첫 index와 맨 끝 index를 loop의 시작점으로 initialize를 한다.loop이 시작되면, 인덱스 0과 마지막 인덱스를 swap 한다.&lt;/p&gt;
+
+&lt;p&gt;step2: 인덱스를 swap하니, h와 o의 자리가 바뀌었다. 그 다음 포인터를 한칸씩 움직여야한다.
+어떻게? left pointer는 index++, right pointer 는 index– 로.&lt;/p&gt;
+
+&lt;p&gt;step3: 그럼 언제까지 iterate 을 하는가에 대한 조건문이 필요하다. left와 right의 index가 동일하지 않는 동안 또는 right 인덱스가 left index 보다 크기 때문에, right&amp;gt;left 되는 동안 iterate 하기.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//javascript&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//여기 3줄이 자바스크립트에서 swap 과정&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
+            &lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 인덱스를 이동하여 다음 loop 을 진행&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;        
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#python
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reverse2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strArr&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverse2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'h'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'e'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'l'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'l'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Time Complexity = O(N)&lt;/p&gt;
+
+&lt;h3 id=&quot;마무리&quot;&gt;마무리&lt;/h3&gt;
+&lt;p&gt;python의 swap 로직부분에서 너무 쉬운 처리에 조금 놀랬다. JS의 경우 변수 swap을 위해 하나의 변수를 temp라는 임시 변수에 저장해 두고 옮기는데 반해, 파이썬의 경우는 임시 변수를 쓸 필요 없이 바로 인덱스를 이용해서 바꿀 수 있다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="Python" /><category term="JavaScript" /><summary type="html">Algorithm을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 칭찬도 좋습니다. 언제든지 환영입니다 😄</summary></entry></feed>
