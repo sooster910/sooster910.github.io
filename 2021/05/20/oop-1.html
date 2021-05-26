@@ -151,7 +151,7 @@
 <span class="nx">user1</span><span class="p">.</span><span class="nx">setEmail</span><span class="p">(</span><span class="dl">"</span><span class="s2">b@gmail.com</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">getEmail</span><span class="p">());</span> <span class="c1">// b@gmail.com</span>
 </code></pre></div></div>
-<p>여기서 public 메서드인 getName(),setName()가 클로저 역할을 하게됩니다. getEmail(),setEmail() 에서 _email 을 parameter로 보내지 않았음에도, 바깥 함수의 스코프에 있는 _email이란 변수에 접근할 수 있습니다. 식별자 해결을 위해 단계적으로 외부스코프를 참조하는데 _email변수를 외부스코프에서 참조한 것입니다.  그래서 public 멤버 함수, 위의 코드 베이스에선 getEmail()과 setEmail()이 클로저가 되면서 private의 변수인 _email을 참조하게됩니다.</p>
+<p>여기서 public 메서드인 getName(),setName()가 클로저 역할을 하게됩니다. getEmail(),setEmail() 에서 _email 을 parameter로 보내지 않았음에도, 바깥 함수의 스코프에 있는 _email이란 변수에 접근할 수 있습니다. 자바스크립트 엔진은 식별자 해결을 위해 단계적으로 외부스코프를 참조하는데 _email변수를 외부스코프에서 참조한 것입니다.  그래서 public 멤버 함수, 위의 코드 베이스에선 getEmail()과 setEmail()이 클로저가 되면서 private의 변수인 _email을 참조하게됩니다.</p>
 
 <p>getEmail()과 setEmail() 함수는 this객체의 프로퍼티로 선언하였으므로, 외부에서 new 키워드로 생성한 객체로 접근이 가능합니다. 그래서 public접근이 가능한 것이고, 반면 _email 변수를 객체에 프로퍼티로 직접 접근하려 할 때는, <code class="language-plaintext highlighter-rouge">console.log(user.email)</code> <code class="language-plaintext highlighter-rouge">undefined</code> 를 리턴하며 외부에서 직접 접근 할 수가 없습니다. 이렇게 클로저를 사용하여 외부의 접근을 차단하여 멤버 변수의 은닉성을 보장할 수 있습니다.</p>
 
