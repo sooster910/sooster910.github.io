@@ -69,9 +69,8 @@
 
 <h1 id="oop의-네가지-기둥-1-of-4-encapsulation">OOP의 네가지 기둥 1 of 4 Encapsulation</h1>
 
-<p><img src="/assets/oopImgs/encapsulation.png" alt="image" /></p>
-
-<p>캡슐화가 되면, 위 이미지의 캡슐과 같이 클래스 내에서만 멤버변수에 접근할 수 있습니다. 즉 클래스 외부에서 클래스 내에 있는 멤버 변수에 접근 할 수 없습니다.
+<p><img src="/assets/oopImgs/encapsulation.png" alt="image" />
+캡슐화는 위 이미지의 캡슐과 같이 클래스 내에서 데이터와 해당 데이터에 대해 작동하는 메서드를 번들로 묶어 데이터를 보호하는 것을 의미합니다.즉, 클래스 외부에서 클래스 내에 있는 멤버 변수에 접근 할 수 없습니다.
 마치 내 가방은 오직 나만 손댈 수 있고 다른 사람이 손 댈 수 없는 거나 마찬가지 라는 메커니즘을 안고 있습니다.</p>
 
 <h2 id="캡슐화-구현">캡슐화 구현</h2>
@@ -81,8 +80,7 @@
 <p>1 . <code class="language-plaintext highlighter-rouge">private</code> 이라는 키워드를 클래스 내부 에서만 쓸 수 있는 아주 private한 클래스 멤버라고 명시적으로 나타낼 수 있습니다.<br />
 2 . getter와  setter를 이용하는 방법</p>
 
-<p><strong>프로토 타입 기반의 자바스크립트에서는</strong> private라는 키워드가 제공되지 않습니다. 하지만 <strong>Closures, getter/setter 를 사용</strong>하여 은닉성을 가지는 로직을 구현할 수 있습니다.</p>
-
+<p><strong>프로토 타입 기반의 자바스크립트에서는</strong> ES2019(ES10)이 나오기 전까진 private라는 키워드가 제공되지 않습니다. 하지만 <strong>getter/setter,Closures를 사용</strong>하여 은닉성을 가지는 로직을 구현할 수 있었습니다.ES2019 (ES10) 이 되어서야 Private 필드가 제공되어졌고 <a href="'https://developer.cdn.mozilla.net/ko/docs/Web/JavaScript/Reference/Classes/Private_class_fields'">browser compatibility</a>는 Node.js 12, Chrome 74, and Babel 입니다.</p>
 <h3 id="1-gettersetter"><strong>1. getter/setter</strong></h3>
 <p>getter와 setter를 이용하여 특정 프로퍼티의 접근을 바로 접근 하지 않고 우회적으로 getter과 setter를 이용하여 접근 합니다. 완벽한 캡슐화는 아니지만 프로그램의 안전성 높아지는 방법입니다.</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">User</span><span class="p">{</span>
@@ -106,7 +104,7 @@
 <span class="p">}</span>
 
 
-<span class="kd">const</span> <span class="nx">user2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">"</span><span class="s2">user1@gmail.com</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">sue</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//인자를 넣지 않으면 undefined 로 리턴한다.</span>
+<span class="kd">const</span> <span class="nx">user2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">"</span><span class="s2">user1@gmail.com</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">sue</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user2</span><span class="p">.</span><span class="nx">email</span><span class="o">=</span><span class="dl">'</span><span class="s1">user2gmail.com</span><span class="dl">'</span><span class="p">)</span> <span class="c1">//바로 접근가능 &amp;&amp; 수정 가능 </span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user2</span><span class="p">)</span>
@@ -169,10 +167,7 @@
         <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span><span class="nx">lastName</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kd">get</span> <span class="nx">email</span><span class="p">(){</span>
-        <span class="k">return</span><span class="s2">`</span><span class="err">Email Address is  </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_email</span><span class="p">}</span><span class="s2">`</span>
-    <span class="p">}</span>
-    
+   
     <span class="kd">set</span> <span class="nx">email</span><span class="p">(</span><span class="nx">email</span><span class="p">){</span>
         <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">email</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">@</span><span class="dl">'</span><span class="p">)){</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`</span><span class="err">invalid email: </span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="err">email should have a @</span><span class="s2">`</span><span class="p">);</span>
@@ -190,6 +185,36 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">email</span><span class="o">=</span><span class="dl">'</span><span class="s1">b@gmail.com</span><span class="dl">'</span><span class="p">)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// b@gmail.com</span>
 </code></pre></div></div>
+<h3 id="3-private-fields">**3. private fields</h3>
+
+<p>해쉬(#)를 추가해 private class 필드를 선언합니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">User</span><span class="p">{</span>
+    <span class="err">#</span><span class="nx">lastName</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="err">#</span><span class="nx">firstChar</span> <span class="o">=</span><span class="dl">""</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">lastName</span><span class="p">,</span><span class="nx">email</span><span class="p">)</span> <span class="p">{</span>   
+        <span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">lastName</span> <span class="o">=</span><span class="nx">lastName</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="nx">email</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">returnFirstChar</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">firstChar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">lastName</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">get</span> <span class="nx">nickName</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">returnFirstChar</span><span class="p">();</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">"</span><span class="s2">sue</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user@gmail.com</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//인자를 넣지 않으면 undefined 로 리턴한다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">//user@gmail.com &lt;--public</span>
+<span class="c1">// console.log(user.#lastName); //❌ SyntaxError: Private field '#lastName' must be declared in an enclosing class</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">nickName</span><span class="p">);</span> <span class="c1">//s</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="err">#</span><span class="nx">lastName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">kelly</span><span class="dl">"</span><span class="p">);</span><span class="c1">//❌  SyntaxError</span>
+
+</code></pre></div></div>
+<p>생성자 (constructor)에서 매개변수로 lastName 을 받아 private 속성으로 지정함으로써 외부에서 <code class="language-plaintext highlighter-rouge">user.#lastName</code> 으로 직접 접근하면 에러를 내보입니다. <code class="language-plaintext highlighter-rouge">#private</code> 는 위에서 소개한 방법들 보다 좀 더 명시적이며 멤버 변수에 대한 완벽한 은닉을 실행할 수 있는 방법입니다. private 사용법에 대해 좀 더 알고싶다면 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields">MDN Private class fields</a>를 참고 하세요.</p>
 
 <hr />
 <p>참고자료</p>
