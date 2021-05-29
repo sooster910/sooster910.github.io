@@ -180,7 +180,6 @@
 
 <p>person1.do() 를 호출했을 때, do() 메서드는 Developer객체의 sayHello를 호출하는지 Person클래스의 sayHello를 호출하는가이다. this는 어떤 것을 가리키느냐는 것인데, 결론은 Developer 객체의 멤버 메서드를 호출하여 Hi, my name is kyle,25.I’m a developer 가 출력된다. 자바스크립트의 객체지향은 클래스타입기반이 아닌 프로토타입기반의 객체지향이므로, 모든객체는 자신의 부모인 프로토타입 객체를 가리키는 링크 형태의 <a href="=__prototype__">[prototype]</a> 이라고 명시된 프로퍼티가 존재한다.</p>
 
-<p>person1 객체의 <code class="language-plaintext highlighter-rouge">__prototype__</code> 를 확장해 보면,</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">person1</span><span class="p">.</span><span class="nx">__prototype__</span>  <span class="o">===</span> <span class="nx">Developer</span><span class="p">.</span><span class="nx">prototype</span> <span class="c1">//true</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">person1</span><span class="p">)</span>
@@ -190,11 +189,15 @@
 
 <p>같은 이유는 자바스크립트에서 객체를 생성할 때의 규칙을 알아야 하는데 그 부분에 대해선 상속 에서 설명한다.</p>
 
-<p>person1 객체의 prototype 링크 
-<img src="/assets/oopImgs/personPrototype.png" alt="image" /></p>
+<p>person1 객체의 <code class="language-plaintext highlighter-rouge">__prototype__</code> 를 확장해 보면,</p>
 
-<p>Developer 클래스의 prototype 프로퍼티 
-<img src="/assets/oopImgs/developerPrototype.png" alt="image" /></p>
+<p><strong>person1 객체의 prototype 링크 👇</strong></p>
+
+<p><img src="/assets/oopImgs/personPrototype.png" alt="image" /></p>
+
+<p><strong>Developer 클래스의 prototype 프로퍼티 👇</strong></p>
+
+<p><img src="/assets/oopImgs/developerPrototype.png" alt="image" /></p>
 
 <p>person1.<strong>prototype</strong> 과 Developer.prototype 은 같은 객체를 가리킨다.<br />
 프로토타입 체이닝에 의해 <code class="language-plaintext highlighter-rouge">do()</code>라는 메서드는 Developer 클래스 위의 상위 클래스인 Person에서 <code class="language-plaintext highlighter-rouge">do()</code>라는 메서드를 찾아 접근 할 수 있고, 여기서 <code class="language-plaintext highlighter-rouge">this.sayHello()</code>의 <code class="language-plaintext highlighter-rouge">this</code>는 <code class="language-plaintext highlighter-rouge">person1을</code> 가리킨다. 즉, 위에서 언급한 생성시점의 타입이 내부에 일관성있게 참조된다.</p>
