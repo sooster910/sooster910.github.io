@@ -1,10 +1,320 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-29T08:49:47+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://sooster910.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sooster910.github.io/" rel="alternate" type="text/html" /><updated>2021-05-31T14:08:55+00:00</updated><id>https://sooster910.github.io/feed.xml</id><title type="html">Hyunsu</title><subtitle>👋 안녕하세요. 사용자 중심으로 생각하고 사용자의 요구를 경청하는 프론트엔드 디벨로퍼 주현수 입니다. 이 블로그에는 저의
    솔직하고 진솔한 개발 공부 이야기들을 담았습니다.
-</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">The Four Pillars of OOP with JS 2 of 4 Polymorphism</title><link href="https://sooster910.github.io/2021/05/23/oop2.html" rel="alternate" type="text/html" title="The Four Pillars of OOP with JS 2 of 4 Polymorphism" /><published>2021-05-23T00:00:00+00:00</published><updated>2021-05-23T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/23/oop2</id><content type="html" xml:base="https://sooster910.github.io/2021/05/23/oop2.html">&lt;ul&gt;
+</subtitle><author><name>Hyunsu Joo</name></author><entry><title type="html">The Four Pillars of OOP with JS 2 of 4 Inheritance</title><link href="https://sooster910.github.io/2021/05/29/oop3.html" rel="alternate" type="text/html" title="The Four Pillars of OOP with JS 2 of 4 Inheritance" /><published>2021-05-29T00:00:00+00:00</published><updated>2021-05-29T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/29/oop3</id><content type="html" xml:base="https://sooster910.github.io/2021/05/29/oop3.html">&lt;ul&gt;
+  &lt;li&gt;이 포스트는 정진욱 저자인 타입스크립트 퀵스타트 책의 OOP 부분과 인사이드 자바스크립트를 공부하면서 참고하여 적은 노트입니다. 아직 부족한 점이 많습니다. 발전하는 개발자가 될 수 있도록 설명이 잘못 되었다거나 조금 더 보충설명이 필요 하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;oop의-네가지-기둥-2-of-4-inheritance&quot;&gt;OOP의 네가지 기둥 2 of 4 Inheritance&lt;/h1&gt;
+
+&lt;p&gt;상속은 상위/부모 클래스에 속해 있는 메서드와 속성 들을 물려 받는 새로운 child 클래스를 만들수가 있다. 여기서 말하는 부모 클래스는 superclass/base class로 불려지기도 하고 child클래스는 subclasses/derived classes로 불려지기도 합니다.&lt;/p&gt;
+
+&lt;p&gt;상속관계는 클래스간의 &lt;strong&gt;‘kind-of’&lt;/strong&gt; or &lt;strong&gt;‘is-a’&lt;/strong&gt; 관계로 나타낼 수 있습니다. 예를 들어 “a dog is an animal” or “a dog is a kind of animal”. 개는 동물이다, 개는 동물의 한 종류이다. 라는 관계가 성립합니다. 
+&lt;strong&gt;‘HAS-A’&lt;/strong&gt; 라는 포함관계도 있는데 한 클래스에서 다른 클래스를 멤버변수로 선언하는 것입니다. 
+oop 기술인 상속은 자식클래스가 부모클래스에서 파생되고 부모의 모든 속성과 메서드를 이어받습니다. 이렇게 이어받은 속성과 메서드는 자식클래스에서 다시 재정의 할 필요가 없습니다. 하지만 필요에 따라 자식클래스에서 메서드나 속성을 추가하기도 하고, 상속된 메서드의 내부 로직을 변경할 수도 있습니다. 자바스크립트의 ES06에선 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extends&lt;/code&gt; 키워드를 사용하여 상속을 구현할 수가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1 . IS-A&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Bicycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numberOfWheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//&amp;lt;-private하게 하고 차일드가 가지고 올 순 없나? &lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MountainBike&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Bicycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numberOfWheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+       
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getNumOfWheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numOfWheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2 . HAS-A&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;합성관계 (composition)-강한관계&lt;br /&gt;
+engine 객체는 인스턴스화 될 때 생성되고 myCarr가  null이 되면 engine 객체도 제거된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myCar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;myCar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;집합관계 (aggregation)- 약한관계 &lt;br /&gt;
+car객체가 생성될 때 외부에서 engine 객체를 파라미터로 전달한다. car 객체가 null 이 되더라도 engine 객체는 사라지지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;es06-상속-구현-하기&quot;&gt;ES06 상속 구현 하기&lt;/h2&gt;
+&lt;p&gt;ES06 클래스에선 super와 this 키워드를 이용해 부모클래스의 선언된 멤버 메서드나 멤버 변수에 접근할 수 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;super - 부모클래스의 public 멤버만 접근 가능.&lt;/li&gt;
+  &lt;li&gt;this - 상속받은 멤버와 현재클래스내의  모든 멤버 접근가능.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PC&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ram&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0GB&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ram&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;getHddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Desktop&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1. HDD capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2. HDD capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+        
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;2000G&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;3. HDD capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;4. HDD capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;16G&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5. RAM capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;8G&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;6. RAM capacity : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ramCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mydesktop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;500G&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mydesktop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 1. HDD capacity : 500G,undefined&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 2. HDD capacity : 500G,500G&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 3. HDD capacity : 2000G,undefined&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 4. HDD capacity : 2000G,2000G&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 5. RAM capacity : 16G,16G&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 6. RAM capacity : 8G,8G&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;확장된 클래스(Desktop)에서 상위 클래스의 멤버변수에 접근하기 위해선, 부모 클래스 생성자를 호출해줘야한다. 방법은 사용할 부모클래스의 멤버 변수를 확장된 클래스의 constructor 의 매개변수로 넘겨주고 super()에도 constructor 의 매개변수를 같이 넘겨준다.(super() = 부모클래스의 생성자를 호출하는 함수)&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hddCapacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;1,3 번에서 super키워드로 부모의  public 멤버 변수에 접근하면 undefined를 return한다. public 멤버 변수일지라도, super키워드로는 상위클래스의 멤버변수를 직접 호출해 가져올 수 없다. 하지만 this 는 직접 호출 가능 하다. 상위클래스의 private 멤버변수의 접근과 수정은 getter 와 setter로 가능하다.&lt;/p&gt;
+
+&lt;h3 id=&quot;정리&quot;&gt;&lt;strong&gt;정리&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;super&lt;/th&gt;
+      &lt;th&gt;this&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;parent pubic 멤버 변수 직접 접근&lt;/td&gt;
+      &lt;td&gt;❌  (getter/멤버 메서드로 접근)&lt;/td&gt;
+      &lt;td&gt;✅&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;parent pubic 멤버 함수 직접 접근&lt;/td&gt;
+      &lt;td&gt;✅&lt;/td&gt;
+      &lt;td&gt;✅&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;parent private 멤버 변수 직접 접근&lt;/td&gt;
+      &lt;td&gt;❌  ( 부모 클래스에 setter있으면 가능)&lt;/td&gt;
+      &lt;td&gt;❌  ( 부모 클래스에 setter있으면 가능)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;es5-상속&quot;&gt;ES5 상속&lt;/h2&gt;
+
+&lt;h3 id=&quot;프로토타입-체이닝&quot;&gt;&lt;strong&gt;프로토타입 체이닝&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;ES06전에는 class 가 지원되지 않았다. 자바스크립트의 특성상 프로토타입 기반의 객체 지향프로그래밍로 객체 리터럴이나 생성자 함수로 객체를 생성하였다. 리터럴 방식으로 생성된 객체든, 생성자 함수로 생성된 객체든 모든 생성된 객체는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[prototype]]&lt;/code&gt; 속성을 가지고 있는데, 이 속성은 자신의 부모 역할을 하는 프로토타입 객체를 가리킨다. &lt;strong&gt;이 프로토타입이 상속의 개념을 가지고 있다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;객체-리터럴-이용&quot;&gt;&lt;strong&gt;객체 리터럴 이용&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/oopImgs/studentPrototype.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;객체 리터럴로 생성된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;student&lt;/code&gt; 객체는 hasOwnProperty 라는 프로퍼티가 설정되어 있지 않다. 그러나 true로 나오는 이유는 프로토타입과 프로토타입체이닝이라는 개념에서 나오는 나오는것인데, student객체의 부모객체라 할 수 있는 Object.prototype 객체(네이티브 객체)에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hasOwnProperty&lt;/code&gt; 가 지정되어있다. 위에서 언급했듯이 모든 객체는 부모객체를 가리키는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[prototype]] (크롬이나 vscode에선 __ prototype __)&lt;/code&gt; 속성을 가지고 있기 때문이다. 
+__ prototype __ 으로 상속의 관계가 되었고 student객체 내에 없는 속성은 상위 객체에서 상속받아 접근 하는 것을 프로토타입 체이닝이라고 한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;생성자-함수-이용&quot;&gt;&lt;strong&gt;생성자 함수 이용&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;    
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//true&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/oopImgs/prototype_diagram.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로토타입 체이닝을 나타낸 UML다이어그램이다. &lt;br /&gt;
+위에서 설명한 객체 리터럴에서의 객체와 student1 객체는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__proto__&lt;/code&gt;프로퍼티만 갖고 있었지만 생성자함수인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Student()&lt;/code&gt; 는 prototype 이란 프로퍼티를 갖게 된다. 둘은 다른 속성이다. 자바스크립트의 객체 생성 규칙인 함수 객체는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;length&lt;/code&gt; 와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt;이라는  프로퍼티를 기본적으로 가진다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prototype&lt;/code&gt; 은 자기 자신과 연결된 프로토타입 객체로써, Student의 경우 자기자신의 프로토타입 객체인 Student.prototype 을 가리킨다.그래서  Student.prototype 객체엔 constructor 프로퍼티가 있고 constructor가 자기자신을 가리키는 속성이 된다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;student1.__proto__&lt;/code&gt; 도 Student.prototype을 가리킨다. 이 둘이 같은 객체를 가리키는 이유는, student1 은 생성자 함수(Student())에 의해 생성되었으므로 이 생성자 함수의 prototype 프로퍼티가 가리키는 프로토타입 객체를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__ prototype __&lt;/code&gt; 로 연결한다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 체이닝이 발생할 때, 프로토타입 체이닝의 끝은 어디일까? 프로토타입체이닝의 끝은 Object.prototype이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;es5-상속-구현&quot;&gt;ES5 상속 구현&lt;/h2&gt;
+
+&lt;p&gt;함수객체의 prototype을 이용하여 상속을 구현할경우 공통적으로 사용되어지는 클래스 멤버에 대해 자원낭비를 줄일 수가 있는데 예를 들면 이렇다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;    
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;kelly&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;kyle&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;junior&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//sue&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;    
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;kelly&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;kyle&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sophomore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//sue&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;첫번째 코드베이스와 두번째 코드베이스의 차이점은 함수객체 내에 멤버 메서드를 선언할 때, this를 이용하여 함수객체 내에 선언하는가와 멤버 함수를 함수객체 scope 밖에 따로 Student.prototype 에 체이닝으로 접근하냐이다. 결론적으로는 student1,student2,student3 객체에서는 getName() 함수를 사용하지 않는 객체도 있을 것이다. this를 사용하여 멤버 함수를 사용할 경우, 그 객체에서 사용하지 않는 멤버 함수들까지도 불필요하게 메모리에 올라갈 것이다. 프로토타입 관계를 보면 좀 더 이해하기가 쉽다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/oopImgs/prototype_memory-Page-2.png&quot; alt=&quot;image&quot; /&gt;&lt;br /&gt;
+👆this를 사용한 클래스 멤버 함수&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/oopImgs/prototype_memory-Page-3.png&quot; alt=&quot;image&quot; /&gt;&lt;br /&gt;
+👆 프로토타입 체이닝&lt;/p&gt;
+
+&lt;p&gt;함수객체의 프로퍼타입 프로퍼티에 getName()과 setName()을 정의하면, 다이어그램에 나와있듯이 
+각 객체마다 getName,setName을 생성하지 않은채, 프로토타입체인으로 Student.prototype의 멤버함수에 접근할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;setName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){};&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;create_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;student1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;kelly&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;person이라는 객체는 create_object 함수에 의해 내부적으로 상속관계를 만들어 준다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="OOP" /><category term="Inheritance" /><category term="JavaScript" /><summary type="html">이 포스트는 정진욱 저자인 타입스크립트 퀵스타트 책의 OOP 부분과 인사이드 자바스크립트를 공부하면서 참고하여 적은 노트입니다. 아직 부족한 점이 많습니다. 발전하는 개발자가 될 수 있도록 설명이 잘못 되었다거나 조금 더 보충설명이 필요 하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄</summary></entry><entry><title type="html">The Four Pillars of OOP with JS 2 of 4 Polymorphism</title><link href="https://sooster910.github.io/2021/05/23/oop2.html" rel="alternate" type="text/html" title="The Four Pillars of OOP with JS 2 of 4 Polymorphism" /><published>2021-05-23T00:00:00+00:00</published><updated>2021-05-23T00:00:00+00:00</updated><id>https://sooster910.github.io/2021/05/23/oop2</id><content type="html" xml:base="https://sooster910.github.io/2021/05/23/oop2.html">&lt;ul&gt;
   &lt;li&gt;이 포스트는 자바스크립트의 객체지향을 공부하면서 적은 노트 입니다. 인사이트 자바스크립트 도서와 코드스피츠 객체지향 영상을 참고 하였습니다. 주관적 생각들도 포함 되어 있습니다. 아직 부족한 점이 많습니다. 발전하는 개발자가 될 수 있도록 설명이 잘못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 언제든지 환영입니다 😄.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;다형성-의미&quot;&gt;다형성 의미&lt;/h1&gt;
+&lt;h1 id=&quot;oop의-네가지-기둥-3-of-4-polymorphism&quot;&gt;OOP의 네가지 기둥 3 of 4 polymorphism&lt;/h1&gt;
 
 &lt;p&gt;위키피디아에서 다형성을 찾아보았다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -17,8 +327,10 @@
 &lt;blockquote&gt;
   &lt;p&gt;Polymorphism is the ability of any data to be processed in more than one form. The word itself indicates the meaning as poly means many and morphism means types. Polymorphism is one of the most important concept of object oriented programming language. The most common use of polymorphism in object-oriented programming occurs when a parent class reference is used to refer to a child class object.&lt;/p&gt;
 
-  &lt;p&gt;다형성은 데이터가 한개 이상의 형태로 처리되는 것이며 단어 자체의 의미로 볼 때, poly는 다양한,많은 의미를 나타내고, morphism은 타입들을 나타낸다. 다형성이 가장 보편적으로 나타 날 때는 상속관계에서 부모클래스의 레퍼런스를 자식클래스에서 오버라이딩 하고 그 후에 다형성을 활용하는 경우이다.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;좀 더 구체적이다. 
+다형성은 데이터가 한개 이상의 형태로 처리되는 것이며 단어 자체의 의미로 볼 때, poly는 다양한,많은 의미를 나타내고, morphism은 타입들을 나타낸다. 다형성이 가장 보편적으로 나타 날 때는 상속관계에서 부모클래스의 레퍼런스를 자식클래스에서 오버라이딩 하고 그 후에 다형성을 활용하는 경우이다.&lt;/p&gt;
 
 &lt;p&gt;그리고 위 내용을 좀 더 깊게 이해할 수 있었던 것은 코드 스피츠에서 강조하는 내용으로 내적일관성 (internal identity)과 대체가능성 (substitution)을 설명할 때였다.코드는 코드스피츠에서 설명한 코드를 다시 재구성하였으며, 설명 또한 내가 이해한 점과 여러 자료들을 바탕으로 서술해 나갈 것이다.&lt;/p&gt;
 
@@ -124,7 +436,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Developer의 프로토타입인 Developer.prototype 와 같은 객체를 가리킨다.&lt;/p&gt;
 
-&lt;p&gt;같은 이유는 자바스크립트에서 객체를 생성할 때의 규칙을 알아야 하는데 그 부분에 대해선 상속 에서 설명한다.&lt;/p&gt;
+&lt;p&gt;프로토타입에 관해선 자바스크립트에서 객체를 생성할 때의 규칙을 알면 프로토타입을 좀 더 이해하기가 쉽다. 그 부분에 대해선 상속 에서 설명한다.&lt;/p&gt;
 
 &lt;p&gt;person1 객체의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__prototype__&lt;/code&gt; 를 확장해 보면,&lt;/p&gt;
 
@@ -1480,105 +1792,4 @@ array/list의 접근 방법 : str[0],str[str.length-1]&lt;br /&gt;
 &lt;p&gt;Time Complexity = O(N)&lt;/p&gt;
 
 &lt;h3 id=&quot;마무리&quot;&gt;마무리&lt;/h3&gt;
-&lt;p&gt;python의 swap 로직부분에서 너무 쉬운 처리에 조금 놀랬다. JS의 경우 변수 swap을 위해 하나의 변수를 temp라는 임시 변수에 저장해 두고 옮기는데 반해, 파이썬의 경우는 임시 변수를 쓸 필요 없이 바로 인덱스를 이용해서 바꿀 수 있다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="Python" /><category term="JavaScript" /><summary type="html">Algorithm을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 칭찬도 좋습니다. 언제든지 환영입니다 😄</summary></entry><entry><title type="html">[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]</title><link href="https://sooster910.github.io/2020/11/03/recursive.html" rel="alternate" type="text/html" title="[DataStructure/Algorithm] JavaScript Recursive 재귀 알고리즘 제대로 이해하기 [1]" /><published>2020-11-03T00:00:00+00:00</published><updated>2020-11-03T00:00:00+00:00</updated><id>https://sooster910.github.io/2020/11/03/recursive</id><content type="html" xml:base="https://sooster910.github.io/2020/11/03/recursive.html">&lt;ul&gt;
-  &lt;li&gt;오타나 설명이 잘 못되었다거나 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;재귀함수란&quot;&gt;재귀함수란?&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;
-재귀함수의 아이디어는 어떤 함수가 있는데, 그 함수를 계속해서 호출하는 것이다 (자기자신을 재호출 하는 함수). 어떻게 호출하냐면 함수 내의 return값을 같은 함수로 정의 하여 다시 부르는 셈이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;recursion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;recursion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;아래에서 재귀함수가 어떻게 동작하는지에 대해 좀 더 자세히 언급할 것이다.&lt;/p&gt;
-
-&lt;!-- ## 재귀 왜 중요하죠? 어디에 쓰이죠?
-
-재귀함수는 어디에나 쓰인다. 많이 쓰이기 때문에 그만큼 중요하다고 생각한다. 심지어 우리가 재귀함수를 써놓고도 재귀함수인줄 모르고 쓰는 경우도 있다. 
-
-자바스크립트에서 Ajax 통신 할 때, JSON.parse / JSON.stringfy 를 쓰는데  
-
-JSON.parse 를 이루는 코드가 대부분 재귀를 이용한 함수가 많이 쓰여졌다.
-
-document.getElementById,
-DOM traversal algorithms
-에서도 쓰인다.  --&gt;
-
-&lt;h2 id=&quot;재귀함수는-콜스택에서-어떻게-동작하는가&quot;&gt;재귀함수는 콜스택에서 어떻게 동작하는가?&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;
-1부터 3까지의 합을 구하는 함수이다. 지금 이 재귀함수가 합을 구하는 일에서는 효율적인 알고리즘은 아니지만 쉽게 이해하기 위해 재귀함수를 써보았다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 3+2+1 =6&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 함수가 콜스택에서 어떻게 동작하는지 좀 더 쉽게 이해하기 위해 순서를 그려보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/recursion.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;콜스택은 함수의 호출을 기록하는 자료구조로써, 함수가 실행되면 이 호출 스택에 하나씩 쌓이고, 함수로부터 return 구문을 통해서 호출스택으로부터 함수가 마지막에 들어온 것 부터 반환된다.
-자바스크립트에선 배열에서 push( ), pop( ) 이 스택의 동작과 일치한다.&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;function sum (3)&lt;/code&gt; 이 호출되면, 콜스택에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;이 쌓이고, 아래로 코드를 실행시켜 나간다. 그 다음 라인인 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1&lt;/code&gt; num은 3이기 때문에, 그 다음라인으로 이동한다. 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return num + sum(num-1)&lt;/code&gt; return문이 나왔다. 이제 호출스택에서 빠져 나갈 찬스가 생겼다. 하지만 return 구문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3+sum(2)&lt;/code&gt;는 완전한 값이 아닌, 함수 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; 을 포함 하고 있으므로, 콜스택에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;은 반환되지 못하고, 그 상태에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; 함수를 호출한다. 결국 return문에 값이 나올 때 까지 호출스택에 그대로 남게 된다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;함수를 호출하는 순간, 콜스택엔 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;가 추가가 된다. 그 다음 라인인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1&lt;/code&gt; false 이므로, 그 다음라인으로 이동한다.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return num+sum(num-1)&lt;/code&gt; return 구문이 나왔으므로, 호출스택에서 다시 빠져 나갈 찬스가 생겼다. 하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return 2+sum(1)&lt;/code&gt;은 완전한 값이 아니라 함수가 포함 되어있으므로, sum(1)을 호출 시킨다. 
-콜스택엔 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt;이라는 새로운 함수가 추가로 쌓이게 되고, 다음 라인을 실행한다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if(num === 1) return 1;&lt;/code&gt; num=1 로써 true 이므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return 1&lt;/code&gt;이 실행되면서 드디어 return을 하게 되었다. 콜스택에선 이제 맨위에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(1)&lt;/code&gt;을 반환한다. 
-남아있는 호출 스택 중 맨 위에 있는 스택은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt; sum(2)의 return문 에는 num+sum(2)=1+2=3 이 리턴되고 콜스택에서도 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(2)&lt;/code&gt;가 빠진다. 마지막 남은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;은 return값으로 num+sum(3)=3+3=6이 리턴되면서 콜스택에 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt;도 빠진다. 마지막으로 빈 콜스택이 남게 된다.&lt;/p&gt;
-
-&lt;p&gt;이 과정이, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(3)&lt;/code&gt; 재귀 함수가 호출되어 반환값을 내기 까지의 과정이다.
-여기서 재귀함수를 구현 할 때 중요하게 봐야 할 두가지가 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1.기저 조건문 (base case)&lt;/li&gt;
-  &lt;li&gt;2.새로운 input&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;1기저-조건문-base-case&quot;&gt;1.기저 조건문 (base case)&lt;/h3&gt;
-
-&lt;p&gt;sum(3) 함수 안에 if 구문이 빠진 상태로 호출 하게 된다면?&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum(num-1)&lt;/code&gt;이 끝도 없이 무한정으로 실행된다. 참고로 크롬브라우저는 최대 16000 프레임의 스택을 가지고 있는데, 이 최대 범위를 넘게 되면, 다음과 같이 콜스택 사이즈를 초과하였다는 에러를 만나게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/recursion1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;우리가 어플리케이션을 실행할 때, 수많은 함수를 실행하는데, 위의 함수가 수많은 함수중에 하나라고 한다면, sum()는 계속 해서 호출하고 다음 동작(함수) 로 넘어갈 수가 없고 결국 어플리케이션은 freeze가 되는 현상을 겪게 된다.&lt;/p&gt;
-
-&lt;p&gt;이런 무한 루프 상황을 방지 할 수 있는 방법은, 무한 루프를 멈추게 할 수 있는 if 조건문을 넣는 것이다. 기저조건, base case 라고도 한다. 그래서 기저 조건문를 넣는 것은 매우매우 중요하다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-새로운-input&quot;&gt;2. 새로운 input&lt;/h3&gt;
-&lt;p&gt;나머지 한가지는, 재귀함수를 호출 할 땐, 다른 parameter(input, argument)를 넣어야 한다. 만약 같은 값으로 넣게되면 리턴하는 값도 같아져서 결국 maximum callstack exceeded  에러를 만나게 될 것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-resursion-에서&quot;&gt;3. Resursion 에서&lt;/h3&gt;
-&lt;p&gt;다음 포스트에선 재귀알고리즘을 푸는 접근법과 다양한 예제를 설명할 것이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;참고자료&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;도서 - 배세민, 2019, 자바 스크립트로 하는 자료 구조와 알고리즘, 에이콘출판&lt;/li&gt;
-  &lt;li&gt;Udemy - Colt Steel, JavaScript Algorithms and Data Stucture Masterclass&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Hyunsu Joo</name></author><category term="JavaScript" /><category term="DataStructure/Algorithm" /><category term="resursion" /><summary type="html">오타나 설명이 잘 못되었다거나 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요 언제든지 환영입니다 😄</summary></entry></feed>
+&lt;p&gt;python의 swap 로직부분에서 너무 쉬운 처리에 조금 놀랬다. JS의 경우 변수 swap을 위해 하나의 변수를 temp라는 임시 변수에 저장해 두고 옮기는데 반해, 파이썬의 경우는 임시 변수를 쓸 필요 없이 바로 인덱스를 이용해서 바꿀 수 있다.&lt;/p&gt;</content><author><name>Hyunsu Joo</name></author><category term="Python" /><category term="JavaScript" /><summary type="html">Algorithm을 공부하며 남긴 글입니다. 오타나 설명이 잘 못되었다거나 조금 더 보충설명이 필요하시다고 생각되시면 댓글 남겨 주세요. 칭찬도 좋습니다. 언제든지 환영입니다 😄</summary></entry></feed>
