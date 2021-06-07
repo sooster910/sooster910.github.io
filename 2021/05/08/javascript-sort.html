@@ -101,7 +101,7 @@ Specifies a function that defines the sort order. If omitted, the array elements
 
 <p>만약 매개변수인 <code class="language-plaintext highlighter-rouge">compareFunction</code> 을 생략 한다면, 배열에 있는 요소를 문자열로 변환한다음 문자열에 대응되는 UTF-16 유니코드에 따른 값으로 정렬을 한다고 되어있다.</p>
 
-<p>여담으로 왜 UTF-16인지 궁금해서 찾아본결과, 
+<p>왜 UTF-16인지 궁금해서 찾아본결과, 
 브라우저에서 자바스크립트가 작동하는 절차와 관련이 있었다. 작성한 .js파일은 UTF-8으로 저장되고, 브라우저로부터 .js 파일을 불러 올 때는 UTF-8 기준으로 디코딩하고 코드포인트(문자에 부여한 고유한 숫자)를 해석하며, 자바스크립트 엔진은 해석된 값 코드포인트 UTF16으로 인코딩하여 메모리에 올린다.
 UTF-16이 더 궁금하다면, <a href="https://www.bsidesoft.com/3526#:~:text=UTF8%EC%9D%80%20%EC%BD%94%EB%93%9C%EC%9C%A0%EB%8B%9B%EC%9D%B4,%EC%9C%A0%EB%8B%9B%EC%9D%84%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EA%B2%83%EC%9E%85%EB%8B%88%EB%8B%A4." target="_blank">UTF-16에 대한 자세한 설명</a></p>
 
@@ -137,9 +137,9 @@ compareFunction이 기본적으로 가지고 있는 조건문이고, 2개의 매
 
 <span class="p">}</span>
 </code></pre></div></div>
-<p><img src="/assets/sort.png" alt="image" width="30%" /></p>
+<p><img src="/assets/sort.png" alt="image" /></p>
 
-<p>callback 함수 <code class="language-plaintext highlighter-rouge">compareFunction</code> 는 매개변수 a,b를 받고 a= 두번째원소, b= 첫번째원소로 지정된다.(난 처음엔 a가 당연히 첫번째 원소, b가 두번째 원소라 생각했다.) 여기서 return 값의 의미는  -, + ,0 의미를 갖고 있다. console에 찍힌 비교문 하나씩 보면, 
+<p>callback 함수 <code class="language-plaintext highlighter-rouge">compareFunction</code> 는 매개변수 a,b를 받고 <strong>a= 두번째원소, b= 첫번째원소로 지정된다.</strong> 여기서 return 값의 의미는  -, + ,0 의미를 갖고 있다. console에 찍힌 비교문 하나씩 보면, 
 a가 b보다 더 크면 1 을 return 하는데, 이 의미는 a-b를 할 경우 값은 양수이다라고 볼 수도 있다. b가 크지 않은이상 항상 양수이다.(5-4=1, 10-4=6) 그래서 양수인 1을 return 한다. 그럼 만약 b가 a 보다 크다는 것은 a-b를 했을 때 - (음수)의 결과를 갖는다고도 볼 수 있다.(4-5 =-1, 4-10=-6) 그래서 -1을 return 한다. 이럴경우는 a=2, b=3서로 swap한다. 그 이유는 위에서 언급하였듯이 return 값이 -1일 경우에만, 두 원소의 인덱스가 바뀌기 때문이다.  만약 a,b가 같다면 return 0으로 바뀌지 않는다. <br />
 그렇다면 이런 이론을 전제로 더 심플하게 표현할 수도 있다.</p>
 
