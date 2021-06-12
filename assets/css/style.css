@@ -4784,7 +4784,7 @@ pre {
     color: black; }
   .post img {
     border-radius: 0.3em;
-    width: 100%; }
+    width: auto; }
   .post ol > li {
     margin-left: 1em;
     text-align: left;
