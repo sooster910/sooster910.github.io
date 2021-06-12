@@ -185,7 +185,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">email</span><span class="o">=</span><span class="dl">'</span><span class="s1">b@gmail.com</span><span class="dl">'</span><span class="p">)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// b@gmail.com</span>
 </code></pre></div></div>
-<h3 id="3-private-fields">**3. private fields</h3>
+<h3 id="3-private-fields"><strong>3. private fields</strong></h3>
 
 <p>해쉬(#)를 추가해 private class 필드를 선언합니다.</p>
 
@@ -209,7 +209,7 @@
 
 <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">"</span><span class="s2">sue</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">user@gmail.com</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//인자를 넣지 않으면 undefined 로 리턴한다.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">//user@gmail.com &lt;--public</span>
-<span class="c1">// console.log(user.#lastName); //❌ SyntaxError: Private field '#lastName' must be declared in an enclosing class</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="err">#</span><span class="nx">lastName</span><span class="p">);</span> <span class="c1">//❌ SyntaxError: Private field '#lastName' must be declared in an enclosing class</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">nickName</span><span class="p">);</span> <span class="c1">//s</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="err">#</span><span class="nx">lastName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">kelly</span><span class="dl">"</span><span class="p">);</span><span class="c1">//❌  SyntaxError</span>
 
@@ -260,8 +260,16 @@
     
       <li>
         <h3>
-          <a href="/2021/05/23/oop2.html">
-            The Four Pillars of OOP with JS 2 of 4 Polymorphism
+          <a href="/2021/05/29/oop-2.html">
+            The Four Pillars of OOP with JS 2 of 4 Inheritance/Prototype(ES6,ES5)
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/23/oop-3.html">
+            The Four Pillars of OOP with JS 3 of 4 Polymorphism
           </a>
         </h3>
       </li>
@@ -274,14 +282,6 @@
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2021/05/11/typescript-function.html">
-            [TypeScript] 2.Function
-          </a>
-        </h3>
-      </li>
-    
   </ul>
 </div>
 
@@ -290,7 +290,7 @@
 
   
   <!-- <h2>All tags</h2> -->
-  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-2">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/oop/" class="set-2">OOP</a> <a href="/tag/polymorphism/" class="set-1">Polymorphism</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-2">TIL</a> <a href="/tag/typescript/" class="set-2">TypeScript</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-1">끄적끄적</a></div>
+  <div class="tag-cloud"><a href="/tag/array/" class="set-1">Array</a> <a href="/tag/dfs/" class="set-1">DFS</a> <a href="/tag/datastructure/" class="set-1">DataStructure</a> <a href="/tag/datastructure%2Falgorithm/" class="set-1">DataStructure/Algorithm</a> <a href="/tag/encapsulation/" class="set-1">Encapsulation</a> <a href="/tag/inheritance/" class="set-1">Inheritance</a> <a href="/tag/integrationtesting/" class="set-1">IntegrationTesting</a> <a href="/tag/javascript/" class="set-5">JavaScript</a> <a href="/tag/jekyll/" class="set-1">Jekyll</a> <a href="/tag/jest/" class="set-1">Jest</a> <a href="/tag/oop/" class="set-2">OOP</a> <a href="/tag/polymorphism/" class="set-1">Polymorphism</a> <a href="/tag/python/" class="set-1">Python</a> <a href="/tag/rouge/" class="set-1">Rouge</a> <a href="/tag/stack/" class="set-1">Stack</a> <a href="/tag/til/" class="set-1">TIL</a> <a href="/tag/typescript/" class="set-1">TypeScript</a> <a href="/tag/dynamicarray/" class="set-1">dynamicArray</a> <a href="/tag/puppeteer/" class="set-1">puppeteer</a> <a href="/tag/staticarray/" class="set-1">staticArray</a> <a href="/tag/welcome/" class="set-1">welcome</a> <a href="/tag/%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81/" class="set-1">끄적끄적</a></div>
   
 
 
